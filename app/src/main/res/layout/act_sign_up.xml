@@ -16,10 +16,10 @@
         android:src="@drawable/ic_signup"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15">
+        app:layout_constraintVertical_bias="0.2">
 
     </ImageView>
 
@@ -28,14 +28,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lilita_one"
-        android:text="Crie a sua conta"
-        android:textSize="20sp"
+        android:text="Criar conta"
+        android:textSize="45sp"
         android:onClick="sign_up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.03" />
+        app:layout_constraintVertical_bias="0.03"
+        app:layout_constraintHorizontal_bias="0"/>
+
+    <TextView
+        android:id="@+id/txt_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu_medium"
+        android:text="Para continuar, crie uma conta"
+        android:textSize="18sp"
+        android:onClick="sign_up"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_1"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintVertical_bias="0.01" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fd_name_sign_up"
@@ -47,8 +63,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_1"
-        app:layout_constraintVertical_bias="0.06"
+        app:layout_constraintTop_toBottomOf="@+id/txt_2"
+        app:layout_constraintVertical_bias="0.08"
         app:startIconContentDescription="Código"
         app:startIconDrawable="@drawable/ic_person_24dp">
 
@@ -106,6 +122,7 @@
         android:text="Entrar na conta"
         android:textColor="@color/md_theme_light_primary"
         android:textSize="18sp"
+        android:clickable="true"
         android:onClick="sign_in"
         app:layout_constraintVertical_bias="0.1"
         app:layout_constraintBottom_toBottomOf="parent"

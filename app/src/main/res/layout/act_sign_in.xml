@@ -9,38 +9,50 @@
     android:paddingLeft="40dp"
     tools:context=".SignIn">
 
-
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/img"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintVertical_bias="0.2"
         android:src="@drawable/ic_signin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15">
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </ImageView>
+    <TextView
+        android:id="@+id/txt_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bem-vindo"
+        android:fontFamily="@font/lilita_one"
+        android:textSize="45sp"
+        app:layout_constraintVertical_bias="0.04"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img" />
+
 
     <TextView
         android:id="@+id/txt_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/lilita_one"
+        android:fontFamily="@font/ubuntu_medium"
         android:text="Para continuar, entre na conta"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:onClick="sign_up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.03" />
+        app:layout_constraintTop_toBottomOf="@id/txt_2"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintVertical_bias="0.01" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fd_name_sign_in"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nome"
@@ -49,7 +61,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_1"
-        app:layout_constraintVertical_bias="0.06"
+        app:layout_constraintVertical_bias="0.08"
         app:startIconContentDescription="Código"
         app:startIconDrawable="@drawable/ic_person_24dp">
 
@@ -62,7 +74,6 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fd_password_sign_in"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Código"
@@ -71,7 +82,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fd_name_sign_in"
-        app:layout_constraintVertical_bias="0.06"
+        app:layout_constraintVertical_bias="0.04"
         app:startIconContentDescription="Código"
         app:startIconDrawable="@drawable/ic_password_24dp">
 
@@ -86,13 +97,13 @@
         android:id="@+id/btn_login"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="57dp"
         android:text="Entrar"
         android:textColor="@color/white"
         android:fontFamily="@font/lilita_one"
         android:textSize="18sp"
         android:visibility="visible"
-        app:layout_constraintVertical_bias="0.06"
+        app:layout_constraintVertical_bias="0.12"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -106,8 +117,9 @@
             android:fontFamily="@font/lilita_one"
             android:text="Criar uma conta"
             android:textColor="@color/md_theme_light_primary"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:onClick="sign_up"
+            android:clickable="true"
             app:layout_constraintVertical_bias="0.1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
