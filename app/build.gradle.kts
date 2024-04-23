@@ -32,7 +32,7 @@ android {
 }
 
 dependencies {
-
+    implementation(libs.core.splashscreen)
     implementation(libs.cardview)
     implementation(libs.appcompat)
     implementation(libs.material)
