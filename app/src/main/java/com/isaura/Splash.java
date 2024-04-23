@@ -3,9 +3,7 @@ package com.isaura;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.window.SplashScreen;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Objects;
@@ -20,7 +18,7 @@ public class Splash extends AppCompatActivity {
 
 
         new Handler().postDelayed(() -> {
-            startActivity(new Intent(Splash.this, Login.class));
+            startActivity(new Intent(Splash.this, SignIn.class));
             finish();
         }, 3000);
     }
