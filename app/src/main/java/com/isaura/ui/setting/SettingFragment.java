@@ -1,4 +1,4 @@
-package com.isaura.ui.notifications;
+package com.isaura.ui.setting;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,23 +9,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import com.isaura.databinding.FragmentSettingBinding;
 
-import com.isaura.databinding.FragmentNotificationsBinding;
+public class SettingFragment extends Fragment {
 
-public class NotificationsFragment extends Fragment {
-
-    private FragmentNotificationsBinding binding;
+    private FragmentSettingBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        SettingViewModel settingViewModel =
+                new ViewModelProvider(this).get(SettingViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentSettingBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        settingViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
