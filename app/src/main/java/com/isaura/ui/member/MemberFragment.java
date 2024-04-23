@@ -24,7 +24,7 @@ public class MemberFragment extends Fragment {
         binding = FragmentMemberBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
+        final TextView textView = binding.txtMember;
         memberViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
