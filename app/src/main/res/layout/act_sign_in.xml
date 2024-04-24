@@ -51,28 +51,30 @@
         app:layout_constraintVertical_bias="0.01" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/fd_name_sign_in"
+        android:id="@+id/lyt_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nome"
+        android:hint="Email"
         app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_1"
         app:layout_constraintVertical_bias="0.08"
-        app:startIconContentDescription="Código"
-        app:startIconDrawable="@drawable/ic_person_24dp">
+        app:helperTextTextColor="@color/md_theme_light_error"
+        app:startIconContentDescription="Email"
+        app:startIconDrawable="@drawable/ic_email_black_24dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fld_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:inputType="textEmailAddress" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/fd_password_sign_in"
+        android:id="@+id/lyt_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Código"
@@ -80,12 +82,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fd_name_sign_in"
+        app:layout_constraintTop_toBottomOf="@+id/lyt_email"
         app:layout_constraintVertical_bias="0.04"
+        app:helperTextTextColor="@color/md_theme_light_error"
         app:startIconContentDescription="Código"
         app:startIconDrawable="@drawable/ic_password_24dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fld_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberPassword" />
@@ -93,7 +97,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_sign_in"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="match_parent"
         android:layout_height="57dp"
@@ -106,7 +110,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fd_password_sign_in" />
+        app:layout_constraintTop_toBottomOf="@+id/lyt_code" />
 
 
         <TextView
@@ -123,7 +127,18 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_login"/>
+            app:layout_constraintTop_toBottomOf="@+id/btn_sign_in"
+            android:focusable="true" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
