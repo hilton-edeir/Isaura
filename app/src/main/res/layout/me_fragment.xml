@@ -9,7 +9,7 @@
     android:layout_marginEnd="20dp"
     android:layout_marginBottom="100dp"
     android:orientation="vertical"
-    tools:context=".activity.fragment.ProfileFragment">
+    tools:context=".activity.fragment.MeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,7 +50,7 @@
         android:gravity="center">
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/materialCardView"
+            android:id="@+id/btn_update_profile"
             android:clickable="true"
             android:focusable="true"
             android:layout_width="95dp"
@@ -80,7 +80,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/materialCardView2"
+            android:id="@+id/btn_sign_out"
             android:clickable="true"
             android:focusable="true"
             android:layout_width="95dp"
@@ -122,7 +122,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lilita_one"
-            android:text="As minhas tarefas"
+            android:text="Notificações"
             android:textSize="18sp" />
 
     </LinearLayout>

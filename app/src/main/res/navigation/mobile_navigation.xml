@@ -3,23 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_activity">
+    app:startDestination="@+id/navigation_profile">
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.isaura.activity.fragment.ProfileFragment"
+        android:name="com.isaura.activity.fragment.MeFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/me_fragment" />
 
     <fragment
         android:id="@+id/navigation_activity"
-        android:name="com.isaura.activity.fragment.ActivityFragment"
+        android:name="com.isaura.activity.fragment.AllActivitiesFragment"
         android:label="@string/title_activity"
-        tools:layout="@layout/fragment_activity" />
+        tools:layout="@layout/all_activities_fragment" />
 
     <fragment
-        android:id="@+id/navigation_table"
-        android:name="com.isaura.activity.fragment.TableFragment"
-        android:label="@string/title_table"
-        tools:layout="@layout/fragment_table" />
+        android:id="@+id/navigation_cleaning"
+        android:name="com.isaura.activity.fragment.CleaningScheduleFragment"
+        android:label="@string/title_cleaning"
+        tools:layout="@layout/cleaning_schecule_fragment" />
+
+    <fragment
+        android:id="@+id/navigation_utensil"
+        android:name="com.isaura.activity.fragment.UtensilsFragment"
+        android:label="@string/title_utensil"
+        tools:layout="@layout/utensils_fragment" />
+
 </navigation>

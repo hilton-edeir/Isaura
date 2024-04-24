@@ -40,6 +40,7 @@
         android:id="@+id/lyt_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:helperTextTextAppearance="@font/space_mono_bold"
         android:hint="Email"
         app:endIconMode="clear_text"
         app:helperTextTextColor="@color/md_theme_light_error"
@@ -51,6 +52,8 @@
             android:id="@+id/fld_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:typeface="monospace"
             android:inputType="textEmailAddress" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -59,6 +62,7 @@
         android:id="@+id/lyt_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:helperTextTextAppearance="@font/space_mono_bold"
         android:hint="Código"
         app:endIconMode="password_toggle"
         app:helperTextTextColor="@color/md_theme_light_error"
@@ -70,6 +74,8 @@
             android:id="@+id/fld_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:typeface="monospace"
             android:inputType="numberPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>

@@ -32,7 +32,6 @@ public class SignUp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.act_sign_up);
         getSupportActionBar().hide();
 
@@ -52,61 +51,54 @@ public class SignUp extends AppCompatActivity {
             String email = Objects.requireNonNull(fld_email.getText()).toString();
             String code = Objects.requireNonNull(fld_code.getText()).toString();
 
-            if (name.isEmpty() && email.isEmpty() && code.isEmpty()) {
-                lyt_name.setHelperText("Insira o nome");
-                lyt_email.setHelperText("Insira o email");
-                lyt_code.setHelperText("Insira o código");
-            }
             if (name.isEmpty()) {
                 lyt_name.setHelperText("Insira o nome");
                 lyt_email.setHelperText(null);
                 lyt_code.setHelperText(null);
             }
-            if (email.isEmpty()) {
+            else if (email.isEmpty()) {
                 lyt_name.setHelperText(null);
                 lyt_email.setHelperText("Insira o email");
                 lyt_code.setHelperText(null);
             }
-            else {
-                if(code.isEmpty()){
-                    lyt_name.setHelperText(null);
-                    lyt_email.setHelperText(null);
-                    lyt_code.setHelperText("Insira o código");
-                }
-                else {
-                    lyt_name.setHelperText(null);
-                    lyt_email.setHelperText(null);
-                    lyt_code.setHelperText(null);
-
-                    progressBar.setVisibility(View.VISIBLE);
-
-                    mAuth.createUserWithEmailAndPassword(email, code)
-                            .addOnCompleteListener(this, task -> {
-                                progressBar.setVisibility(View.GONE);
-                                if (task.isSuccessful()) {
-
-                                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                            .setDisplayName(name)
-                                            .build();
-                                    mAuth.getCurrentUser().updateProfile(profileUpdates)
-                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-                                                    if (task.isSuccessful()) {
-                                                        Toast.makeText(SignUp.this, "Conta criada com sucesso", Toast.LENGTH_LONG).show();
-                                                        startActivity(new Intent(SignUp.this, SignIn.class));
-                                                        finish();
-                                                    }
-                                                }
-                                            });
-                                }
-                                else {
-                                    Toast.makeText(SignUp.this, "Falha ao criar a conta", Toast.LENGTH_LONG).show();
-                                }
-                            });
-                }
+            else if (code.isEmpty()) {
+                lyt_name.setHelperText(null);
+                lyt_email.setHelperText(null);
+                lyt_code.setHelperText("Insira o código");
             }
+            else {
+                lyt_name.setHelperText(null);
+                lyt_email.setHelperText(null);
+                lyt_code.setHelperText(null);
 
+                progressBar.setVisibility(View.VISIBLE);
+
+                mAuth.createUserWithEmailAndPassword(email, code)
+                        .addOnCompleteListener(this, task -> {
+                            progressBar.setVisibility(View.GONE);
+                            if (task.isSuccessful()) {
+
+                                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                        .setDisplayName(name)
+                                        .build();
+                                mAuth.getCurrentUser().updateProfile(profileUpdates)
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful()) {
+                                                    Toast.makeText(SignUp.this, "Conta criada com sucesso", Toast.LENGTH_LONG).show();
+                                                    startActivity(new Intent(SignUp.this, SignIn.class));
+                                                    finish();
+                                                }
+                                            }
+                                        });
+                            }
+                            else {
+                                progressBar.setVisibility(View.GONE);
+                                Toast.makeText(SignUp.this, "Falha ao criar a conta", Toast.LENGTH_LONG).show();
+                            }
+                        });
+            }
         });
 
     }

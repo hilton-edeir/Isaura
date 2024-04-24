@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="20dp"
-    tools:context=".activity.fragment.TableFragment">
+    tools:context=".activity.fragment.UtensilsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="30dp"
         android:orientation="horizontal"
         android:gravity="bottom">
 
@@ -20,7 +20,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginEnd="5dp"
-            android:src="@drawable/ic_table"/>
+            android:src="@drawable/ic_utensils"/>
 
         <TextView
             android:id="@+id/text_table"
@@ -28,8 +28,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/lilita_one"
             android:layout_marginEnd="5dp"
-            android:text="Tabela"
-            android:textSize="18sp"/>
+            android:text="Utensílios"
+            android:textSize="25sp"/>
 
     </LinearLayout>
 
@@ -39,7 +39,7 @@
         android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/materialCardView"
+            android:id="@+id/btn_cleaning_schedule"
             android:clickable="true"
             android:focusable="true"
             android:layout_width="match_parent"
@@ -78,7 +78,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_2"
+            android:id="@+id/btn_utensils_stock"
             android:clickable="true"
             android:focusable="true"
             android:layout_width="match_parent"
@@ -117,6 +117,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btn_bills"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:clickable="true"

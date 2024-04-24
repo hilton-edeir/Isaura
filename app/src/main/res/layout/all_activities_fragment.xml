@@ -9,7 +9,7 @@
     android:layout_marginEnd="20dp"
     android:layout_marginBottom="100dp"
     android:orientation="vertical"
-    tools:context=".activity.fragment.ActivityFragment">
+    tools:context=".activity.fragment.AllActivitiesFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

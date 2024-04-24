@@ -4,16 +4,21 @@
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_person_24dp"
-        android:title="Perfil" />
+        android:title="Eu" />
 
     <item
         android:id="@+id/navigation_activity"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@drawable/ic_menu_black_24dp"
         android:title="Atividade" />
 
     <item
-        android:id="@+id/navigation_table"
-        android:icon="@drawable/ic_table_black_24dp"
-        android:title="Tabela" />
+        android:id="@+id/navigation_cleaning"
+        android:icon="@drawable/ic_cleaning_black_24dp"
+        android:title="Limpeza" />
+
+    <item
+        android:id="@+id/navigation_utensil"
+        android:icon="@drawable/ic_storage_black_24dp"
+        android:title="Utensílio" />
 
 </menu>

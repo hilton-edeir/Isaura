@@ -43,6 +43,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:helperTextTextAppearance="@font/space_mono_bold"
         android:hint="Primeiro e Último Nome"
         app:endIconMode="clear_text"
         app:helperTextTextColor="@color/md_theme_light_error"
@@ -54,6 +55,8 @@
             android:id="@+id/fld_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:typeface="monospace"
             android:inputType="textPersonName" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -63,6 +66,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="monospace"
         android:hint="Email"
         app:endIconMode="clear_text"
         app:helperTextTextColor="@color/md_theme_light_error"
@@ -74,6 +78,8 @@
             android:id="@+id/fld_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:typeface="monospace"
             android:inputType="textEmailAddress" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -83,6 +89,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:helperTextTextAppearance="@font/space_mono_bold"
         android:hint="Código"
         app:counterEnabled="true"
         app:counterMaxLength="6"
@@ -96,6 +103,8 @@
             android:id="@+id/fld_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:typeface="monospace"
             android:maxLength="6"
             android:inputType="numberPassword" />
 
