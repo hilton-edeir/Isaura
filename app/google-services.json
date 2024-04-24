@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "722007104537",
+    "project_id": "isaura-66e23",
+    "storage_bucket": "isaura-66e23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722007104537:android:b00ae343d36ef4bcd49e88",
+        "android_client_info": {
+          "package_name": "com.isaura"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYFdYM-_3-d1JJ72_wPXoIp4o24hnhzg8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
