@@ -1,4 +1,4 @@
-package com.isaura.ui.member;
+package com.isaura.ui.table;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.isaura.databinding.FragmentMemberBinding;
+import com.isaura.databinding.FragmentTableBinding;
 
-public class MemberFragment extends Fragment {
+public class TableFragment extends Fragment {
 
-    private FragmentMemberBinding binding;
+    private FragmentTableBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        MemberViewModel memberViewModel =
-                new ViewModelProvider(this).get(MemberViewModel.class);
+        TableViewModel tableViewModel =
+                new ViewModelProvider(this).get(TableViewModel.class);
 
-        binding = FragmentMemberBinding.inflate(inflater, container, false);
+        binding = FragmentTableBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.txtMember;
-        memberViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textSetting;
+        tableViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.setting.SettingFragment">
+    tools:context=".ui.table.TableFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                     android:id="@+id/imgv"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/ic_config"
+                    android:src="@drawable/ic_table"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0"
@@ -42,7 +42,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:fontFamily="@font/lilita_one"
-                    android:text="Configuração"
+                    android:text="Tabelas"
                     android:textAlignment="center"
                     android:textSize="25sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -50,7 +50,7 @@
                     app:layout_constraintHorizontal_bias="0.03"
                     app:layout_constraintStart_toEndOf="@id/imgv"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.032" />
+                    app:layout_constraintVertical_bias="0.032"/>
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/materialCardView"

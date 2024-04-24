@@ -6,10 +6,10 @@
     app:startDestination="@+id/navigation_dashboard">
 
     <fragment
-        android:id="@+id/navigation_member"
-        android:name="com.isaura.ui.member.MemberFragment"
-        android:label="@string/title_member"
-        tools:layout="@layout/fragment_member" />
+        android:id="@+id/navigation_profile"
+        android:name="com.isaura.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -18,8 +18,8 @@
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_setting"
-        android:name="com.isaura.ui.setting.SettingFragment"
-        android:label="@string/title_setting"
-        tools:layout="@layout/fragment_setting" />
+        android:id="@+id/navigation_table"
+        android:name="com.isaura.ui.table.TableFragment"
+        android:label="@string/title_table"
+        tools:layout="@layout/fragment_table" />
 </navigation>

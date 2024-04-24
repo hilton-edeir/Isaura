@@ -1,4 +1,4 @@
-package com.isaura.ui.setting;
+package com.isaura.ui.profile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,22 +9,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import com.isaura.databinding.FragmentSettingBinding;
 
-public class SettingFragment extends Fragment {
+import com.isaura.databinding.FragmentProfileBinding;
 
-    private FragmentSettingBinding binding;
+public class ProfileFragment extends Fragment {
+
+    private FragmentProfileBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        SettingViewModel settingViewModel =
-                new ViewModelProvider(this).get(SettingViewModel.class);
+        ProfileViewModel profileViewModel =
+                new ViewModelProvider(this).get(ProfileViewModel.class);
 
-        binding = FragmentSettingBinding.inflate(inflater, container, false);
+        binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSetting;
-        settingViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.txtMember;
+        profileViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

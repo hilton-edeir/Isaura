@@ -1,16 +1,16 @@
-package com.isaura.ui.setting;
+package com.isaura.ui.table;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SettingViewModel extends ViewModel {
+public class TableViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public SettingViewModel() {
+    public TableViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Configuração");
+        mText.setValue("Tabelas");
     }
 
     public LiveData<String> getText() {
