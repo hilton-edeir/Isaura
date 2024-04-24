@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.isaura.databinding.FragmentProfileBinding;
 
 public class ProfileFragment extends Fragment {
@@ -26,6 +25,7 @@ public class ProfileFragment extends Fragment {
 
         final TextView textView = binding.textProfile;
         profileViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
         return root;
     }
 
@@ -34,4 +34,5 @@ public class ProfileFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
 }

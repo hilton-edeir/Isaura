@@ -65,12 +65,13 @@ public class SignIn extends AppCompatActivity {
                 else {
                     lyt_email.setHelperText(null);
                     lyt_code.setHelperText(null);
+
                     progressBar.setVisibility(View.VISIBLE);
+
                     mAuth.signInWithEmailAndPassword(email, code)
                             .addOnCompleteListener(this, task -> {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-                                    mAuth.getCurrentUser();
                                     startActivity(new Intent(SignIn.this, Home.class));
                                     finish();
                                 } else {

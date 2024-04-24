@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_dashboard">
+    app:startDestination="@+id/navigation_activity">
 
     <fragment
         android:id="@+id/navigation_profile"
@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_profile" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.isaura.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_activity"
+        android:name="com.isaura.ui.activity.ActivityFragment"
+        android:label="@string/title_activity"
+        tools:layout="@layout/fragment_activity" />
 
     <fragment
         android:id="@+id/navigation_table"

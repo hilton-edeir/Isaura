@@ -26,7 +26,10 @@
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:src="@drawable/ic_edit"/>
+                android:clickable="true"
+                android:focusableInTouchMode="true"
+                android:src="@drawable/ic_signout"
+                android:focusable="true" />
 
         </LinearLayout>
 
@@ -41,15 +44,16 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginBottom="1dp"
-                android:src="@drawable/ic_user_man"/>
+                android:src="@drawable/ic_user_hilton"/>
 
             <TextView
                 android:id="@+id/text_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lilita_one"
-                android:text="Hilton Tavares"
-                android:textSize="20sp"/>
+                android:text="Edeir Sanches"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -66,7 +70,7 @@
             android:id="@+id/materialCardView"
             android:clickable="true"
             android:focusable="true"
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:layout_height="80dp"
             android:layout_marginEnd="8dp">
 
@@ -85,10 +89,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="serif-monospace"
+                    android:fontFamily="@font/lilita_one"
                     android:text="Limpeza"
-                    android:textSize="14sp"
-                    android:textStyle="bold"/>
+                    android:textSize="14sp"/>
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
@@ -97,7 +100,7 @@
             android:id="@+id/materialCardView2"
             android:clickable="true"
             android:focusable="true"
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:layout_height="80dp"
             android:layout_marginEnd="8dp">
 
@@ -116,40 +119,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="serif-monospace"
+                    android:fontFamily="@font/lilita_one"
                     android:text="Utensílio"
-                    android:textSize="14sp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/materialCardView3"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_width="100dp"
-            android:layout_height="80dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="2dp"
-                    android:src="@drawable/ic_bill" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="serif-monospace"
-                    android:text="Despesa"
-                    android:textSize="14sp"
-                    android:textStyle="bold"/>
+                    android:textSize="14sp"/>
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
@@ -166,8 +138,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Atividades"
-            android:fontFamily="@font/lilita_one"
+            android:fontFamily="@font/space_mono_bold"
+            android:text="Minhas atividades"
             android:textSize="15sp" />
 
     </LinearLayout>
@@ -202,7 +174,7 @@
                             android:id="@+id/img_view_profile1"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/ic_user_man"
+                            android:src="@drawable/ic_user_hilton"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.05"
@@ -310,7 +282,7 @@
                             android:id="@+id/imgview_profile2"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/ic_user_man"
+                            android:src="@drawable/ic_user_hilton"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.05"
@@ -418,7 +390,7 @@
                             android:id="@+id/imgview_profile3"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/ic_user_man"
+                            android:src="@drawable/ic_user_hilton"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.05"
@@ -526,7 +498,7 @@
                             android:id="@+id/img_view_profile1123"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/ic_user_man"
+                            android:src="@drawable/ic_user_hilton"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.05"
@@ -634,7 +606,7 @@
                             android:id="@+id/imgview_profile2123"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/ic_user_man"
+                            android:src="@drawable/ic_user_hilton"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.05"
@@ -742,7 +714,7 @@
                             android:id="@+id/imgview_profile3123"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/ic_user_man"
+                            android:src="@drawable/ic_user_hilton"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.05"

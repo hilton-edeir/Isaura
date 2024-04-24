@@ -9,7 +9,7 @@
     android:layout_marginEnd="20dp"
     android:layout_marginBottom="100dp"
     android:orientation="vertical"
-    tools:context=".ui.dashboard.DashboardFragment">
+    tools:context=".ui.activity.ActivityFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
-            android:src="@drawable/ic_user_man"/>
+            android:src="@drawable/ic_user_hilton"/>
 
         <TextView
             android:id="@+id/text_dashboard"

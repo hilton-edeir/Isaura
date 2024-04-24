@@ -7,9 +7,9 @@
         android:title="Perfil" />
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_activity"
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="Menu" />
+        android:title="Atividade" />
 
     <item
         android:id="@+id/navigation_table"

@@ -1,14 +1,14 @@
-package com.isaura.ui.dashboard;
+package com.isaura.ui.activity;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class DashboardViewModel extends ViewModel {
+public class ActivityViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public DashboardViewModel() {
+    public ActivityViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("Olá, bom dia");
     }

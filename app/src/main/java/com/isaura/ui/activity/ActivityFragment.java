@@ -1,4 +1,4 @@
-package com.isaura.ui.dashboard;
+package com.isaura.ui.activity;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.isaura.databinding.FragmentDashboardBinding;
+import com.isaura.databinding.FragmentActivityBinding;
 
-public class DashboardFragment extends Fragment {
+public class ActivityFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentActivityBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        ActivityViewModel activityViewModel =
+                new ViewModelProvider(this).get(ActivityViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentActivityBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        activityViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
