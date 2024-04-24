@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="20dp"
+    android:orientation="vertical"
     tools:context=".activity.SignIn">
 
     <ImageView
         android:id="@+id/img"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintVertical_bias="0.2"
         android:src="@drawable/ic_signin"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="3dp"/>
 
     <TextView
         android:id="@+id/txt_2"
@@ -27,28 +24,17 @@
         android:text="Bem-vindo"
         android:fontFamily="@font/lilita_one"
         android:textSize="45sp"
-        app:layout_constraintVertical_bias="0.04"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img" />
+        android:layout_marginBottom="3dp"/>
 
 
     <TextView
         android:id="@+id/txt_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/ubuntu_medium"
+        android:fontFamily="@font/space_mono_bold"
         android:text="Para continuar, entre na conta"
         android:textSize="18sp"
-        android:onClick="sign_up"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_2"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintVertical_bias="0.01" />
+        android:layout_marginBottom="25dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/lyt_email"
@@ -56,14 +42,10 @@
         android:layout_height="wrap_content"
         android:hint="Email"
         app:endIconMode="clear_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_1"
-        app:layout_constraintVertical_bias="0.08"
         app:helperTextTextColor="@color/md_theme_light_error"
         app:startIconContentDescription="Email"
-        app:startIconDrawable="@drawable/ic_email_black_24dp">
+        app:startIconDrawable="@drawable/ic_email_black_24dp"
+        android:layout_marginBottom="12dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/fld_email"
@@ -79,14 +61,10 @@
         android:layout_height="wrap_content"
         android:hint="Código"
         app:endIconMode="password_toggle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lyt_email"
-        app:layout_constraintVertical_bias="0.04"
         app:helperTextTextColor="@color/md_theme_light_error"
         app:startIconContentDescription="Código"
-        app:startIconDrawable="@drawable/ic_password_24dp">
+        app:startIconDrawable="@drawable/ic_password_24dp"
+        android:layout_marginBottom="12dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/fld_code"
@@ -100,18 +78,29 @@
         android:id="@+id/btn_sign_in"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="match_parent"
-        android:layout_height="57dp"
+        android:layout_height="65dp"
         android:text="Entrar"
         android:textColor="@color/white"
         android:fontFamily="@font/lilita_one"
         android:textSize="18sp"
         android:visibility="visible"
-        app:layout_constraintVertical_bias="0.12"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lyt_code" />
+        android:layout_marginBottom="20dp" />
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/space_mono_bold"
+            android:text="Sem conta?"
+            android:textSize="22sp"
+            android:layout_marginEnd="7dp"/>
 
         <TextView
             android:id="@+id/txt_sign_up"
@@ -120,25 +109,19 @@
             android:fontFamily="@font/lilita_one"
             android:text="Criar uma conta"
             android:textColor="@color/md_theme_light_primary"
-            android:textSize="20sp"
+            android:textSize="22sp"
             android:onClick="sign_up"
             android:clickable="true"
-            app:layout_constraintVertical_bias="0.1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_sign_in"
             android:focusable="true" />
+
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

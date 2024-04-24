@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="20dp"
+    android:orientation="vertical"
     tools:context=".activity.SignUp">
 
     <ImageView
@@ -13,12 +14,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/ic_signup"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1">
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="3dp">
 
     </ImageView>
 
@@ -30,27 +27,16 @@
         android:text="Criar conta"
         android:textSize="45sp"
         android:onClick="sign_up"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.03"
-        app:layout_constraintHorizontal_bias="0"/>
+        android:layout_marginBottom="3dp"/>
 
     <TextView
         android:id="@+id/txt_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/ubuntu_medium"
-        android:text="Para continuar, crie uma conta"
+        android:fontFamily="@font/space_mono_bold"
+        android:text="Crie uma conta aqui"
         android:textSize="18sp"
-        android:onClick="sign_up"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_1"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintVertical_bias="0.01" />
+        android:layout_marginBottom="25dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/lyt_name"
@@ -59,14 +45,10 @@
         android:layout_height="wrap_content"
         android:hint="Primeiro e Último Nome"
         app:endIconMode="clear_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_2"
-        app:layout_constraintVertical_bias="0.08"
         app:helperTextTextColor="@color/md_theme_light_error"
         app:startIconContentDescription="name"
-        app:startIconDrawable="@drawable/ic_person_24dp">
+        app:startIconDrawable="@drawable/ic_person_24dp"
+        android:layout_marginBottom="12dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/fld_name"
@@ -83,14 +65,10 @@
         android:layout_height="wrap_content"
         android:hint="Email"
         app:endIconMode="clear_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lyt_name"
-        app:layout_constraintVertical_bias="0.06"
         app:helperTextTextColor="@color/md_theme_light_error"
         app:startIconContentDescription="Código"
-        app:startIconDrawable="@drawable/ic_email_black_24dp">
+        app:startIconDrawable="@drawable/ic_email_black_24dp"
+        android:layout_marginBottom="12dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/fld_email"
@@ -109,14 +87,10 @@
         app:counterEnabled="true"
         app:counterMaxLength="6"
         app:endIconMode="password_toggle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lyt_email"
-        app:layout_constraintVertical_bias="0.06"
         app:helperTextTextColor="@color/md_theme_light_error"
         app:startIconContentDescription="Código"
-        app:startIconDrawable="@drawable/ic_password_24dp">
+        app:startIconDrawable="@drawable/ic_password_24dp"
+        android:layout_marginBottom="12dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/fld_code"
@@ -131,44 +105,50 @@
         android:id="@+id/btn_sign_up"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="65dp"
         android:text="Criar Conta"
         android:textColor="@color/white"
         android:fontFamily="@font/lilita_one"
         android:textSize="18sp"
         android:visibility="visible"
-        app:layout_constraintVertical_bias="0.06"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lyt_code" />
+        android:layout_marginBottom="20dp"/>
 
 
-    <TextView
-        android:id="@+id/txt_sign_up"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/lilita_one"
-        android:text="Entrar na conta"
-        android:textColor="@color/md_theme_light_primary"
-        android:textSize="18sp"
-        android:clickable="true"
-        android:onClick="sign_in"
-        app:layout_constraintVertical_bias="0.1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_sign_up"/>
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/space_mono_bold"
+            android:text="Tem a conta?"
+            android:textSize="22sp"
+            android:layout_marginEnd="7dp"/>
+
+        <TextView
+            android:id="@+id/txt_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lilita_one"
+            android:text="Entrar"
+            android:textColor="@color/md_theme_light_primary"
+            android:textSize="22sp"
+            android:onClick="sign_in"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
