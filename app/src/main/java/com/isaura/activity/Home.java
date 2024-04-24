@@ -1,4 +1,4 @@
-package com.isaura;
+package com.isaura.activity;
 
 import android.os.Bundle;
 
@@ -10,6 +10,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.isaura.R;
 import com.isaura.databinding.ActHomeBinding;
 
 public class Home extends AppCompatActivity {

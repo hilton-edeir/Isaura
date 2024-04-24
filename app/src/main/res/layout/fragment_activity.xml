@@ -9,7 +9,7 @@
     android:layout_marginEnd="20dp"
     android:layout_marginBottom="100dp"
     android:orientation="vertical"
-    tools:context=".ui.activity.ActivityFragment">
+    tools:context=".activity.fragment.ActivityFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -76,15 +76,15 @@
 
                         <ImageView
                             android:id="@+id/img_view_profile1"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
                             android:src="@drawable/ic_user_hilton"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.05"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.15" />
+                            app:layout_constraintVertical_bias="0.2" />
 
                         <TextView
                             android:id="@+id/txt_name"
@@ -93,7 +93,7 @@
                             android:fontFamily="serif-monospace"
                             android:text="Hilton"
                             android:textStyle="bold"
-                            android:textSize="16sp"
+                            android:textSize="18sp"
                             app:layout_constraintHorizontal_bias="0.04"
                             app:layout_constraintVertical_bias="1"
                             app:layout_constraintBottom_toBottomOf="@+id/img_view_profile1"
@@ -108,8 +108,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
                             android:text="adicionou"
-                            android:textSize="16sp"
-                            app:layout_constraintHorizontal_bias="0.04"
+                            android:textSize="18sp"
+                            app:layout_constraintHorizontal_bias="0.038"
                             app:layout_constraintVertical_bias="1"
                             app:layout_constraintBottom_toBottomOf="@+id/img_view_profile1"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -118,8 +118,8 @@
 
                         <ImageView
                             android:id="@+id/imageView3"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:src="@drawable/ic_salt"
                             app:layout_constraintBottom_toBottomOf="@id/txt_3"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -146,7 +146,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
                             android:text="-23/04/2024"
-                            android:textSize="16sp"
+                            android:textSize="15sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="@+id/imageView4"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -156,8 +156,8 @@
                             app:layout_constraintVertical_bias="1.0" />
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:src="@drawable/ic_utensils"
                             app:layout_constraintVertical_bias="0.85"
                             app:layout_constraintHorizontal_bias="0.9"
@@ -184,23 +184,23 @@
 
                         <ImageView
                             android:id="@+id/imgview_profile2"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
                             android:src="@drawable/ic_user_rutenia"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.05"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.15" />
+                            app:layout_constraintVertical_bias="0.2" />
 
                         <TextView
                             android:id="@+id/txt_profile_name2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
-                            android:text="Rútenia"
-                            android:textSize="16sp"
+                            android:text="Ruténia"
+                            android:textSize="18sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="@+id/imgview_profile2"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -216,18 +216,18 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
                             android:text="adicionou"
-                            android:textSize="16sp"
+                            android:textSize="18sp"
                             app:layout_constraintBottom_toBottomOf="@+id/imgview_profile2"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.05"
+                            app:layout_constraintHorizontal_bias="0.038"
                             app:layout_constraintStart_toEndOf="@+id/txt_profile_name2"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="1" />
 
                         <ImageView
                             android:id="@+id/img_ic_utensil2"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:src="@drawable/ic_toilet_paper"
                             app:layout_constraintBottom_toBottomOf="@id/txt_action2"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -254,7 +254,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
                             android:text="-22/04/2024"
-                            android:textSize="16sp"
+                            android:textSize="15sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="@+id/img_ic_calendar2"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -264,8 +264,8 @@
                             app:layout_constraintVertical_bias="1.0" />
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:src="@drawable/ic_utensils"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -292,15 +292,15 @@
 
                         <ImageView
                             android:id="@+id/imgview_profile3"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
                             android:src="@drawable/ic_user_marina"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.05"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.15" />
+                            app:layout_constraintVertical_bias="0.2" />
 
                         <TextView
                             android:id="@+id/txt_profile_name3"
@@ -308,7 +308,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
                             android:text="Marina"
-                            android:textSize="16sp"
+                            android:textSize="18sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="@+id/imgview_profile3"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -324,18 +324,18 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
                             android:text="limpou a"
-                            android:textSize="16sp"
+                            android:textSize="18sp"
                             app:layout_constraintBottom_toBottomOf="@+id/imgview_profile3"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.05"
+                            app:layout_constraintHorizontal_bias="0.038"
                             app:layout_constraintStart_toEndOf="@+id/txt_profile_name3"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="1" />
 
                         <ImageView
                             android:id="@+id/img_ic_utensil3"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:src="@drawable/ic_living_room"
                             app:layout_constraintBottom_toBottomOf="@id/txt_action3"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -362,7 +362,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
                             android:text="-20/04/2024"
-                            android:textSize="16sp"
+                            android:textSize="15sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="@+id/img_ic_calendar3"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -372,8 +372,8 @@
                             app:layout_constraintVertical_bias="1.0" />
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:src="@drawable/ic_cleaning"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -400,15 +400,15 @@
 
                         <ImageView
                             android:id="@+id/img_view_profile1123"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
                             android:src="@drawable/ic_user_maria"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.05"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.15" />
+                            app:layout_constraintVertical_bias="0.2" />
 
                         <TextView
                             android:id="@+id/txt_name123"
@@ -417,7 +417,7 @@
                             android:fontFamily="serif-monospace"
                             android:text="Maria"
                             android:textStyle="bold"
-                            android:textSize="16sp"
+                            android:textSize="18sp"
                             app:layout_constraintHorizontal_bias="0.04"
                             app:layout_constraintVertical_bias="1"
                             app:layout_constraintBottom_toBottomOf="@+id/img_view_profile1123"
@@ -433,7 +433,7 @@
                             android:fontFamily="serif-monospace"
                             android:text="limpou a"
                             android:textSize="16sp"
-                            app:layout_constraintHorizontal_bias="0.03"
+                            app:layout_constraintHorizontal_bias="0.038"
                             app:layout_constraintVertical_bias="1"
                             app:layout_constraintBottom_toBottomOf="@+id/img_view_profile1123"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -442,8 +442,8 @@
 
                         <ImageView
                             android:id="@+id/imageView3123"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:src="@drawable/ic_kitchen"
                             app:layout_constraintBottom_toBottomOf="@id/txt_3123"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -470,7 +470,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
                             android:text="-20/04/2024"
-                            android:textSize="16sp"
+                            android:textSize="15sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="@+id/imageView4123"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -480,8 +480,8 @@
                             app:layout_constraintVertical_bias="1.0" />
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:src="@drawable/ic_utensils"
                             app:layout_constraintVertical_bias="0.85"
                             app:layout_constraintHorizontal_bias="0.9"
@@ -508,15 +508,15 @@
 
                         <ImageView
                             android:id="@+id/imgview_profile2123"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
                             android:src="@drawable/ic_user_carline"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.05"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.15" />
+                            app:layout_constraintVertical_bias="0.2" />
 
                         <TextView
                             android:id="@+id/txt_profile_name2123"
@@ -524,7 +524,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
                             android:text="Carline"
-                            android:textSize="16sp"
+                            android:textSize="18sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="@+id/imgview_profile2123"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -540,18 +540,18 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
                             android:text="tirou o"
-                            android:textSize="16sp"
+                            android:textSize="18sp"
                             app:layout_constraintBottom_toBottomOf="@+id/imgview_profile2123"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.03"
+                            app:layout_constraintHorizontal_bias="0.038"
                             app:layout_constraintStart_toEndOf="@+id/txt_profile_name2123"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="1" />
 
                         <ImageView
                             android:id="@+id/img_ic_utensil2123"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:src="@drawable/ic_trash"
                             app:layout_constraintBottom_toBottomOf="@id/txt_action2123"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -578,7 +578,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
                             android:text="-20/04/2024"
-                            android:textSize="16sp"
+                            android:textSize="15sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="@+id/img_ic_calendar2123"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -588,8 +588,8 @@
                             app:layout_constraintVertical_bias="1.0" />
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:src="@drawable/ic_utensils"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -616,15 +616,15 @@
 
                         <ImageView
                             android:id="@+id/imgview_profile3123"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
                             android:src="@drawable/ic_user_rutenia"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.05"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.15" />
+                            app:layout_constraintVertical_bias="0.2" />
 
                         <TextView
                             android:id="@+id/txt_profile_name3123"
@@ -632,7 +632,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
                             android:text="Ruténia"
-                            android:textSize="16sp"
+                            android:textSize="18sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="@+id/imgview_profile3123"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -648,7 +648,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
                             android:text="limpou a"
-                            android:textSize="16sp"
+                            android:textSize="18sp"
                             app:layout_constraintBottom_toBottomOf="@+id/imgview_profile3123"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.03"
@@ -658,8 +658,8 @@
 
                         <ImageView
                             android:id="@+id/img_ic_utensil3123"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:src="@drawable/ic_bathroom"
                             app:layout_constraintBottom_toBottomOf="@id/txt_action3123"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -686,7 +686,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
                             android:text="-20/04/2024"
-                            android:textSize="16sp"
+                            android:textSize="15sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="@+id/img_ic_calendar3123"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -696,8 +696,8 @@
                             app:layout_constraintVertical_bias="1.0" />
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:src="@drawable/ic_cleaning"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -724,15 +724,15 @@
 
                         <ImageView
                             android:id="@+id/imgview_profile31231"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
                             android:src="@drawable/ic_user_marina"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.05"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.15" />
+                            app:layout_constraintVertical_bias="0.2" />
 
                         <TextView
                             android:id="@+id/txt_profile_name31231"
@@ -740,7 +740,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
                             android:text="Marina"
-                            android:textSize="16sp"
+                            android:textSize="18sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="@+id/imgview_profile31231"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -756,18 +756,18 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
                             android:text="adicionou o"
-                            android:textSize="16sp"
+                            android:textSize="18sp"
                             app:layout_constraintBottom_toBottomOf="@+id/imgview_profile31231"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.03"
+                            app:layout_constraintHorizontal_bias="0.038"
                             app:layout_constraintStart_toEndOf="@+id/txt_profile_name31231"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="1" />
 
                         <ImageView
                             android:id="@+id/img_ic_utensil31231"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:src="@drawable/ic_detergent_tipol"
                             app:layout_constraintBottom_toBottomOf="@id/txt_action31231"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -794,7 +794,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
                             android:text="-14/04/2024"
-                            android:textSize="16sp"
+                            android:textSize="15sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="@+id/img_ic_calendar31231"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -804,8 +804,8 @@
                             app:layout_constraintVertical_bias="1.0" />
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:src="@drawable/ic_cleaning"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"

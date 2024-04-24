@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.isaura.ui.profile.ProfileFragment"
+        android:name="com.isaura.activity.fragment.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/navigation_activity"
-        android:name="com.isaura.ui.activity.ActivityFragment"
+        android:name="com.isaura.activity.fragment.ActivityFragment"
         android:label="@string/title_activity"
         tools:layout="@layout/fragment_activity" />
 
     <fragment
         android:id="@+id/navigation_table"
-        android:name="com.isaura.ui.table.TableFragment"
+        android:name="com.isaura.activity.fragment.TableFragment"
         android:label="@string/title_table"
         tools:layout="@layout/fragment_table" />
 </navigation>
