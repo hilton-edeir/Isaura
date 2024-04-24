@@ -10,7 +10,7 @@ public class ProfileViewModel extends ViewModel {
 
     public ProfileViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Member fragment");
+        mText.setValue("Perfil");
     }
 
     public LiveData<String> getText() {

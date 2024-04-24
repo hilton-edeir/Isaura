@@ -10,7 +10,7 @@ public class TableViewModel extends ViewModel {
 
     public TableViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Tabelas");
+        mText.setValue("Tabela");
     }
 
     public LiveData<String> getText() {
