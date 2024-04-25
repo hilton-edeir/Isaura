@@ -15,29 +15,31 @@ import com.isaura.R;
 
 public class UtensilsFragment extends Fragment {
 
-    CardView btn_cleaning_schedule, btn_utensils_stock, btn_bills;
+    CardView btn_napkin, btn_dish_soap, btn_sponge;
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.utensils_fragment, container, false);
 
-        btn_cleaning_schedule = root.findViewById(R.id.btn_cleaning_schedule);
-        btn_utensils_stock = root.findViewById(R.id.btn_utensils_stock);
-        btn_bills = root.findViewById(R.id.btn_bills);
+        btn_napkin = root.findViewById(R.id.btn_napkin);
+        btn_dish_soap = root.findViewById(R.id.btn_dish_soap);
+        btn_sponge = root.findViewById(R.id.btn_sponge);
 
-        btn_cleaning_schedule.setOnClickListener(v -> {
+
+        btn_napkin.setOnClickListener(v -> {
             Toast.makeText(root.getContext(), "Brevemente", Toast.LENGTH_SHORT).show();
             /*Fragment cleaningScheduleFragment = new CleaningScheduleFragment();
             FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
             fm.replace(R.id.nav_host_fragment_act_home, cleaningScheduleFragment).commit();*/
         });
 
-        btn_utensils_stock.setOnClickListener(v -> {
+        btn_dish_soap.setOnClickListener(v -> {
             Toast.makeText(root.getContext(), "Brevemente", Toast.LENGTH_SHORT).show();
         });
 
-        btn_bills.setOnClickListener(v -> {
+        btn_sponge.setOnClickListener(v -> {
             Toast.makeText(root.getContext(), "Brevemente", Toast.LENGTH_SHORT).show();
         });
+
 
         return root;
     }

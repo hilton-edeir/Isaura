@@ -31,8 +31,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/lilita_one"
             android:layout_marginEnd="5dp"
-            android:text="Olá, bom dia"
-            android:textSize="18sp"/>
+            android:text="Bom dia,"
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/txt_name_profile"
@@ -44,18 +44,19 @@
             android:text="Hilton"
             android:textColor="@color/md_theme_light_primary"
             android:textAlignment="center"
-            android:textSize="22sp" />
+            android:textSize="20sp" />
 
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,764 +64,418 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/materialCardView1"
+                    android:id="@+id/btn_notification1"
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="100dp"
                     android:layout_marginBottom="10dp">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:padding="12dp"
                         android:orientation="vertical">
 
-                        <ImageView
-                            android:id="@+id/img_view_profile1"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/ic_user_hilton"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.05"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.2" />
-
-                        <TextView
-                            android:id="@+id/txt_name"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="Hilton"
-                            android:textStyle="bold"
-                            android:textSize="18sp"
-                            app:layout_constraintHorizontal_bias="0.04"
-                            app:layout_constraintVertical_bias="1"
-                            app:layout_constraintBottom_toBottomOf="@+id/img_view_profile1"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/img_view_profile1"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="bottom">
 
+                            <ImageView
+                                android:id="@+id/img_activity1"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/ic_user_hilton"
+                                android:layout_marginEnd="8dp"/>
 
-                        <TextView
-                            android:id="@+id/txt_3"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:id="@+id/txt_task_user_name1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/space_mono_bold"
+                                android:text="Hilton"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="5dp" />
+
+                            <TextView
+                                android:id="@+id/txt_task_description1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="colocou o"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="8dp" />
+
+                            <ImageView
+                                android:id="@+id/img_item_utelsils1"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/ic_bathroom_detergent" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="adicionou"
-                            android:textSize="18sp"
-                            app:layout_constraintHorizontal_bias="0.038"
-                            app:layout_constraintVertical_bias="1"
-                            app:layout_constraintBottom_toBottomOf="@+id/img_view_profile1"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/txt_name"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:orientation="horizontal"
+                            android:layout_marginStart="25dp"
+                            android:gravity="bottom">
 
-                        <ImageView
-                            android:id="@+id/imageView3"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_salt"
-                            app:layout_constraintBottom_toBottomOf="@id/txt_3"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.05"
-                            app:layout_constraintStart_toEndOf="@id/txt_3"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1" />
+                            <ImageView
+                                android:id="@+id/img_notification_date1"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/icon_calendar"
+                                android:layout_marginEnd="5dp"/>
 
-                        <ImageView
-                            android:id="@+id/imageView4"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/icon_calendar"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0"
-                            app:layout_constraintStart_toStartOf="@id/txt_name"
-                            app:layout_constraintTop_toBottomOf="@id/txt_name"
-                            app:layout_constraintVertical_bias="0.2" />
+                            <TextView
+                                android:id="@+id/txt_date_notification1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="-23/04/2024 23:56"
+                                android:textSize="15sp" />
 
-                        <TextView
-                            android:id="@+id/txtvw"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="-23/04/2024"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.03"
-                            app:layout_constraintStart_toEndOf="@id/imageView4"
-                            app:layout_constraintTop_toBottomOf="@id/txt_name"
-                            app:layout_constraintVertical_bias="1.0" />
+                        </LinearLayout>
 
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_utensils"
-                            app:layout_constraintVertical_bias="0.85"
-                            app:layout_constraintHorizontal_bias="0.9"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/txtvw"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/materialCardView2"
+                    android:id="@+id/btn_notification2"
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="100dp"
                     android:layout_marginBottom="10dp">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:padding="12dp"
                         android:orientation="vertical">
 
-                        <ImageView
-                            android:id="@+id/imgview_profile2"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/ic_user_rutenia"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.05"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.2" />
-
-                        <TextView
-                            android:id="@+id/txt_profile_name2"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="Ruténia"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/imgview_profile2"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.04"
-                            app:layout_constraintStart_toEndOf="@+id/imgview_profile2"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1" />
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="bottom">
 
+                            <ImageView
+                                android:id="@+id/img_activity2"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/ic_user_marina"
+                                android:layout_marginEnd="8dp"/>
 
-                        <TextView
-                            android:id="@+id/txt_action2"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:id="@+id/txt_task_user_name2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/space_mono_bold"
+                                android:text="Marina"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="5dp" />
+
+                            <TextView
+                                android:id="@+id/txt_task_description2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="limpou a"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="8dp" />
+
+                            <ImageView
+                                android:id="@+id/img_item_utelsils2"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/ic_living_room" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="adicionou"
-                            android:textSize="18sp"
-                            app:layout_constraintBottom_toBottomOf="@+id/imgview_profile2"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.038"
-                            app:layout_constraintStart_toEndOf="@+id/txt_profile_name2"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1" />
+                            android:orientation="horizontal"
+                            android:layout_marginStart="25dp"
+                            android:gravity="bottom">
 
-                        <ImageView
-                            android:id="@+id/img_ic_utensil2"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_toilet_paper"
-                            app:layout_constraintBottom_toBottomOf="@id/txt_action2"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.05"
-                            app:layout_constraintStart_toEndOf="@id/txt_action2"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1" />
+                            <ImageView
+                                android:id="@+id/img_notification_date2"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/icon_calendar"
+                                android:layout_marginEnd="5dp"/>
 
-                        <ImageView
-                            android:id="@+id/img_ic_calendar2"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/icon_calendar"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0"
-                            app:layout_constraintStart_toStartOf="@id/txt_profile_name2"
-                            app:layout_constraintTop_toBottomOf="@id/txt_profile_name2"
-                            app:layout_constraintVertical_bias="0.2" />
+                            <TextView
+                                android:id="@+id/txt_date_notification2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="-20/04/2024 14:09"
+                                android:textSize="15sp" />
 
-                        <TextView
-                            android:id="@+id/txt_date2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="-22/04/2024"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/img_ic_calendar2"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.03"
-                            app:layout_constraintStart_toEndOf="@id/img_ic_calendar2"
-                            app:layout_constraintTop_toBottomOf="@id/txt_profile_name2"
-                            app:layout_constraintVertical_bias="1.0" />
+                        </LinearLayout>
 
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_utensils"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.9"
-                            app:layout_constraintStart_toEndOf="@+id/txt_date2"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.85" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/materialCardView3"
+                    android:id="@+id/btn_notification3"
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="100dp"
                     android:layout_marginBottom="10dp">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:padding="12dp"
                         android:orientation="vertical">
 
-                        <ImageView
-                            android:id="@+id/imgview_profile3"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/ic_user_marina"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.05"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.2" />
-
-                        <TextView
-                            android:id="@+id/txt_profile_name3"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="Marina"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/imgview_profile3"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.04"
-                            app:layout_constraintStart_toEndOf="@+id/imgview_profile3"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1" />
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="bottom">
 
+                            <ImageView
+                                android:id="@+id/img_activity3"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/ic_user_rutenia"
+                                android:layout_marginEnd="8dp"/>
 
-                        <TextView
-                            android:id="@+id/txt_action3"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:id="@+id/txt_task_user_name3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/space_mono_bold"
+                                android:text="Ruténia"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="5dp" />
+
+                            <TextView
+                                android:id="@+id/txt_task_description3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="tirou o"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="8dp" />
+
+                            <ImageView
+                                android:id="@+id/img_item_utelsils3"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/ic_trash" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="limpou a"
-                            android:textSize="18sp"
-                            app:layout_constraintBottom_toBottomOf="@+id/imgview_profile3"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.038"
-                            app:layout_constraintStart_toEndOf="@+id/txt_profile_name3"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1" />
+                            android:orientation="horizontal"
+                            android:layout_marginStart="25dp"
+                            android:gravity="bottom">
 
-                        <ImageView
-                            android:id="@+id/img_ic_utensil3"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_living_room"
-                            app:layout_constraintBottom_toBottomOf="@id/txt_action3"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.05"
-                            app:layout_constraintStart_toEndOf="@id/txt_action3"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1" />
+                            <ImageView
+                                android:id="@+id/img_notification_date3"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/icon_calendar"
+                                android:layout_marginEnd="5dp"/>
 
-                        <ImageView
-                            android:id="@+id/img_ic_calendar3"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/icon_calendar"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0"
-                            app:layout_constraintStart_toStartOf="@id/txt_profile_name3"
-                            app:layout_constraintTop_toBottomOf="@id/txt_profile_name3"
-                            app:layout_constraintVertical_bias="0.2" />
+                            <TextView
+                                android:id="@+id/txt_date_notification3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="-20/04/2024 08:00"
+                                android:textSize="15sp" />
 
-                        <TextView
-                            android:id="@+id/txt_date3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="-20/04/2024"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/img_ic_calendar3"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.03"
-                            app:layout_constraintStart_toEndOf="@id/img_ic_calendar3"
-                            app:layout_constraintTop_toBottomOf="@id/txt_profile_name3"
-                            app:layout_constraintVertical_bias="1.0" />
+                        </LinearLayout>
 
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_cleaning"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.9"
-                            app:layout_constraintStart_toEndOf="@+id/txt_date3"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.85" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/materialCardView1123"
+                    android:id="@+id/btn_notification4"
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="100dp"
                     android:layout_marginBottom="10dp">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:padding="12dp"
                         android:orientation="vertical">
 
-                        <ImageView
-                            android:id="@+id/img_view_profile1123"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/ic_user_maria"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.05"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.2" />
-
-                        <TextView
-                            android:id="@+id/txt_name123"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="Maria"
-                            android:textStyle="bold"
-                            android:textSize="18sp"
-                            app:layout_constraintHorizontal_bias="0.04"
-                            app:layout_constraintVertical_bias="1"
-                            app:layout_constraintBottom_toBottomOf="@+id/img_view_profile1123"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/img_view_profile1123"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="bottom">
 
+                            <ImageView
+                                android:id="@+id/img_activity4"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/ic_user_maria"
+                                android:layout_marginEnd="8dp"/>
 
-                        <TextView
-                            android:id="@+id/txt_3123"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:id="@+id/txt_task_user_name4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/space_mono_bold"
+                                android:text="Maria"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="5dp" />
+
+                            <TextView
+                                android:id="@+id/txt_task_description4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="limpou a"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="8dp" />
+
+                            <ImageView
+                                android:id="@+id/img_item_utelsils4"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/ic_bathroom" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="limpou a"
-                            android:textSize="16sp"
-                            app:layout_constraintHorizontal_bias="0.038"
-                            app:layout_constraintVertical_bias="1"
-                            app:layout_constraintBottom_toBottomOf="@+id/img_view_profile1123"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/txt_name123"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:orientation="horizontal"
+                            android:layout_marginStart="25dp"
+                            android:gravity="bottom">
 
-                        <ImageView
-                            android:id="@+id/imageView3123"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_kitchen"
-                            app:layout_constraintBottom_toBottomOf="@id/txt_3123"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.05"
-                            app:layout_constraintStart_toEndOf="@id/txt_3123"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1" />
+                            <ImageView
+                                android:id="@+id/img_notification_date4"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/icon_calendar"
+                                android:layout_marginEnd="5dp"/>
 
-                        <ImageView
-                            android:id="@+id/imageView4123"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/icon_calendar"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0"
-                            app:layout_constraintStart_toStartOf="@id/txt_name123"
-                            app:layout_constraintTop_toBottomOf="@id/txt_name123"
-                            app:layout_constraintVertical_bias="0.2" />
+                            <TextView
+                                android:id="@+id/txt_date_notification4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="-20/04/2024"
+                                android:textSize="15sp" />
 
-                        <TextView
-                            android:id="@+id/txtvw123"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="-20/04/2024"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/imageView4123"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.03"
-                            app:layout_constraintStart_toEndOf="@id/imageView4123"
-                            app:layout_constraintTop_toBottomOf="@id/txt_name123"
-                            app:layout_constraintVertical_bias="1.0" />
+                        </LinearLayout>
 
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_utensils"
-                            app:layout_constraintVertical_bias="0.85"
-                            app:layout_constraintHorizontal_bias="0.9"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/txtvw123"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/materialCardView123"
+                    android:id="@+id/btn_notification5"
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="100dp"
                     android:layout_marginBottom="10dp">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:padding="12dp"
                         android:orientation="vertical">
 
-                        <ImageView
-                            android:id="@+id/imgview_profile2123"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/ic_user_carline"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.05"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.2" />
-
-                        <TextView
-                            android:id="@+id/txt_profile_name2123"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="Carline"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/imgview_profile2123"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.04"
-                            app:layout_constraintStart_toEndOf="@+id/imgview_profile2123"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1" />
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="bottom">
 
+                            <ImageView
+                                android:id="@+id/img_activity5"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/ic_user_carline"
+                                android:layout_marginEnd="8dp"/>
 
-                        <TextView
-                            android:id="@+id/txt_action2123"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:id="@+id/txt_task_user_name5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/space_mono_bold"
+                                android:text="Carline"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="5dp" />
+
+                            <TextView
+                                android:id="@+id/txt_task_description5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="limpou a"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="8dp" />
+
+                            <ImageView
+                                android:id="@+id/img_item_utelsils5"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/ic_kitchen" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="tirou o"
-                            android:textSize="18sp"
-                            app:layout_constraintBottom_toBottomOf="@+id/imgview_profile2123"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.038"
-                            app:layout_constraintStart_toEndOf="@+id/txt_profile_name2123"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1" />
+                            android:orientation="horizontal"
+                            android:layout_marginStart="25dp"
+                            android:gravity="bottom">
 
-                        <ImageView
-                            android:id="@+id/img_ic_utensil2123"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_trash"
-                            app:layout_constraintBottom_toBottomOf="@id/txt_action2123"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.05"
-                            app:layout_constraintStart_toEndOf="@id/txt_action2123"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1" />
+                            <ImageView
+                                android:id="@+id/img_notification_date5"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/icon_calendar"
+                                android:layout_marginEnd="5dp"/>
 
-                        <ImageView
-                            android:id="@+id/img_ic_calendar2123"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/icon_calendar"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0"
-                            app:layout_constraintStart_toStartOf="@id/txt_profile_name2123"
-                            app:layout_constraintTop_toBottomOf="@id/txt_profile_name2123"
-                            app:layout_constraintVertical_bias="0.2" />
+                            <TextView
+                                android:id="@+id/txt_date_notification5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="-20/04/2024 13:06"
+                                android:textSize="15sp" />
 
-                        <TextView
-                            android:id="@+id/txt_date2123"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="-20/04/2024"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/img_ic_calendar2123"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.03"
-                            app:layout_constraintStart_toEndOf="@id/img_ic_calendar2123"
-                            app:layout_constraintTop_toBottomOf="@id/txt_profile_name2123"
-                            app:layout_constraintVertical_bias="1.0" />
+                        </LinearLayout>
 
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_utensils"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.9"
-                            app:layout_constraintStart_toEndOf="@+id/txt_date2123"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.85" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/materialCardView7123"
-                    android:layout_width="match_parent"
-                    android:layout_height="90dp"
-                    android:layout_marginBottom="10dp">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/imgview_profile3123"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/ic_user_rutenia"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.05"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.2" />
-
-                        <TextView
-                            android:id="@+id/txt_profile_name3123"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="Ruténia"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/imgview_profile3123"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.04"
-                            app:layout_constraintStart_toEndOf="@+id/imgview_profile3123"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1" />
-
-
-                        <TextView
-                            android:id="@+id/txt_action3123"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="limpou a"
-                            android:textSize="18sp"
-                            app:layout_constraintBottom_toBottomOf="@+id/imgview_profile3123"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.03"
-                            app:layout_constraintStart_toEndOf="@+id/txt_profile_name3123"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1" />
-
-                        <ImageView
-                            android:id="@+id/img_ic_utensil3123"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_bathroom"
-                            app:layout_constraintBottom_toBottomOf="@id/txt_action3123"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.05"
-                            app:layout_constraintStart_toEndOf="@id/txt_action3123"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1" />
-
-                        <ImageView
-                            android:id="@+id/img_ic_calendar3123"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/icon_calendar"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0"
-                            app:layout_constraintStart_toStartOf="@id/txt_profile_name3123"
-                            app:layout_constraintTop_toBottomOf="@id/txt_profile_name3123"
-                            app:layout_constraintVertical_bias="0.2" />
-
-                        <TextView
-                            android:id="@+id/txt_date3123"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="-20/04/2024"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/img_ic_calendar3123"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.03"
-                            app:layout_constraintStart_toEndOf="@id/img_ic_calendar3123"
-                            app:layout_constraintTop_toBottomOf="@id/txt_profile_name3123"
-                            app:layout_constraintVertical_bias="1.0" />
-
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_cleaning"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.9"
-                            app:layout_constraintStart_toEndOf="@+id/txt_date3123"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.85" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/materialCardView71231"
-                    android:layout_width="match_parent"
-                    android:layout_height="90dp"
-                    android:layout_marginBottom="10dp">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/imgview_profile31231"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/ic_user_marina"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.05"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.2" />
-
-                        <TextView
-                            android:id="@+id/txt_profile_name31231"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="Marina"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/imgview_profile31231"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.04"
-                            app:layout_constraintStart_toEndOf="@+id/imgview_profile31231"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1" />
-
-
-                        <TextView
-                            android:id="@+id/txt_action31231"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="adicionou o"
-                            android:textSize="18sp"
-                            app:layout_constraintBottom_toBottomOf="@+id/imgview_profile31231"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.038"
-                            app:layout_constraintStart_toEndOf="@+id/txt_profile_name31231"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1" />
-
-                        <ImageView
-                            android:id="@+id/img_ic_utensil31231"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_detergent_tipol"
-                            app:layout_constraintBottom_toBottomOf="@id/txt_action31231"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.05"
-                            app:layout_constraintStart_toEndOf="@id/txt_action31231"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1" />
-
-                        <ImageView
-                            android:id="@+id/img_ic_calendar31231"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/icon_calendar"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0"
-                            app:layout_constraintStart_toStartOf="@id/txt_profile_name31231"
-                            app:layout_constraintTop_toBottomOf="@id/txt_profile_name31231"
-                            app:layout_constraintVertical_bias="0.2" />
-
-                        <TextView
-                            android:id="@+id/txt_date31231"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="-14/04/2024"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/img_ic_calendar31231"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.03"
-                            app:layout_constraintStart_toEndOf="@id/img_ic_calendar31231"
-                            app:layout_constraintTop_toBottomOf="@id/txt_profile_name31231"
-                            app:layout_constraintVertical_bias="1.0" />
-
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_cleaning"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.9"
-                            app:layout_constraintStart_toEndOf="@+id/txt_date31231"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.85" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
 
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
 
