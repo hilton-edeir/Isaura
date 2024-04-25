@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.card.MaterialCardView;
@@ -41,15 +40,13 @@ public class MeFragment extends Fragment {
 
         txt_profile_display_name.setText(Objects.requireNonNull(mAuth.getCurrentUser()).getDisplayName());
 
-        btn_update_profile.setOnClickListener(v -> {
-            Toast.makeText(root.getContext(),"Brevemente" , Toast.LENGTH_SHORT).show();
-        });
+        btn_update_profile.setOnClickListener(v -> Toast.makeText(root.getContext(),"Brevemente" , Toast.LENGTH_SHORT).show());
 
         btn_sign_out.setOnClickListener(v -> {
             if(mAuth != null) {
                 mAuth.signOut();
                 startActivity(new Intent(root.getContext(), SignIn.class));
-                getActivity().finish();
+                requireActivity().finish();
             }
         });
 

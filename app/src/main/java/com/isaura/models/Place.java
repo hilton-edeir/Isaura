@@ -1,19 +1,19 @@
 package com.isaura.models;
 
-public class Utensil {
-    private int id;
+public class Place {
+    private String id;
     private String name;
 
-    public Utensil(int id, String name) {
+    public Place(String id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

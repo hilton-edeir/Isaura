@@ -3,10 +3,10 @@ package com.isaura.models;
 public class Cleaning {
     private int id;
     private String date;
-    private String place;
+    private Place place;
     private Member member;
 
-    public Cleaning(int id, String date, String place, Member member) {
+    public Cleaning(int id, String date, Place place, Member member) {
         this.id = id;
         this.date = date;
         this.place = place;
@@ -29,11 +29,11 @@ public class Cleaning {
         this.date = date;
     }
 
-    public String getPlace() {
+    public Place getPlace() {
         return place;
     }
 
-    public void setPlace(String place) {
+    public void setPlace(Place place) {
         this.place = place;
     }
 

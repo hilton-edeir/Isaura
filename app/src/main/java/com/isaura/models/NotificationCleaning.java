@@ -1,16 +1,16 @@
 package com.isaura.models;
 
-public class Put_Utensil {
+public class NotificationCleaning {
     private String id;
     private String date;
-    private Utensil utensil;
     private Member member;
+    private Place place;
 
-    public Put_Utensil(String id, String date, Utensil utensil, Member member) {
+    public NotificationCleaning(String id, String date, Member member, Place place) {
         this.id = id;
         this.date = date;
-        this.utensil = utensil;
         this.member = member;
+        this.place = place;
     }
 
     public String getId() {
@@ -29,19 +29,19 @@ public class Put_Utensil {
         this.date = date;
     }
 
-    public Utensil getUtensil() {
-        return utensil;
-    }
-
-    public void setUtensil(Utensil utensil) {
-        this.utensil = utensil;
-    }
-
     public Member getMember() {
         return member;
     }
 
     public void setMember(Member member) {
         this.member = member;
+    }
+
+    public Place getPlace() {
+        return place;
+    }
+
+    public void setPlace(Place place) {
+        this.place = place;
     }
 }

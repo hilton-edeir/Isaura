@@ -87,6 +87,7 @@
                     android:layout_marginStart="10dp"/>
 
                 <TextView
+                    android:id="@+id/txt_date_selected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sáb 27 de abril de 2024"
