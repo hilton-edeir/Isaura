@@ -22,4 +22,11 @@
     <color name="md_theme_dark_secondaryContainer">#4A4458</color>
     <color name="md_theme_dark_onSurface">#E6E1E5</color>
     <color name="md_theme_dark_surfaceVariant">#49454F</color>
+
+    <color name="pastel_purple">#f3f1ff</color>
+    <color name="pastel_red">#ffe9ed</color>
+    <color name="pastel_yellow">#fff9e6</color>
+    <color name="pastel_green">#f9fff4</color>
+    <color name="pastel_blue">#eff8ff</color>
+
 </resources>

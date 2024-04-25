@@ -18,21 +18,55 @@
         android:orientation="horizontal"
         android:gravity="bottom">
 
-        <ImageView
-            android:id="@+id/img_profile0"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="5dp"
-            android:src="@drawable/ic_utensils"/>
-
-        <TextView
-            android:id="@+id/text_table"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/lilita_one"
-            android:layout_marginEnd="5dp"
-            android:text="Utensílios"
-            android:textSize="25sp"/>
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="start">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_utensils"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:id="@+id/text_table"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lilita_one"
+                android:text="Utensílios"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btn_see_schedule"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_table"/>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
 
     </LinearLayout>
 
