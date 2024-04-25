@@ -42,7 +42,7 @@
             android:layout_marginEnd="5dp"
             android:fontFamily="@font/lilita_one"
             android:text="Hilton"
-            android:textColor="@color/md_theme_light_primary"
+            android:textColor="@color/md_theme_primary"
             android:textAlignment="center"
             android:textSize="20sp" />
 

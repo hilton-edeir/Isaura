@@ -19,8 +19,8 @@
         android:gravity="bottom">
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:src="@drawable/ic_cleaning"
                 android:layout_marginEnd="6dp" />
 
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lilita_one"
                 android:text="Limpeza"
-                android:textSize="25sp" />
+                android:textSize="30sp" />
 
     </LinearLayout>
 
@@ -113,7 +113,6 @@
                 android:id="@+id/btn_notification1"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                app:cardBackgroundColor="@color/pastel_purple"
                 android:layout_marginBottom="10dp">
 
                 <LinearLayout
@@ -172,7 +171,6 @@
                 android:id="@+id/btn_notification2"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                app:cardBackgroundColor="@color/pastel_red"
                 android:layout_marginBottom="10dp">
 
                 <LinearLayout
@@ -231,7 +229,6 @@
                 android:id="@+id/btn_notification3"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                app:cardBackgroundColor="@color/pastel_yellow"
                 android:layout_marginBottom="10dp">
 
                 <LinearLayout
@@ -291,7 +288,6 @@
                 android:id="@+id/btn_notification4"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                app:cardBackgroundColor="@color/pastel_green"
                 android:layout_marginBottom="10dp">
 
                 <LinearLayout
@@ -350,7 +346,6 @@
                 android:id="@+id/btn_notification5"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                app:cardBackgroundColor="@color/pastel_blue"
                 android:layout_marginBottom="10dp">
 
                 <LinearLayout

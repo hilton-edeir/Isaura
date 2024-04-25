@@ -18,7 +18,6 @@ public class Splash extends AppCompatActivity {
         setContentView(R.layout.act_splash);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-
         new Handler().postDelayed(() -> {
             startActivity(new Intent(Splash.this, SignIn.class));
             finish();

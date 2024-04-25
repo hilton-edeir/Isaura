@@ -13,15 +13,16 @@ import androidx.navigation.ui.NavigationUI;
 import com.isaura.R;
 import com.isaura.databinding.ActHomeBinding;
 
+import java.util.Objects;
+
 public class Home extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
-        getSupportActionBar().hide();
-
-        com.isaura.databinding.ActHomeBinding binding = ActHomeBinding.inflate(getLayoutInflater());
+        ActHomeBinding binding = ActHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         BottomNavigationView navView = findViewById(R.id.nav_view);

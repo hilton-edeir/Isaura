@@ -235,7 +235,7 @@
                                         android:text="Feito"
                                         android:textSize="18sp"
                                         android:fontFamily="@font/lilita_one"
-                                        android:textColor="@color/md_theme_light_primary"/>
+                                        android:textColor="@color/md_theme_primary"/>
 
                                 </LinearLayout>
 
@@ -341,7 +341,7 @@
                                         android:text="Feito"
                                         android:textSize="18sp"
                                         android:fontFamily="@font/lilita_one"
-                                        android:textColor="@color/md_theme_light_primary"/>
+                                        android:textColor="@color/md_theme_primary"/>
 
                                 </LinearLayout>
 
@@ -447,7 +447,7 @@
                                         android:text="Feito"
                                         android:textSize="18sp"
                                         android:fontFamily="@font/lilita_one"
-                                        android:textColor="@color/md_theme_light_primary"/>
+                                        android:textColor="@color/md_theme_primary"/>
 
                                 </LinearLayout>
 
@@ -553,7 +553,7 @@
                                         android:text="Feito"
                                         android:textSize="18sp"
                                         android:fontFamily="@font/lilita_one"
-                                        android:textColor="@color/md_theme_light_primary"/>
+                                        android:textColor="@color/md_theme_primary"/>
 
                                 </LinearLayout>
 

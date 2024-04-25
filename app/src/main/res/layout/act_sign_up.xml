@@ -46,7 +46,7 @@
         app:helperTextTextAppearance="@font/space_mono_bold"
         android:hint="Primeiro e Último Nome"
         app:endIconMode="clear_text"
-        app:helperTextTextColor="@color/md_theme_light_error"
+        app:helperTextTextColor="@color/md_theme_error"
         app:startIconContentDescription="name"
         app:startIconDrawable="@drawable/ic_person_24dp"
         android:layout_marginBottom="12dp">
@@ -69,7 +69,7 @@
         android:fontFamily="monospace"
         android:hint="Email"
         app:endIconMode="clear_text"
-        app:helperTextTextColor="@color/md_theme_light_error"
+        app:helperTextTextColor="@color/md_theme_error"
         app:startIconContentDescription="Código"
         app:startIconDrawable="@drawable/ic_email_black_24dp"
         android:layout_marginBottom="12dp">
@@ -94,7 +94,7 @@
         app:counterEnabled="true"
         app:counterMaxLength="6"
         app:endIconMode="password_toggle"
-        app:helperTextTextColor="@color/md_theme_light_error"
+        app:helperTextTextColor="@color/md_theme_error"
         app:startIconContentDescription="Código"
         app:startIconDrawable="@drawable/ic_password_24dp"
         android:layout_marginBottom="12dp">
@@ -116,7 +116,6 @@
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:text="Criar Conta"
-        android:textColor="@color/white"
         android:fontFamily="@font/lilita_one"
         android:textSize="18sp"
         android:visibility="visible"
@@ -144,7 +143,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/lilita_one"
             android:text="Entrar"
-            android:textColor="@color/md_theme_light_primary"
+            android:textColor="@color/md_theme_primary"
             android:textSize="22sp"
             android:onClick="sign_in"
             android:clickable="true"
