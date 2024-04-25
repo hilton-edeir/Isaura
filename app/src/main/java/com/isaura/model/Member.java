@@ -5,10 +5,19 @@ public class Member {
     private String email;
     private int code;
 
+    private String url_image;
+
     public Member(String name, String email, int code){
         this.name = name;
         this.email = email;
         this.code = code;
+    }
+
+    public Member(String name, String email, int code, String url_image) {
+        this.name = name;
+        this.email = email;
+        this.code = code;
+        this.url_image = url_image;
     }
 
     public String getName() {
@@ -33,5 +42,13 @@ public class Member {
 
     public void setCode(int code) {
         this.code = code;
+    }
+
+    public String getUrl_image() {
+        return url_image;
+    }
+
+    public void setUrl_image(String url_image) {
+        this.url_image = url_image;
     }
 }
