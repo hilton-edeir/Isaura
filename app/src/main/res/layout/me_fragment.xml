@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lilita_one"
                 android:text="Edeir Sanches"
-                android:textSize="25sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -53,7 +53,7 @@
             android:id="@+id/btn_update_profile"
             android:clickable="true"
             android:focusable="true"
-            android:layout_width="95dp"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginEnd="20dp">
 
@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/space_mono_bold"
                     android:text="Editar"
-                    android:textSize="14sp"/>
+                    android:textSize="15sp"/>
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
@@ -83,7 +83,7 @@
             android:id="@+id/btn_sign_out"
             android:clickable="true"
             android:focusable="true"
-            android:layout_width="95dp"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginEnd="8dp">
 
@@ -104,7 +104,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/space_mono_bold"
                     android:text="Sair"
-                    android:textSize="14sp"/>
+                    android:textSize="15sp"/>
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
@@ -142,7 +142,8 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/btn_notification1"
+                    android:id="@+id/card_notification1"
+                    app:cardBackgroundColor="@color/pastel_purple"
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
                     android:layout_marginBottom="10dp">
@@ -232,7 +233,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Feito"
+                                        android:text="Fazer"
                                         android:textSize="18sp"
                                         android:fontFamily="@font/lilita_one"
                                         android:textColor="@color/md_theme_primary"/>
@@ -248,7 +249,8 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/btn_notification2"
+                    android:id="@+id/card_notification2"
+                    app:cardBackgroundColor="@color/pastel_yellow"
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
                     android:layout_marginBottom="10dp">
@@ -338,7 +340,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Feito"
+                                        android:text="Fazer"
                                         android:textSize="18sp"
                                         android:fontFamily="@font/lilita_one"
                                         android:textColor="@color/md_theme_primary"/>
@@ -354,7 +356,8 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/btn_notification3"
+                    android:id="@+id/card_notification3"
+                    app:cardBackgroundColor="@color/pastel_red"
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
                     android:layout_marginBottom="10dp">
@@ -444,7 +447,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Feito"
+                                        android:text="Fazer"
                                         android:textSize="18sp"
                                         android:fontFamily="@font/lilita_one"
                                         android:textColor="@color/md_theme_primary"/>
@@ -460,7 +463,8 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/btn_notification4"
+                    android:id="@+id/card_notification4"
+                    app:cardBackgroundColor="@color/pastel_blue"
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
                     android:layout_marginBottom="10dp">
@@ -550,7 +554,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Feito"
+                                        android:text="Fazer"
                                         android:textSize="18sp"
                                         android:fontFamily="@font/lilita_one"
                                         android:textColor="@color/md_theme_primary"/>

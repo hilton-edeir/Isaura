@@ -110,7 +110,8 @@
             android:orientation="vertical">
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btn_notification1"
+                android:id="@+id/card_task_kitchen"
+                app:cardBackgroundColor="@color/pastel_blue"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginBottom="10dp">
@@ -168,7 +169,8 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btn_notification2"
+                android:id="@+id/card_task_living_room"
+                app:cardBackgroundColor="@color/pastel_yellow"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginBottom="10dp">
@@ -226,7 +228,8 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btn_notification3"
+                android:id="@+id/card_task_bathroom"
+                app:cardBackgroundColor="@color/pastel_red"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginBottom="10dp">
@@ -285,7 +288,8 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btn_notification4"
+                android:id="@+id/card_task_trash"
+                app:cardBackgroundColor="@color/pastel_green"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginBottom="10dp">
@@ -343,7 +347,8 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btn_notification5"
+                android:id="@+id/card_task_free"
+                app:cardBackgroundColor="@color/pastel_purple"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginBottom="10dp">

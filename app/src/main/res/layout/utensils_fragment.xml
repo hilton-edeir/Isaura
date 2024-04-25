@@ -57,7 +57,8 @@
                 android:layout_height="110dp"
                 android:layout_marginBottom="10dp"
                 android:clickable="true"
-                android:focusable="true">
+                android:focusable="true"
+                android:checkable="true">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -161,7 +162,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="esgotou"
+                                        android:text="pedir"
                                         android:textSize="18sp"
                                         android:fontFamily="@font/lilita_one"
                                         android:textColor="@color/md_theme_primary"/>
@@ -225,8 +226,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:gravity="end
-">
+                            android:gravity="end">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -288,7 +288,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="esgotou"
+                                        android:text="pedir"
                                         android:textSize="18sp"
                                         android:fontFamily="@font/lilita_one"
                                         android:textColor="@color/md_theme_primary"/>
@@ -415,7 +415,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="esgotou"
+                                        android:text="pedir"
                                         android:textSize="18sp"
                                         android:fontFamily="@font/lilita_one"
                                         android:textColor="@color/md_theme_primary"/>
@@ -542,7 +542,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="esgotou"
+                                        android:text="pedir"
                                         android:textSize="18sp"
                                         android:fontFamily="@font/lilita_one"
                                         android:textColor="@color/md_theme_primary"/>
@@ -669,7 +669,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="esgotou"
+                                        android:text="pedir"
                                         android:textSize="18sp"
                                         android:fontFamily="@font/lilita_one"
                                         android:textColor="@color/md_theme_primary"/>
@@ -796,7 +796,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="esgotou"
+                                        android:text="pedir"
                                         android:textSize="18sp"
                                         android:fontFamily="@font/lilita_one"
                                         android:textColor="@color/md_theme_primary"/>
@@ -924,7 +924,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/lilita_one"
-                                        android:text="esgotou"
+                                        android:text="pedir"
                                         android:textColor="@color/md_theme_primary"
                                         android:textSize="18sp" />
 
@@ -1051,7 +1051,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/lilita_one"
-                                        android:text="esgotou"
+                                        android:text="pedir"
                                         android:textColor="@color/md_theme_primary"
                                         android:textSize="18sp" />
 
@@ -1178,7 +1178,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/lilita_one"
-                                        android:text="esgotou"
+                                        android:text="pedir"
                                         android:textColor="@color/md_theme_primary"
                                         android:textSize="18sp" />
 
@@ -1305,7 +1305,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/lilita_one"
-                                        android:text="esgotou"
+                                        android:text="pedir"
                                         android:textColor="@color/md_theme_primary"
                                         android:textSize="18sp" />
 
