@@ -1,4 +1,4 @@
-package com.isaura.models;
+package com.isaura.model;
 
 public class NotificationCleaning {
     private String id;

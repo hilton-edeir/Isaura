@@ -1,23 +1,23 @@
-package com.isaura.models;
+package com.isaura.model;
 
 public class Cleaning {
-    private int id;
+    private String id;
     private String date;
     private Place place;
     private Member member;
 
-    public Cleaning(int id, String date, Place place, Member member) {
+    public Cleaning(String id, String date, Place place, Member member) {
         this.id = id;
         this.date = date;
         this.place = place;
         this.member = member;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

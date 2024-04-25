@@ -1,12 +1,443 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".activity.Rasc">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btn_notification1"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="12dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="bottom">
+
+                            <ImageView
+                                android:id="@+id/img_activity1"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/ic_user_hilton"
+                                android:layout_marginEnd="8dp"/>
+
+                            <TextView
+                                android:id="@+id/txt_task_user_name1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/space_mono_bold"
+                                android:text="Hilton"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="5dp" />
+
+                            <TextView
+                                android:id="@+id/txt_task_description1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="colocou o"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="8dp" />
+
+                            <ImageView
+                                android:id="@+id/img_item_utelsils1"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/ic_bathroom_detergent" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="25dp"
+                            android:gravity="bottom">
+
+                            <ImageView
+                                android:id="@+id/img_notification_date1"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/icon_calendar"
+                                android:layout_marginEnd="5dp"/>
+
+                            <TextView
+                                android:id="@+id/txt_date_notification1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="-23/04/2024 23:56"
+                                android:textSize="15sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btn_notification2"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="12dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="bottom">
+
+                            <ImageView
+                                android:id="@+id/img_activity2"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/ic_user_marina"
+                                android:layout_marginEnd="8dp"/>
+
+                            <TextView
+                                android:id="@+id/txt_task_user_name2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/space_mono_bold"
+                                android:text="Marina"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="5dp" />
+
+                            <TextView
+                                android:id="@+id/txt_task_description2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="limpou a"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="8dp" />
+
+                            <ImageView
+                                android:id="@+id/img_item_utelsils2"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/ic_living_room" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="25dp"
+                            android:gravity="bottom">
+
+                            <ImageView
+                                android:id="@+id/img_notification_date2"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/icon_calendar"
+                                android:layout_marginEnd="5dp"/>
+
+                            <TextView
+                                android:id="@+id/txt_date_notification2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="-20/04/2024 14:09"
+                                android:textSize="15sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btn_notification3"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="12dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="bottom">
+
+                            <ImageView
+                                android:id="@+id/img_activity3"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/ic_user_rutenia"
+                                android:layout_marginEnd="8dp"/>
+
+                            <TextView
+                                android:id="@+id/txt_task_user_name3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/space_mono_bold"
+                                android:text="Ruténia"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="5dp" />
+
+                            <TextView
+                                android:id="@+id/txt_task_description3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="tirou o"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="8dp" />
+
+                            <ImageView
+                                android:id="@+id/img_item_utelsils3"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/ic_trash" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="25dp"
+                            android:gravity="bottom">
+
+                            <ImageView
+                                android:id="@+id/img_notification_date3"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/icon_calendar"
+                                android:layout_marginEnd="5dp"/>
+
+                            <TextView
+                                android:id="@+id/txt_date_notification3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="-20/04/2024 08:00"
+                                android:textSize="15sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btn_notification4"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="12dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="bottom">
+
+                            <ImageView
+                                android:id="@+id/img_activity4"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/ic_user_maria"
+                                android:layout_marginEnd="8dp"/>
+
+                            <TextView
+                                android:id="@+id/txt_task_user_name4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/space_mono_bold"
+                                android:text="Maria"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="5dp" />
+
+                            <TextView
+                                android:id="@+id/txt_task_description4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="limpou a"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="8dp" />
+
+                            <ImageView
+                                android:id="@+id/img_item_utelsils4"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/ic_bathroom" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="25dp"
+                            android:gravity="bottom">
+
+                            <ImageView
+                                android:id="@+id/img_notification_date4"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/icon_calendar"
+                                android:layout_marginEnd="5dp"/>
+
+                            <TextView
+                                android:id="@+id/txt_date_notification4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="-20/04/2024"
+                                android:textSize="15sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btn_notification5"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="12dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="bottom">
+
+                            <ImageView
+                                android:id="@+id/img_activity5"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/ic_user_carline"
+                                android:layout_marginEnd="8dp"/>
+
+                            <TextView
+                                android:id="@+id/txt_task_user_name5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/space_mono_bold"
+                                android:text="Carline"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="5dp" />
+
+                            <TextView
+                                android:id="@+id/txt_task_description5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="limpou a"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="8dp" />
+
+                            <ImageView
+                                android:id="@+id/img_item_utelsils5"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/ic_kitchen" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="25dp"
+                            android:gravity="bottom">
+
+                            <ImageView
+                                android:id="@+id/img_notification_date5"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/icon_calendar"
+                                android:layout_marginEnd="5dp"/>
+
+                            <TextView
+                                android:id="@+id/txt_date_notification5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif-monospace"
+                                android:text="-20/04/2024 13:06"
+                                android:textSize="15sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

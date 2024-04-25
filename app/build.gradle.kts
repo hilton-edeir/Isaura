@@ -33,6 +33,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.recyclerview.recyclerview)
+    implementation(libs.androidx.recyclerview.selection)
     implementation(libs.core.splashscreen)
     implementation(libs.cardview)
     implementation(libs.appcompat)
