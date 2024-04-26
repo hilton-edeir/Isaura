@@ -1,4 +1,4 @@
-package com.isaura.model.adapter;
+package com.isaura.activity.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

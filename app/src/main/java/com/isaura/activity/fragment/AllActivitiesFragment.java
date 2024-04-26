@@ -15,7 +15,7 @@ import com.isaura.model.AllActivities;
 import com.isaura.model.Cleaning;
 import com.isaura.model.Member;
 import com.isaura.model.Place;
-import com.isaura.model.adapter.AllActivitiesAdapter;
+import com.isaura.activity.adapter.AllActivitiesAdapter;
 
 import java.util.ArrayList;
 
