@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +41,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class MeFragment extends Fragment {
-    MaterialCardView btn_update_profile, btn_sign_out, card_notification1, card_notification2, card_notification3, card_notification4;
+    MaterialCardView btn_update_profile, btn_sign_out;
+    ProgressBar progressBar;
     TextView txt_profile_display_name;
     RecyclerView recyclerView;
     NotificationAdapter notificationAdapter;
@@ -60,6 +62,7 @@ public class MeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         notificationList.clear();
+        progressBar.setVisibility(View.VISIBLE);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -69,11 +72,12 @@ public class MeFragment extends Fragment {
                 }
                 notificationAdapter = new NotificationAdapter(getContext(), notificationList);
                 recyclerView.setAdapter(notificationAdapter);
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                System.out.println(error);
             }
         });
 
@@ -95,20 +99,7 @@ public class MeFragment extends Fragment {
         btn_update_profile = root.findViewById(R.id.btn_update_profile);
         btn_sign_out = root.findViewById(R.id.btn_sign_out);
         txt_profile_display_name = root.findViewById(R.id.txt_profile_display_name);
-
-
-        /*card_notification1 = root.findViewById(R.id.card_notification1);
-        card_notification2 = root.findViewById(R.id.card_notification2);
-        card_notification3 = root.findViewById(R.id.card_notification3);
-        card_notification4 = root.findViewById(R.id.card_notification4);
-
-        int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
-        if(nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
-            card_notification1.setCardBackgroundColor(0);
-            card_notification2.setCardBackgroundColor(0);
-            card_notification3.setCardBackgroundColor(0);
-            card_notification4.setCardBackgroundColor(0);
-        }*/
+        progressBar = root.findViewById(R.id.progress_bar_notification);
     }
 
 }

@@ -82,24 +82,21 @@ public class SignUp extends AppCompatActivity {
 
                 mAuth.createUserWithEmailAndPassword(email, code)
                         .addOnCompleteListener(this, task -> {
-                            progressBar.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
-
                                 UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                                         .setDisplayName(name)
                                         .build();
                                 mAuth.getCurrentUser().updateProfile(profileUpdates)
                                         .addOnCompleteListener(task1 -> {
                                             if (task1.isSuccessful()) {
-
                                                 Member member = new Member(name, email, code, "user.png");
-                                                databaseReference.child(email).setValue(member).addOnCompleteListener(task2 -> {
-
+                                                //String key = databaseReference.push().getKey();
+                                                databaseReference.child(mAuth.getCurrentUser().getUid()).setValue(member).addOnCompleteListener(task2 -> {
+                                                    progressBar.setVisibility(View.GONE);
+                                                    Toast.makeText(SignUp.this, "Conta criada com sucesso", Toast.LENGTH_LONG).show();
+                                                    startActivity(new Intent(SignUp.this, SignIn.class));
+                                                    finish();
                                                 });
-
-                                                Toast.makeText(SignUp.this, "Conta criada com sucesso", Toast.LENGTH_LONG).show();
-                                                startActivity(new Intent(SignUp.this, SignIn.class));
-                                                finish();
                                             }
                                         });
                             }

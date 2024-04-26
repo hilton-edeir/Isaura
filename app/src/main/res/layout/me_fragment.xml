@@ -118,12 +118,19 @@
         android:orientation="horizontal"
         android:gravity="center">
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lilita_one"
             android:text="Notificações"
             android:textSize="19sp" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:visibility="gone"/>
 
     </LinearLayout>
 
