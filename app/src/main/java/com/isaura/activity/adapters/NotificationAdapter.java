@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -38,10 +39,11 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     public void onBindViewHolder(@NonNull NotificationAdapter.MyViewHolder holder, int position) {
         Notification notification = notificationList.get(position);
         holder.txt_date.setText(notification.getDate());
-        //holder.txt_task_description.setText(notification.getDate());
         Glide.with(holder.img_task_type.getContext()).load(R.drawable.ic_utensils).placeholder(R.drawable.ic_utensils).error(R.drawable.ic_launcher_background).into(holder.img_task_type);
         Glide.with(holder.img_item_utensil.getContext()).load(R.drawable.ic_liquid_soap).placeholder(R.drawable.ic_liquid_soap).error(R.drawable.ic_launcher_background).into(holder.img_item_utensil);
         Glide.with(holder.img_type_notification.getContext()).load(R.drawable.ic_bell).placeholder(R.drawable.ic_bell).error(R.drawable.ic_launcher_background).into(holder.img_type_notification);
+
+        if (getItemCount()<=11) 
     }
 
     @Override
@@ -51,10 +53,12 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
 
+        CardView card_item;
         ImageView img_task_type, img_item_utensil, img_type_notification;
         TextView txt_task_description, txt_date;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            card_item = itemView.findViewById(R.id.card_item_notification);
             img_task_type = itemView.findViewById(R.id.img_type_task_notification);
             img_item_utensil = itemView.findViewById(R.id.img_item_utensil_notification);
             img_type_notification = itemView.findViewById(R.id.img_type_notification);
