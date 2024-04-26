@@ -1,24 +1,14 @@
 package com.isaura.model;
 
 public class Put_Utensil {
-    private String id;
     private String date;
     private Utensil utensil;
     private Member member;
 
-    public Put_Utensil(String id, String date, Utensil utensil, Member member) {
-        this.id = id;
+    public Put_Utensil( String date, Utensil utensil, Member member) {
         this.date = date;
         this.utensil = utensil;
         this.member = member;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getDate() {

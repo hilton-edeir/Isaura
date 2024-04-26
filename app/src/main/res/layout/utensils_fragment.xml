@@ -52,13 +52,9 @@
             android:orientation="vertical">
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btn_napkin"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
-                android:layout_marginBottom="10dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:checkable="true">
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -147,7 +143,7 @@
                             android:gravity="end">
 
                             <com.google.android.material.card.MaterialCardView
-                                android:id="@+id/btn_napkin_out"
+                                android:id="@+id/btn_request_napkin"
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:layout_width="80dp"
@@ -180,12 +176,9 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btn_matches"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
-                android:layout_marginBottom="10dp"
-                android:clickable="true"
-                android:focusable="true">
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -273,7 +266,7 @@
                             android:gravity="end">
 
                             <com.google.android.material.card.MaterialCardView
-                                android:id="@+id/btn_matches_out"
+                                android:id="@+id/btn_request_matches"
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:layout_width="80dp"
@@ -306,12 +299,9 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btn_dish_soap"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
-                android:layout_marginBottom="10dp"
-                android:clickable="true"
-                android:focusable="true">
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -400,7 +390,7 @@
                             android:gravity="end">
 
                             <com.google.android.material.card.MaterialCardView
-                                android:id="@+id/btn_dish_soap_out"
+                                android:id="@+id/btn_request_dish_soap"
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:layout_width="80dp"
@@ -433,12 +423,9 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btn_sponge"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
-                android:layout_marginBottom="10dp"
-                android:clickable="true"
-                android:focusable="true">
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -527,7 +514,7 @@
                             android:gravity="end">
 
                             <com.google.android.material.card.MaterialCardView
-                                android:id="@+id/btn_sponje_out"
+                                android:id="@+id/btn_request_sponge"
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:layout_width="80dp"
@@ -560,12 +547,9 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btn_scrub"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
-                android:layout_marginBottom="10dp"
-                android:clickable="true"
-                android:focusable="true">
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -654,7 +638,7 @@
                             android:gravity="end">
 
                             <com.google.android.material.card.MaterialCardView
-                                android:id="@+id/btn_scrub_out"
+                                android:id="@+id/btn_request_scrub"
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:layout_width="80dp"
@@ -687,12 +671,9 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btn_salt"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
-                android:layout_marginBottom="10dp"
-                android:clickable="true"
-                android:focusable="true">
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -754,7 +735,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Ruténia"
+                                    android:text="Maria"
                                     android:fontFamily="@font/space_mono_bold"
                                     android:textSize="14sp"/>
 
@@ -769,7 +750,7 @@
                                 <ImageView
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"
-                                    android:src="@drawable/ic_user_rutenia" />
+                                    android:src="@drawable/ic_user_maria" />
                             </LinearLayout>
                         </LinearLayout>
 
@@ -781,7 +762,7 @@
                             android:gravity="end">
 
                             <com.google.android.material.card.MaterialCardView
-                                android:id="@+id/btn_salt_out"
+                                android:id="@+id/btn_request_salt"
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:layout_width="80dp"
@@ -814,12 +795,9 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btn_trash_bag"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
-                android:layout_marginBottom="10dp"
-                android:clickable="true"
-                android:focusable="true">
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -908,7 +886,7 @@
                             android:gravity="end">
 
                             <com.google.android.material.card.MaterialCardView
-                                android:id="@+id/btn_trash_bag_out"
+                                android:id="@+id/btn_request_trashbag"
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:layout_width="80dp"
@@ -941,12 +919,9 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btn_aluminium_foil"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
-                android:layout_marginBottom="10dp"
-                android:clickable="true"
-                android:focusable="true">
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -968,7 +943,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/space_mono_bold"
-                            android:text="R. lumínio"
+                            android:text="Alumínio"
                             android:textSize="15sp"
                             android:textStyle="bold" />
 
@@ -1035,7 +1010,7 @@
                             android:gravity="end">
 
                             <com.google.android.material.card.MaterialCardView
-                                android:id="@+id/btn_aluminiun_foil_out"
+                                android:id="@+id/btn_request_aluminiun_foil"
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:layout_width="80dp"
@@ -1068,12 +1043,9 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btn_plastic_foil"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
-                android:layout_marginBottom="10dp"
-                android:clickable="true"
-                android:focusable="true">
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1095,7 +1067,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/space_mono_bold"
-                            android:text="R. plastíco"
+                            android:text="Aderente"
                             android:textSize="15sp"
                             android:textStyle="bold" />
 
@@ -1162,7 +1134,7 @@
                             android:gravity="end">
 
                             <com.google.android.material.card.MaterialCardView
-                                android:id="@+id/btn_plastic_foil_out"
+                                android:id="@+id/btn_request_plastic_foil"
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:layout_width="80dp"
@@ -1195,12 +1167,9 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btn_bathroom_detergent"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
-                android:layout_marginBottom="10dp"
-                android:clickable="true"
-                android:focusable="true">
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1289,7 +1258,131 @@
                             android:gravity="end">
 
                             <com.google.android.material.card.MaterialCardView
-                                android:id="@+id/btn_bathroom_detergent_out"
+                                android:id="@+id/btn_request_bathroom_detergent"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:layout_width="80dp"
+                                android:layout_height="35dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/lilita_one"
+                                        android:text="pedir"
+                                        android:textColor="@color/md_theme_primary"
+                                        android:textSize="18sp" />
+
+                                </LinearLayout>
+
+                            </com.google.android.material.card.MaterialCardView>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:src="@drawable/ic_liquid_soap" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/space_mono_bold"
+                            android:text="Sabão Liq."
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="10dp"
+                        android:gravity="bottom"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="end
+">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:gravity="bottom"
+                                android:layout_marginEnd="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="próxima é o"
+                                    android:fontFamily="serif-monospace"
+                                    android:textSize="15sp"
+                                    android:layout_marginEnd="8dp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Hilton"
+                                    android:fontFamily="@font/space_mono_bold"
+                                    android:textSize="14sp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:gravity="bottom">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:src="@drawable/ic_user_hilton" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingTop="15dp"
+                            android:gravity="end">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/btn_request_liquid_soap"
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:layout_width="80dp"

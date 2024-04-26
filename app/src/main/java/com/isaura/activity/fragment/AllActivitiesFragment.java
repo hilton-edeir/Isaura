@@ -36,13 +36,12 @@ public class AllActivitiesFragment extends Fragment {
         allActivitiesAdapter = new AllActivitiesAdapter(getContext(), allActivitiesArrayList);
         recyclerview_all_activities.setAdapter(allActivitiesAdapter);
 
-
         return view;
     }
 
 
     private void createListData() {
-        Member member = new Member("Júlia", "julia@gmail.com", 123456);
+        Member member = new Member("Júlia", "julia@gmail.com", 123456, "fjhffohifrhoi");
         Place place = new Place("1", "Quarto");
         Cleaning cleaning = new Cleaning("1", "25/04/2024", place, member);
         AllActivities allActivities = new AllActivities("1", cleaning);

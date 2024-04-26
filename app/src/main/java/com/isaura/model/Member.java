@@ -4,14 +4,9 @@ public class Member {
     private String name;
     private String email;
     private int code;
-
     private String url_image;
 
-    public Member(String name, String email, int code){
-        this.name = name;
-        this.email = email;
-        this.code = code;
-    }
+    public Member(){}
 
     public Member(String name, String email, int code, String url_image) {
         this.name = name;

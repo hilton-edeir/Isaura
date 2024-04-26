@@ -20,35 +20,13 @@ import com.isaura.activity.SignIn;
 import java.util.Objects;
 
 public class MeFragment extends Fragment {
-
-    FirebaseAuth mAuth;
     MaterialCardView btn_update_profile, btn_sign_out, card_notification1, card_notification2, card_notification3, card_notification4;
     TextView txt_profile_display_name;
+    FirebaseAuth firebaseAuth;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        mAuth = FirebaseAuth.getInstance();
         View root = inflater.inflate(R.layout.me_fragment, container, false);
-
-        btn_update_profile = root.findViewById(R.id.btn_update_profile);
-        btn_sign_out = root.findViewById(R.id.btn_sign_out);
-        txt_profile_display_name = root.findViewById(R.id.txt_profile_display_name);
-        card_notification1 = root.findViewById(R.id.card_notification1);
-        card_notification2 = root.findViewById(R.id.card_notification2);
-        card_notification3 = root.findViewById(R.id.card_notification3);
-        card_notification4 = root.findViewById(R.id.card_notification4);
-
-        txt_profile_display_name.setText(Objects.requireNonNull(mAuth.getCurrentUser()).getDisplayName());
-
-        btn_update_profile.setOnClickListener(v -> Toast.makeText(root.getContext(),"Brevemente" , Toast.LENGTH_SHORT).show());
-
-        btn_sign_out.setOnClickListener(v -> {
-            if(mAuth != null) {
-                mAuth.signOut();
-                startActivity(new Intent(root.getContext(), SignIn.class));
-                requireActivity().finish();
-            }
-        });
+        inicializeComponents(root);
 
         int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
         if(nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
@@ -58,7 +36,30 @@ public class MeFragment extends Fragment {
             card_notification4.setCardBackgroundColor(0);
         }
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        txt_profile_display_name.setText(Objects.requireNonNull(firebaseAuth.getCurrentUser()).getDisplayName());
+
+        btn_update_profile.setOnClickListener(v -> Toast.makeText(root.getContext(),"Brevemente" , Toast.LENGTH_SHORT).show());
+
+        btn_sign_out.setOnClickListener(v -> {
+            if(firebaseAuth != null) {
+                firebaseAuth.signOut();
+                startActivity(new Intent(root.getContext(), SignIn.class));
+                requireActivity().finish();
+            }
+        });
+
         return root;
+    }
+
+    public void inicializeComponents(View root) {
+        btn_update_profile = root.findViewById(R.id.btn_update_profile);
+        btn_sign_out = root.findViewById(R.id.btn_sign_out);
+        txt_profile_display_name = root.findViewById(R.id.txt_profile_display_name);
+        card_notification1 = root.findViewById(R.id.card_notification1);
+        card_notification2 = root.findViewById(R.id.card_notification2);
+        card_notification3 = root.findViewById(R.id.card_notification3);
+        card_notification4 = root.findViewById(R.id.card_notification4);
     }
 
 }

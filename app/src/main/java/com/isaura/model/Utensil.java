@@ -1,22 +1,16 @@
 package com.isaura.model;
 
 public class Utensil {
-    private String id;
     private String name;
     private String url_image;
+    private boolean stock;
 
-    public Utensil(String id, String name, String url_image) {
-        this.id = id;
+    public Utensil() {}
+
+    public Utensil(String name, String url_image, boolean stock) {
         this.name = name;
         this.url_image = url_image;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+        this.stock = stock;
     }
 
     public String getName() {
@@ -33,5 +27,13 @@ public class Utensil {
 
     public void setUrl_image(String url_image) {
         this.url_image = url_image;
+    }
+
+    public boolean isStock() {
+        return stock;
+    }
+
+    public void setStock(boolean stock) {
+        this.stock = stock;
     }
 }
