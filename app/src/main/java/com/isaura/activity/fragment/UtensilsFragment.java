@@ -39,7 +39,7 @@ public class UtensilsFragment extends Fragment {
             simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
-            Member member = new Member("Ruténia", "marina@gmail.com", 123456, "uidchsdchehefh");
+            Member member = new Member("Ruténia", "marina@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("guardanapos", "https//:firebase-guadanapos.jpg", true);
             Notification notification = new Notification(date_now, false, 1, member, utensil);
 
@@ -64,7 +64,7 @@ public class UtensilsFragment extends Fragment {
             simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
-            Member member = new Member("Carline", "carline@gmail.com", 123456, "uidchsdchehefh");
+            Member member = new Member("Carline", "carline@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("fosforos", "https//:firebase-fosforos.jpg", true);
             Notification notification = new Notification(date_now, false, 1, member, utensil);
 
@@ -88,7 +88,7 @@ public class UtensilsFragment extends Fragment {
             simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
-            Member member = new Member("Hilton", "hilton@gmail.com", 123456, "uidchsdchehefh");
+            Member member = new Member("Hilton", "hilton@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("detergente-loica", "https//:firebase-fosforos.jpg", true);
             Notification notification = new Notification(date_now, false, 1, member, utensil);
 
@@ -113,7 +113,7 @@ public class UtensilsFragment extends Fragment {
             simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
-            Member member = new Member("Marina", "marina@gmail.com", 123456, "uidchsdchehefh");
+            Member member = new Member("Marina", "marina@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("esponja", "https//:firebase-fosforos.jpg", true);
             Notification notification = new Notification(date_now, false, 1, member, utensil);
 
@@ -137,7 +137,7 @@ public class UtensilsFragment extends Fragment {
             simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
-            Member member = new Member("Marina", "marina@gmail.com", 123456, "uidchsdchehefh");
+            Member member = new Member("Marina", "marina@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("fergao", "https//:firebase-fosforos.jpg", true);
             Notification notification = new Notification(date_now, false, 1, member, utensil);
 
@@ -161,7 +161,7 @@ public class UtensilsFragment extends Fragment {
             simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
-            Member member = new Member("Maria", "maria@gmail.com", 123456, "uidchsdchehefh");
+            Member member = new Member("Maria", "maria@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("sal", "https//:firebase-fosforos.jpg", true);
             Notification notification = new Notification(date_now, false, 1, member, utensil);
 
@@ -185,7 +185,7 @@ public class UtensilsFragment extends Fragment {
             simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
-            Member member = new Member("Hilton", "hilton@gmail.com", 123456, "uidchsdchehefh");
+            Member member = new Member("Hilton", "hilton@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("saco-lixo", "https//:firebase-fosforos.jpg", true);
             Notification notification = new Notification(date_now, false, 1, member, utensil);
 
@@ -210,7 +210,7 @@ public class UtensilsFragment extends Fragment {
             simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
-            Member member = new Member("Hilton", "hilton@gmail.com", 123456, "uidchsdchehefh");
+            Member member = new Member("Hilton", "hilton@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("rolo-aluminio", "https//:firebase-fosforos.jpg", true);
             Notification notification = new Notification(date_now, false, 1, member, utensil);
 
@@ -234,7 +234,7 @@ public class UtensilsFragment extends Fragment {
             simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
-            Member member = new Member("Hilton", "hilton@gmail.com", 123456, "uidchsdchehefh");
+            Member member = new Member("Hilton", "hilton@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("plastico-aderente", "https//:firebase-fosforos.jpg", true);
             Notification notification = new Notification(date_now, false, 1, member, utensil);
 
@@ -258,7 +258,7 @@ public class UtensilsFragment extends Fragment {
             simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
-            Member member = new Member("Marina", "marina@gmail.com", 123456, "uidchsdchehefh");
+            Member member = new Member("Marina", "marina@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("detergente-limpeza", "https//:firebase-fosforos.jpg", true);
             Notification notification = new Notification(date_now, false, 1, member, utensil);
 
@@ -282,7 +282,7 @@ public class UtensilsFragment extends Fragment {
             simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
-            Member member = new Member("Marina", "marina@gmail.com", 123456, "uidchsdchehefh");
+            Member member = new Member("Marina", "marina@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("sabao-liquido", "https//:firebase-fosforos.jpg", true);
             Notification notification = new Notification(date_now, false, 1, member, utensil);
 

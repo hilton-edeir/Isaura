@@ -17,7 +17,10 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.isaura.R;
+import com.isaura.model.Member;
 
 import java.util.Objects;
 
@@ -28,6 +31,8 @@ public class SignUp extends AppCompatActivity {
     ProgressBar progressBar;
     Button btn_sign_up;
     FirebaseAuth mAuth;
+    FirebaseDatabase database;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,8 @@ public class SignUp extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
 
         mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("users");
 
         lyt_name = findViewById(R.id.lyt_name);
         lyt_email = findViewById(R.id.lyt_email);
@@ -82,14 +89,17 @@ public class SignUp extends AppCompatActivity {
                                         .setDisplayName(name)
                                         .build();
                                 mAuth.getCurrentUser().updateProfile(profileUpdates)
-                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if (task.isSuccessful()) {
-                                                    Toast.makeText(SignUp.this, "Conta criada com sucesso", Toast.LENGTH_LONG).show();
-                                                    startActivity(new Intent(SignUp.this, SignIn.class));
-                                                    finish();
-                                                }
+                                        .addOnCompleteListener(task1 -> {
+                                            if (task1.isSuccessful()) {
+
+                                                Member member = new Member(name, email, code, "user.png");
+                                                databaseReference.child(email).setValue(member).addOnCompleteListener(task2 -> {
+
+                                                });
+
+                                                Toast.makeText(SignUp.this, "Conta criada com sucesso", Toast.LENGTH_LONG).show();
+                                                startActivity(new Intent(SignUp.this, SignIn.class));
+                                                finish();
                                             }
                                         });
                             }

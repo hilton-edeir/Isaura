@@ -3,12 +3,12 @@ package com.isaura.model;
 public class Member {
     private String name;
     private String email;
-    private int code;
+    private String code;
     private String url_image;
 
     public Member(){}
 
-    public Member(String name, String email, int code, String url_image) {
+    public Member(String name, String email, String code, String url_image) {
         this.name = name;
         this.email = email;
         this.code = code;
@@ -31,11 +31,11 @@ public class Member {
         this.email = email;
     }
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

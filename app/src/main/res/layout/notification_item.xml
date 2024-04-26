@@ -6,6 +6,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_item_notification"
+        app:cardBackgroundColor="@color/pastel_purple"
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_marginBottom="10dp">

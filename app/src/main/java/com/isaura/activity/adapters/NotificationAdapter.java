@@ -1,11 +1,14 @@
 package com.isaura.activity.adapters;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -42,8 +45,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         Glide.with(holder.img_task_type.getContext()).load(R.drawable.ic_utensils).placeholder(R.drawable.ic_utensils).error(R.drawable.ic_launcher_background).into(holder.img_task_type);
         Glide.with(holder.img_item_utensil.getContext()).load(R.drawable.ic_liquid_soap).placeholder(R.drawable.ic_liquid_soap).error(R.drawable.ic_launcher_background).into(holder.img_item_utensil);
         Glide.with(holder.img_type_notification.getContext()).load(R.drawable.ic_bell).placeholder(R.drawable.ic_bell).error(R.drawable.ic_launcher_background).into(holder.img_type_notification);
-
-        if (getItemCount()<=11) 
+        holder.card_item.setCardBackgroundColor(context.getResources().getColor(R.color.pastel_purple));
     }
 
     @Override
@@ -67,43 +69,5 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         }
     }
 
-
-    /*
-    public NotificationAdapter(@NonNull FirebaseRecyclerOptions<Notification> options) {
-        super(options);
-    }
-
-    @Override
-    protected void onBindViewHolder(@NonNull myViewHolder holder, int i, @NonNull Notification notification) {
-        holder.txt_date.setText(notification.getDate());
-        holder.txt_task_description.setText(notification.getType());
-        Glide.with(holder.img_task_type.getContext()).load(notification.getDate()).placeholder(R.drawable.ic_utensils).error(R.drawable.ic_launcher_background).into(holder.img_task_type);
-        Glide.with(holder.img_item_utensil.getContext()).load(notification.getDate()).placeholder(R.drawable.ic_liquid_soap).error(R.drawable.ic_launcher_background).into(holder.img_item_utensil);
-        Glide.with(holder.img_type_notification.getContext()).load(notification.getDate()).placeholder(R.drawable.ic_bell).error(R.drawable.ic_launcher_background).into(holder.img_type_notification);
-    }
-
-    @NonNull
-    @Override
-    public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.notification_item, parent, false);
-        return new myViewHolder(view);
-    }
-
-    class myViewHolder extends RecyclerView.ViewHolder {
-
-        ImageView img_task_type, img_item_utensil, img_type_notification;
-        TextView txt_task_description, txt_date;
-
-        public myViewHolder(@NonNull View itemView) {
-            super(itemView);
-            img_task_type = itemView.findViewById(R.id.img_type_task_notification);
-            img_item_utensil = itemView.findViewById(R.id.img_item_utensil_notification);
-            img_type_notification = itemView.findViewById(R.id.img_type_notification);
-            txt_task_description = itemView.findViewById(R.id.txt_task_description);
-            txt_date = itemView.findViewById(R.id.txt_date_notification);
-        }
-    }
-
-     */
 }
 
