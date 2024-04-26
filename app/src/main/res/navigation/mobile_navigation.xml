@@ -19,9 +19,9 @@
 
     <fragment
         android:id="@+id/navigation_cleaning"
-        android:name="com.isaura.activity.fragment.CleaningScheduleFragment"
+        android:name="com.isaura.activity.fragment.CleaningFragment"
         android:label="@string/title_cleaning"
-        tools:layout="@layout/cleaning_schecule_fragment" />
+        tools:layout="@layout/cleaning_fragment" />
 
     <fragment
         android:id="@+id/navigation_utensil"

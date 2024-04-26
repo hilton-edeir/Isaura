@@ -3,9 +3,9 @@ package com.isaura.model;
 public class AllActivities {
     private String id;
     private Cleaning cleaning;
-    private Put_Utensil putUtensil;
+    private RequestUtensil putUtensil;
 
-    public AllActivities(String id, Cleaning cleaning, Put_Utensil putUtensil) {
+    public AllActivities(String id, Cleaning cleaning, RequestUtensil putUtensil) {
         this.id = id;
         this.cleaning = cleaning;
         this.putUtensil = putUtensil;
@@ -32,11 +32,11 @@ public class AllActivities {
         this.cleaning = cleaning;
     }
 
-    public Put_Utensil getPutUtensil() {
+    public RequestUtensil getPutUtensil() {
         return putUtensil;
     }
 
-    public void setPutUtensil(Put_Utensil putUtensil) {
+    public void setPutUtensil(RequestUtensil putUtensil) {
         this.putUtensil = putUtensil;
     }
 }

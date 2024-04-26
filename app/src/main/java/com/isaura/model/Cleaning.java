@@ -6,6 +6,8 @@ public class Cleaning {
     private Place place;
     private Member member;
 
+    public Cleaning() {};
+
     public Cleaning(String id, String date, Place place, Member member) {
         this.id = id;
         this.date = date;

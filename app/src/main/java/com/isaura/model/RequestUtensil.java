@@ -1,11 +1,13 @@
 package com.isaura.model;
 
-public class Put_Utensil {
+public class RequestUtensil {
     private String date;
     private Utensil utensil;
     private Member member;
 
-    public Put_Utensil( String date, Utensil utensil, Member member) {
+    public RequestUtensil(){}
+
+    public RequestUtensil(String date, Utensil utensil, Member member) {
         this.date = date;
         this.utensil = utensil;
         this.member = member;

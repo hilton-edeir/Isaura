@@ -14,6 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.isaura.R;
 import com.isaura.model.Member;
 import com.isaura.model.Notification;
+import com.isaura.model.RequestUtensil;
 import com.isaura.model.Utensil;
 
 import java.text.SimpleDateFormat;
@@ -25,7 +26,7 @@ public class UtensilsFragment extends Fragment {
             card_napkin, card_matches, card_dish_soap, card_sponge, card_scrub, card_salt, card_trashbag,
             card_aluminium_foil, card_plastic_foil, card_bath_detergent, card_liquid_soap;
     FirebaseDatabase database;
-    DatabaseReference databaseReference;
+    DatabaseReference reference_notification;
     Calendar calendar;
     SimpleDateFormat simpleDateFormat;
 
@@ -34,25 +35,26 @@ public class UtensilsFragment extends Fragment {
         View root = inflater.inflate(R.layout.utensils_fragment, container, false);
         inicializeComponents(root);
 
+        database = FirebaseDatabase.getInstance();
+        reference_notification = database.getReference("notification");
+
         btn_napkin.setOnClickListener(v -> {
             calendar = Calendar.getInstance();
-            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
             Member member = new Member("Ruténia", "marina@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("guardanapos", "https//:firebase-guadanapos.jpg", true);
-            Notification notification = new Notification(date_now, false, 1, member, utensil);
+            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
+            Notification notification = new Notification(date_now, false, requestUtensil);
 
-            database = FirebaseDatabase.getInstance();
-            databaseReference = database.getReference("notification");
-
-            databaseReference.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        databaseReference.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                        reference_notification.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
                     }
                 }
             });
@@ -61,23 +63,21 @@ public class UtensilsFragment extends Fragment {
 
         btn_matches.setOnClickListener(v -> {
             calendar = Calendar.getInstance();
-            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
             Member member = new Member("Carline", "carline@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("fosforos", "https//:firebase-fosforos.jpg", true);
-            Notification notification = new Notification(date_now, false, 1, member, utensil);
+            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
+            Notification notification = new Notification(date_now, false, requestUtensil);
 
-            database = FirebaseDatabase.getInstance();
-            databaseReference = database.getReference("notification");
-
-            databaseReference.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        databaseReference.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                        reference_notification.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
                     }
                 }
             });
@@ -85,23 +85,21 @@ public class UtensilsFragment extends Fragment {
 
         btn_dish_soap.setOnClickListener(v -> {
             calendar = Calendar.getInstance();
-            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
             Member member = new Member("Hilton", "hilton@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("detergente-loica", "https//:firebase-fosforos.jpg", true);
-            Notification notification = new Notification(date_now, false, 1, member, utensil);
+            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
+            Notification notification = new Notification(date_now, false, requestUtensil);
 
-            database = FirebaseDatabase.getInstance();
-            databaseReference = database.getReference("notification");
-
-            databaseReference.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        databaseReference.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                        reference_notification.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
                     }
                 }
             });
@@ -110,23 +108,21 @@ public class UtensilsFragment extends Fragment {
 
         btn_sponge.setOnClickListener(v -> {
             calendar = Calendar.getInstance();
-            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
             Member member = new Member("Marina", "marina@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("esponja", "https//:firebase-fosforos.jpg", true);
-            Notification notification = new Notification(date_now, false, 1, member, utensil);
+            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
+            Notification notification = new Notification(date_now, false, requestUtensil);
 
-            database = FirebaseDatabase.getInstance();
-            databaseReference = database.getReference("notification");
-
-            databaseReference.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        databaseReference.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                        reference_notification.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
                     }
                 }
             });
@@ -134,23 +130,21 @@ public class UtensilsFragment extends Fragment {
 
         btn_scrub.setOnClickListener(v -> {
             calendar = Calendar.getInstance();
-            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
             Member member = new Member("Marina", "marina@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("fergao", "https//:firebase-fosforos.jpg", true);
-            Notification notification = new Notification(date_now, false, 1, member, utensil);
+            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
+            Notification notification = new Notification(date_now, false, requestUtensil);
 
-            database = FirebaseDatabase.getInstance();
-            databaseReference = database.getReference("notification");
-
-            databaseReference.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        databaseReference.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                        reference_notification.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
                     }
                 }
             });
@@ -158,23 +152,21 @@ public class UtensilsFragment extends Fragment {
 
         btn_salt.setOnClickListener(v -> {
             calendar = Calendar.getInstance();
-            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
             Member member = new Member("Maria", "maria@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("sal", "https//:firebase-fosforos.jpg", true);
-            Notification notification = new Notification(date_now, false, 1, member, utensil);
+            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
+            Notification notification = new Notification(date_now, false, requestUtensil);
 
-            database = FirebaseDatabase.getInstance();
-            databaseReference = database.getReference("notification");
-
-            databaseReference.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        databaseReference.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                        reference_notification.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
                     }
                 }
             });
@@ -182,23 +174,21 @@ public class UtensilsFragment extends Fragment {
 
         btn_trashbag.setOnClickListener(v -> {
             calendar = Calendar.getInstance();
-            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
             Member member = new Member("Hilton", "hilton@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("saco-lixo", "https//:firebase-fosforos.jpg", true);
-            Notification notification = new Notification(date_now, false, 1, member, utensil);
+            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
+            Notification notification = new Notification(date_now, false, requestUtensil);
 
-            database = FirebaseDatabase.getInstance();
-            databaseReference = database.getReference("notification");
-
-            databaseReference.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        databaseReference.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                        reference_notification.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
                     }
                 }
             });
@@ -207,23 +197,21 @@ public class UtensilsFragment extends Fragment {
 
         btn_aluminium_foil.setOnClickListener(v -> {
             calendar = Calendar.getInstance();
-            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
             Member member = new Member("Hilton", "hilton@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("rolo-aluminio", "https//:firebase-fosforos.jpg", true);
-            Notification notification = new Notification(date_now, false, 1, member, utensil);
+            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
+            Notification notification = new Notification(date_now, false, requestUtensil);
 
-            database = FirebaseDatabase.getInstance();
-            databaseReference = database.getReference("notification");
-
-            databaseReference.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        databaseReference.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                        reference_notification.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
                     }
                 }
             });
@@ -231,23 +219,21 @@ public class UtensilsFragment extends Fragment {
 
         btn_plastic_foil.setOnClickListener(v -> {
             calendar = Calendar.getInstance();
-            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
             Member member = new Member("Hilton", "hilton@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("plastico-aderente", "https//:firebase-fosforos.jpg", true);
-            Notification notification = new Notification(date_now, false, 1, member, utensil);
+            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
+            Notification notification = new Notification(date_now, false, requestUtensil);
 
-            database = FirebaseDatabase.getInstance();
-            databaseReference = database.getReference("notification");
-
-            databaseReference.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        databaseReference.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                        reference_notification.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
                     }
                 }
             });
@@ -255,23 +241,21 @@ public class UtensilsFragment extends Fragment {
 
         btn_bath_detergent.setOnClickListener(v -> {
             calendar = Calendar.getInstance();
-            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
             Member member = new Member("Marina", "marina@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("detergente-limpeza", "https//:firebase-fosforos.jpg", true);
-            Notification notification = new Notification(date_now, false, 1, member, utensil);
+            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
+            Notification notification = new Notification(date_now, false, requestUtensil);
 
-            database = FirebaseDatabase.getInstance();
-            databaseReference = database.getReference("notification");
-
-            databaseReference.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        databaseReference.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                        reference_notification.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
                     }
                 }
             });
@@ -279,23 +263,21 @@ public class UtensilsFragment extends Fragment {
 
         btn_liquid_soap.setOnClickListener(v -> {
             calendar = Calendar.getInstance();
-            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
             Member member = new Member("Marina", "marina@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("sabao-liquido", "https//:firebase-fosforos.jpg", true);
-            Notification notification = new Notification(date_now, false, 1, member, utensil);
+            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
+            Notification notification = new Notification(date_now, false, requestUtensil);
 
-            database = FirebaseDatabase.getInstance();
-            databaseReference = database.getReference("notification");
-
-            databaseReference.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        databaseReference.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                        reference_notification.child(utensil.getName()).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
                     }
                 }
             });
@@ -346,7 +328,7 @@ public class UtensilsFragment extends Fragment {
         }
     }
 
-     /*Fragment cleaningScheduleFragment = new CleaningScheduleFragment();
+     /*Fragment cleaningScheduleFragment = new CleaningFragment();
        FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
        fm.replace(R.id.nav_host_fragment_act_home, cleaningScheduleFragment).commit();
      */

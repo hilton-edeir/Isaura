@@ -3,18 +3,21 @@ package com.isaura.model;
 public class Notification {
     private String date;
     private boolean done;
-    private int type;
-    private Member member;
-    private Utensil utensil;
+    private RequestUtensil requestUtensil;
+    private Cleaning cleaning;
 
     public Notification(){}
 
-    public Notification(String date, boolean done, int type, Member member, Utensil utensil) {
+    public Notification(String date, boolean done, RequestUtensil requestUtensil) {
         this.date = date;
         this.done = done;
-        this.type = type;
-        this.member = member;
-        this.utensil = utensil;
+        this.requestUtensil = requestUtensil;
+    }
+
+    public Notification(String date, boolean done, Cleaning cleaning) {
+        this.date = date;
+        this.done = done;
+        this.cleaning = cleaning;
     }
 
     public String getDate() {
@@ -33,27 +36,19 @@ public class Notification {
         this.done = done;
     }
 
-    public int getType() {
-        return type;
+    public RequestUtensil getRequestUtensil() {
+        return requestUtensil;
     }
 
-    public void setType(int type) {
-        this.type = type;
+    public void setRequestUtensil(RequestUtensil requestUtensil) {
+        this.requestUtensil = requestUtensil;
     }
 
-    public Member getMember() {
-        return member;
+    public Cleaning getCleaning() {
+        return cleaning;
     }
 
-    public void setMember(Member member) {
-        this.member = member;
-    }
-
-    public Utensil getUtensil() {
-        return utensil;
-    }
-
-    public void setUtensil(Utensil utensil) {
-        this.utensil = utensil;
+    public void setCleaning(Cleaning cleaning) {
+        this.cleaning = cleaning;
     }
 }

@@ -90,7 +90,6 @@ public class SignUp extends AppCompatActivity {
                                         .addOnCompleteListener(task1 -> {
                                             if (task1.isSuccessful()) {
                                                 Member member = new Member(name, email, code, "user.png");
-                                                //String key = databaseReference.push().getKey();
                                                 databaseReference.child(mAuth.getCurrentUser().getUid()).setValue(member).addOnCompleteListener(task2 -> {
                                                     progressBar.setVisibility(View.GONE);
                                                     Toast.makeText(SignUp.this, "Conta criada com sucesso", Toast.LENGTH_LONG).show();
