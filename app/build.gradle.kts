@@ -33,6 +33,9 @@ android {
 }
 
 dependencies {
+    implementation(libs.glide)
+    implementation(libs.firebase.ui.database)
+    implementation(libs.firebase.ui.storage)
     implementation(libs.androidx.recyclerview.recyclerview)
     implementation(libs.androidx.recyclerview.selection)
     implementation(libs.core.splashscreen)

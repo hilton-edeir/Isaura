@@ -230,7 +230,7 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_task_bathroom"
-                app:cardBackgroundColor="@color/pastel_red"
+                app:cardBackgroundColor="@color/pastel_pink"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginBottom="10dp">

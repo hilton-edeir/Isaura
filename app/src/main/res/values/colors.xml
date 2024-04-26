@@ -4,10 +4,9 @@
     <color name="md_theme_onPrimary">#FFFFFF</color>
     <color name="md_theme_error">#BA1A1A</color>
 
-    <color name="pastel_purple">#f3f1ff</color>
-    <color name="pastel_red">#ffe9ed</color>
-    <color name="pastel_yellow">#fff9e6</color>
-    <color name="pastel_green">#f9fff4</color>
     <color name="pastel_blue">#eff8ff</color>
-
+    <color name="pastel_yellow">#fff9e6</color>
+    <color name="pastel_purple">#f3f1ff</color>
+    <color name="pastel_pink">#fbe8f3</color>
+    <color name="pastel_green">#f9fff4</color>
 </resources>

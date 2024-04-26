@@ -52,6 +52,8 @@
             android:orientation="vertical">
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_napkin"
+                app:cardBackgroundColor="@color/pastel_blue"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
                 android:layout_marginBottom="10dp">
@@ -176,6 +178,8 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_matches"
+                app:cardBackgroundColor="@color/pastel_yellow"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
                 android:layout_marginBottom="10dp">
@@ -299,6 +303,8 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_dish_soap"
+                app:cardBackgroundColor="@color/pastel_purple"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
                 android:layout_marginBottom="10dp">
@@ -423,6 +429,8 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_sponge"
+                app:cardBackgroundColor="@color/pastel_pink"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
                 android:layout_marginBottom="10dp">
@@ -547,6 +555,8 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_scrub"
+                app:cardBackgroundColor="@color/pastel_green"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
                 android:layout_marginBottom="10dp">
@@ -671,6 +681,8 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_salt"
+                app:cardBackgroundColor="@color/pastel_blue"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
                 android:layout_marginBottom="10dp">
@@ -795,6 +807,8 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_trashbag"
+                app:cardBackgroundColor="@color/pastel_yellow"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
                 android:layout_marginBottom="10dp">
@@ -919,6 +933,8 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_aluminium_foil"
+                app:cardBackgroundColor="@color/pastel_purple"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
                 android:layout_marginBottom="10dp">
@@ -1043,6 +1059,8 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_plastic_foil"
+                app:cardBackgroundColor="@color/pastel_pink"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
                 android:layout_marginBottom="10dp">
@@ -1167,6 +1185,8 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_bath_detergent"
+                app:cardBackgroundColor="@color/pastel_green"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
                 android:layout_marginBottom="10dp">
@@ -1291,6 +1311,8 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_liquid_soap"
+                app:cardBackgroundColor="@color/pastel_blue"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
                 android:layout_marginBottom="10dp">
