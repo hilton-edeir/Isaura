@@ -69,6 +69,7 @@ public class AllActivitiesFragment extends Fragment {
                     allActivitiesAdapter = new AllActivitiesAdapter(getContext(), allActivitiesList);
                     progress_bar_all_activities.setVisibility(View.GONE);
                     recyclerview_all_activities.setAdapter(allActivitiesAdapter);
+                    allActivitiesAdapter.notifyDataSetChanged();
                 }
             }
             @Override

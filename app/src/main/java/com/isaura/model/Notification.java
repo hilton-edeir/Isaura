@@ -1,6 +1,7 @@
 package com.isaura.model;
 
 public class Notification {
+    private String id;
     private String date_notification;
     private String date_done;
     private boolean done;
@@ -10,7 +11,8 @@ public class Notification {
 
     public Notification(){}
 
-    public Notification(String date_notification, String date_done, boolean done, int type, RequestUtensil requestUtensil) {
+    public Notification(String id, String date_notification, String date_done, boolean done, int type, RequestUtensil requestUtensil) {
+        this.id = id;
         this.date_notification = date_notification;
         this.date_done = date_done;
         this.done = done;
@@ -18,12 +20,21 @@ public class Notification {
         this.requestUtensil = requestUtensil;
     }
 
-    public Notification(String date_notification, String date_done, boolean done, int type, Cleaning cleaning) {
+    public Notification(String id, String date_notification, String date_done, boolean done, int type, Cleaning cleaning) {
+        this.id = id;
         this.date_notification = date_notification;
         this.date_done = date_done;
         this.done = done;
         this.type = type;
         this.cleaning = cleaning;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getDate_notification() {

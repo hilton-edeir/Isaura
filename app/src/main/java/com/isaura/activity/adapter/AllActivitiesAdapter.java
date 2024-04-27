@@ -1,6 +1,7 @@
 package com.isaura.activity.adapter;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,16 +46,26 @@ public class AllActivitiesAdapter extends RecyclerView.Adapter<AllActivitiesAdap
             holder.txt_username.setText(notification.getRequestUtensil().getMember().getName());
             holder.txt_task_description.setText("fez reposição");
 
-        } else {
+        }
+        else if (notification.getType()==2) {
             Glide.with(holder.img_user_profile.getContext()).load(R.drawable.ic_user_hilton).placeholder(R.drawable.ic_user_hilton).error(R.drawable.ic_launcher_background).into(holder.img_user_profile);
             Glide.with(holder.img_item.getContext()).load(R.drawable.ic_kitchen).placeholder(R.drawable.ic_kitchen).error(R.drawable.ic_launcher_background).into(holder.img_item);
             holder.txt_username.setText(notification.getCleaning().getMember().getName());
             holder.txt_task_description.setText("limpou a");
             Glide.with(holder.img_date_activity.getContext()).load(R.drawable.ic_to_do).placeholder(R.drawable.ic_to_do).error(R.drawable.ic_launcher_background).into(holder.img_date_activity);
         }
+
+        int nightModeFlags = context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        if(nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
+            holder.card_item_activity.setCardBackgroundColor(0);
+        }
+        else {
+            holder.card_item_activity.setCardBackgroundColor(context.getResources().getColor(R.color.pastel_purple));
+        }
+
         Glide.with(holder.img_date_activity.getContext()).load(R.drawable.icon_calendar).placeholder(R.drawable.icon_calendar).error(R.drawable.ic_launcher_background).into(holder.img_date_activity);
         holder.txt_date_activity.setText(notification.getDate_done());
-        holder.card_item_activity.setCardBackgroundColor(context.getResources().getColor(R.color.pastel_purple));
+
     }
 
     @Override

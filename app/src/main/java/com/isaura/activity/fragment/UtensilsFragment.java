@@ -66,9 +66,9 @@ public class UtensilsFragment extends Fragment {
             Member member = new Member("Ruténia", "marina@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("guardanapos", "https//:firebase-guadanapos.jpg", true);
             RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(date_now, "null", false, 1, requestUtensil);
+            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
@@ -89,9 +89,9 @@ public class UtensilsFragment extends Fragment {
             Member member = new Member("Carline", "carline@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("fosforos", "https//:firebase-fosforos.jpg", true);
             RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(date_now, "null", false, 1, requestUtensil);
+            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
@@ -111,9 +111,9 @@ public class UtensilsFragment extends Fragment {
             Member member = new Member("Hilton", "hilton@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("detergente-loica", "https//:firebase-fosforos.jpg", true);
             RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(date_now, "null", false, 1, requestUtensil);
+            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
@@ -134,7 +134,7 @@ public class UtensilsFragment extends Fragment {
             Member member = new Member("Marina", "marina@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("esponja", "https//:firebase-fosforos.jpg", true);
             RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(date_now, "null", false, 1,requestUtensil);
+            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1,requestUtensil);
 
             reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
@@ -156,9 +156,9 @@ public class UtensilsFragment extends Fragment {
             Member member = new Member("Marina", "marina@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("fergao", "https//:firebase-fosforos.jpg", true);
             RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(date_now, "null", false, 1, requestUtensil);
+            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
@@ -178,9 +178,9 @@ public class UtensilsFragment extends Fragment {
             Member member = new Member("Maria", "maria@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("sal", "https//:firebase-fosforos.jpg", true);
             RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(date_now, "null", false, 1, requestUtensil);
+            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
@@ -200,9 +200,9 @@ public class UtensilsFragment extends Fragment {
             Member member = new Member("Hilton", "hilton@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("saco-lixo", "https//:firebase-fosforos.jpg", true);
             RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(date_now, "null", false, 1, requestUtensil);
+            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
@@ -223,9 +223,9 @@ public class UtensilsFragment extends Fragment {
             Member member = new Member("Hilton", "hilton@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("rolo-aluminio", "https//:firebase-fosforos.jpg", true);
             RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(date_now, "null", false, 1, requestUtensil);
+            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
@@ -245,9 +245,9 @@ public class UtensilsFragment extends Fragment {
             Member member = new Member("Hilton", "hilton@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("plastico-aderente", "https//:firebase-fosforos.jpg", true);
             RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(date_now, "null", false, 1, requestUtensil);
+            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
@@ -267,9 +267,9 @@ public class UtensilsFragment extends Fragment {
             Member member = new Member("Marina", "marina@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("detergente-limpeza", "https//:firebase-fosforos.jpg", true);
             RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(date_now, "null", false, 1, requestUtensil);
+            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
@@ -289,9 +289,9 @@ public class UtensilsFragment extends Fragment {
             Member member = new Member("Marina", "marina@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("sabao-liquido", "https//:firebase-fosforos.jpg", true);
             RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(date_now, "null", false, 1, requestUtensil);
+            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(utensil.getName()).get().addOnCompleteListener(task -> {
+            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
                 if(task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();

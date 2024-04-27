@@ -1,6 +1,7 @@
 package com.isaura.activity.adapter;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,8 +56,14 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         }
         holder.txt_date.setText(notification.getDate_notification());
         Glide.with(holder.img_item_utensil.getContext()).load(R.drawable.ic_liquid_soap).placeholder(R.drawable.ic_liquid_soap).error(R.drawable.ic_launcher_background).into(holder.img_item_utensil);
-        holder.card_item.setCardBackgroundColor(context.getResources().getColor(R.color.pastel_purple));
 
+        int nightModeFlags = context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        if(nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
+            holder.card_item.setCardBackgroundColor(0);
+        }
+        else {
+            holder.card_item.setCardBackgroundColor(context.getResources().getColor(R.color.pastel_purple));
+        }
         holder.btn_do_task_notification.setOnClickListener(v -> listener.onItemClicked(notificationList.get(position)));
     }
 

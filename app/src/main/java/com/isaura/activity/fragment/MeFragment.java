@@ -71,10 +71,12 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
                         progressBar.setVisibility(View.GONE);
                         txt_notification_empty.setVisibility(View.VISIBLE);
                     }
-                    else{
+                    else {
                         notificationAdapter = new NotificationAdapter(getContext(), notificationList, selectNotificationListener);
                         progressBar.setVisibility(View.GONE);
                         recyclerView.setAdapter(notificationAdapter);
+                        notificationAdapter.notifyDataSetChanged();
+
                     }
                 }
             }
@@ -114,10 +116,10 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
         String date_now = simpleDateFormat.format(calendar.getTime());
 
         if(notification.getType() == 1) {
-            databaseReference.child("notification").child(notification.getRequestUtensil().getUtensil().getName()).child("done").setValue(true);
-            databaseReference.child("notification").child(notification.getRequestUtensil().getUtensil().getName()).child("date_done").setValue(date_now);
+            databaseReference.child("notification").child(notification.getId()).child("done").setValue(true);
+            databaseReference.child("notification").child(notification.getId()).child("date_done").setValue(date_now);
         }
-        else{
+        else if(notification.getType() == 2){
             Toast.makeText(getContext(), "Brevemente", Toast.LENGTH_SHORT).show();
         }
 
