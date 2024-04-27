@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -21,12 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.isaura.R;
-import com.isaura.activity.adapter.NotificationAdapter;
-import com.isaura.model.AllActivities;
-import com.isaura.model.Cleaning;
-import com.isaura.model.Member;
 import com.isaura.model.Notification;
-import com.isaura.model.Place;
 import com.isaura.activity.adapter.AllActivitiesAdapter;
 
 import java.util.ArrayList;

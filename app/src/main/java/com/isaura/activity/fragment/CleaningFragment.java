@@ -13,28 +13,25 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.android.material.card.MaterialCardView;
-import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.isaura.R;
-import com.isaura.model.Cleaning;
 import com.isaura.model.CleaningTable;
 import com.isaura.model.Member;
-import com.isaura.model.Notification;
 import com.isaura.model.Place;
+import com.isaura.model.LinkedList;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
 public class CleaningFragment extends Fragment {
 
     MaterialCardView btn_see_schedule, card_task_living_room, card_task_kitchen, card_task_bathroom, card_task_trash, card_task_free;
     TextView txt_date_selected;
     FirebaseDatabase database;
-    DatabaseReference reference_notification;
+    DatabaseReference reference_cleaning;
     FirebaseAuth mAuth;
     Calendar calendar;
     SimpleDateFormat simpleDateFormat;
@@ -46,24 +43,33 @@ public class CleaningFragment extends Fragment {
 
         inicializeComponents(root);
         database = FirebaseDatabase.getInstance();
-        reference_notification = database.getReference("notification");
+        reference_cleaning = database.getReference("cronograma-limpeza");
 
         btn_see_schedule.setOnClickListener(v -> {
-            String id_notification = reference_notification.push().getKey();
-            assert id_notification != null;
-            String id_cleaning = reference_notification.push().getKey();
-            assert id_cleaning != null;
+            String id_cleaning_Table = reference_cleaning.push().getKey();
+            assert id_cleaning_Table != null;
 
             calendar = Calendar.getInstance();
             simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
-            Member member = new Member("Ruténia", "marina@gmail.com", "123456", "uidchsdchehefh");
-            Place place = new Place("Quarto", "rotgjiorijg");
-            Cleaning cleaning = new Cleaning(id_cleaning, date_now, place, member);
-            Notification notification = new Notification(date_now, "null", false, 2, cleaning);
+            Member member1 = new Member("Marina", "marina@gmail.com", "123456", "uidchsdchehefh");
+            Member member2 = new Member("Carline", "carline@gmail.com", "123456", "uidchsdchehefh");
+            Member member3 = new Member("Maria", "maria@gmail.com", "123456", "uidchsdchehefh");
+            Member member4 = new Member("Ruténia", "rutenia@gmail.com", "123456", "uidchsdchehefh");
+            Member member5 = new Member("Hilton", "hilton@gmail.com", "123456", "uidchsdchehefh");
+            ArrayList<Member> memberList = new ArrayList<>();
+            memberList.add(member1);
+            memberList.add(member2);
+            memberList.add(member3);
+            memberList.add(member4);
+            memberList.add(member5);
+            Place place = new Place("cozinha", "drfgyeudhjh");
 
-            reference_notification.child(id_notification).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            CleaningTable cleaningTable = new CleaningTable(place, LinkedList.schecule(memberList));
+
+            reference_cleaning.child(id_cleaning_Table).setValue(cleaningTable).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+
         });
 
         return root;

@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.isaura.R;
-import com.isaura.model.AllActivities;
 import com.isaura.model.Notification;
 
 import java.util.List;
