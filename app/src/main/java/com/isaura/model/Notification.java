@@ -1,31 +1,45 @@
 package com.isaura.model;
 
 public class Notification {
-    private String date;
+    private String date_notification;
+    private String date_done;
     private boolean done;
+    private int type;
     private RequestUtensil requestUtensil;
     private Cleaning cleaning;
 
     public Notification(){}
 
-    public Notification(String date, boolean done, RequestUtensil requestUtensil) {
-        this.date = date;
+    public Notification(String date_notification, String date_done, boolean done, int type, RequestUtensil requestUtensil) {
+        this.date_notification = date_notification;
+        this.date_done = date_done;
         this.done = done;
+        this.type = type;
         this.requestUtensil = requestUtensil;
     }
 
-    public Notification(String date, boolean done, Cleaning cleaning) {
-        this.date = date;
+    public Notification(String date_notification, String date_done, boolean done, int type, Cleaning cleaning) {
+        this.date_notification = date_notification;
+        this.date_done = date_done;
         this.done = done;
+        this.type = type;
         this.cleaning = cleaning;
     }
 
-    public String getDate() {
-        return date;
+    public String getDate_notification() {
+        return date_notification;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDate_notification(String date_notification) {
+        this.date_notification = date_notification;
+    }
+
+    public String getDate_done() {
+        return date_done;
+    }
+
+    public void setDate_done(String date_done) {
+        this.date_done = date_done;
     }
 
     public boolean isDone() {
@@ -34,6 +48,14 @@ public class Notification {
 
     public void setDone(boolean done) {
         this.done = done;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public RequestUtensil getRequestUtensil() {

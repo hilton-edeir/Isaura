@@ -62,7 +62,7 @@ public class CleaningFragment extends Fragment {
             Member member = new Member("Ruténia", "marina@gmail.com", "123456", "uidchsdchehefh");
             Place place = new Place("Quarto", "rotgjiorijg");
             Cleaning cleaning = new Cleaning(id_cleaning, date_now, place, member);
-            Notification notification = new Notification(date_now, false, cleaning);
+            Notification notification = new Notification(date_now, "null", false, 2, cleaning);
 
             reference_notification.child(id_notification).setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
         });

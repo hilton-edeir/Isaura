@@ -37,10 +37,20 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     @Override
     public void onBindViewHolder(@NonNull NotificationAdapter.MyViewHolder holder, int position) {
         Notification notification = notificationList.get(position);
-        holder.txt_date.setText(notification.getDate());
-        Glide.with(holder.img_task_type.getContext()).load(R.drawable.ic_utensils).placeholder(R.drawable.ic_utensils).error(R.drawable.ic_launcher_background).into(holder.img_task_type);
+
+        if(notification.getType() == 1) {
+            holder.txt_task_description.setText("Pedido de reposição");
+            Glide.with(holder.img_type_notification.getContext()).load(R.drawable.ic_bell).placeholder(R.drawable.ic_bell).error(R.drawable.ic_launcher_background).into(holder.img_type_notification);
+            Glide.with(holder.img_task_type.getContext()).load(R.drawable.ic_utensils).placeholder(R.drawable.ic_utensils).error(R.drawable.ic_launcher_background).into(holder.img_task_type);
+
+        }
+        else {
+            holder.txt_task_description.setText("Lembrete de limpeza");
+            Glide.with(holder.img_type_notification.getContext()).load(R.drawable.ic_to_do).placeholder(R.drawable.ic_to_do).error(R.drawable.ic_launcher_background).into(holder.img_type_notification);
+            Glide.with(holder.img_task_type.getContext()).load(R.drawable.ic_cleaning).placeholder(R.drawable.ic_cleaning).error(R.drawable.ic_launcher_background).into(holder.img_task_type);
+        }
+        holder.txt_date.setText(notification.getDate_notification());
         Glide.with(holder.img_item_utensil.getContext()).load(R.drawable.ic_liquid_soap).placeholder(R.drawable.ic_liquid_soap).error(R.drawable.ic_launcher_background).into(holder.img_item_utensil);
-        Glide.with(holder.img_type_notification.getContext()).load(R.drawable.ic_bell).placeholder(R.drawable.ic_bell).error(R.drawable.ic_launcher_background).into(holder.img_type_notification);
         holder.card_item.setCardBackgroundColor(context.getResources().getColor(R.color.pastel_purple));
     }
 
@@ -60,7 +70,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             img_task_type = itemView.findViewById(R.id.img_type_task_notification);
             img_item_utensil = itemView.findViewById(R.id.img_item_utensil_notification);
             img_type_notification = itemView.findViewById(R.id.img_type_notification);
-            txt_task_description = itemView.findViewById(R.id.txt_task_description);
+            txt_task_description = itemView.findViewById(R.id.txt_task_description_notification);
             txt_date = itemView.findViewById(R.id.txt_date_notification);
         }
     }

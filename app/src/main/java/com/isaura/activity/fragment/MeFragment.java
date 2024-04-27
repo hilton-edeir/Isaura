@@ -50,9 +50,9 @@ public class MeFragment extends Fragment {
 
         recyclerView = root.findViewById(R.id.recyclerview_notification);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
         notificationList.clear();
         progressBar.setVisibility(View.VISIBLE);
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
