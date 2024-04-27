@@ -14,10 +14,13 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.isaura.R;
-import com.isaura.model.CleaningTable;
+import com.isaura.model.CleaningDistribution;
 import com.isaura.model.Member;
 import com.isaura.model.Place;
 import com.isaura.model.LinkedList;
@@ -25,6 +28,7 @@ import com.isaura.model.LinkedList;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class CleaningFragment extends Fragment {
 
@@ -32,6 +36,7 @@ public class CleaningFragment extends Fragment {
     TextView txt_date_selected;
     FirebaseDatabase database;
     DatabaseReference reference_cleaning;
+    long id_cleaning = 0;
     FirebaseAuth mAuth;
     Calendar calendar;
     SimpleDateFormat simpleDateFormat;
@@ -43,7 +48,20 @@ public class CleaningFragment extends Fragment {
 
         inicializeComponents(root);
         database = FirebaseDatabase.getInstance();
-        reference_cleaning = database.getReference("cronograma-limpeza");
+        reference_cleaning = database.getReference("cleaning-distribution");
+
+        reference_cleaning.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    id_cleaning = snapshot.getChildrenCount();
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         btn_see_schedule.setOnClickListener(v -> {
             String id_cleaning_Table = reference_cleaning.push().getKey();
@@ -64,11 +82,22 @@ public class CleaningFragment extends Fragment {
             memberList.add(member3);
             memberList.add(member4);
             memberList.add(member5);
-            Place place = new Place("cozinha", "drfgyeudhjh");
+            Place place1 = new Place("kitchen", "drfgyeudhjh");
+            Place place2 = new Place("bathroom", "drfgyeudhjh");
+            Place place3 = new Place("living-room", "drfgyeudhjh");
+            Place place4 = new Place("trash", "drfgyeudhjh");
+            Place place5 = new Place("free", "drfgyeudhjh");
+            List<Place> placeList = new ArrayList<>();
+            placeList.add(place1);
+            placeList.add(place2);
+            placeList.add(place3);
+            placeList.add(place4);
+            placeList.add(place5);
 
-            CleaningTable cleaningTable = new CleaningTable(place, LinkedList.schecule(memberList));
 
-            reference_cleaning.child(id_cleaning_Table).setValue(cleaningTable).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            CleaningDistribution cleaningDistribution = new CleaningDistribution(date_now, placeList, LinkedList.schecule(memberList));
+
+            reference_cleaning.child((id_cleaning + 1) + "").setValue(cleaningDistribution).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
 
         });
 
