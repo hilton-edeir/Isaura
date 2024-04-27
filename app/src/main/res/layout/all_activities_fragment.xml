@@ -19,14 +19,14 @@
         android:gravity="bottom">
 
         <ImageView
-            android:id="@+id/img_profile0"
+            android:id="@+id/img_user_profile_all_activity"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
             android:src="@drawable/ic_user_hilton"/>
 
         <TextView
-            android:id="@+id/text_dashboard"
+            android:id="@+id/txt_greeting_all_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lilita_one"
@@ -35,17 +35,16 @@
             android:textSize="20sp"/>
 
         <TextView
-            android:id="@+id/txt_name_profile"
+            android:id="@+id/txt_name_profile_all_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="5dp"
             android:fontFamily="@font/lilita_one"
-            android:text="Hilton"
+            android:text="Utilizador"
             android:textColor="@color/md_theme_primary"
             android:textAlignment="center"
             android:textSize="20sp" />
-
 
     </LinearLayout>
 
@@ -54,18 +53,36 @@
         android:layout_height="match_parent"
         android:layout_marginTop="10dp">
 
-        <androidx.core.widget.NestedScrollView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/progress_bar_all_activities"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/txt_all_activity_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="Nenhuma atividade"
+                android:fontFamily="monospace"
+                android:layout_centerInParent="true"
+                android:visibility="gone"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview_all_activities"
+                android:visibility="visible"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
             </androidx.recyclerview.widget.RecyclerView>
 
-        </androidx.core.widget.NestedScrollView>
+        </RelativeLayout>
 
     </LinearLayout>
 

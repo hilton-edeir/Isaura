@@ -12,7 +12,9 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.ValueEventListener;
 import com.isaura.R;
+import com.isaura.activity.fragment.SelectNotificationListener;
 import com.isaura.model.Notification;
 
 import java.util.List;
@@ -21,11 +23,13 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     private final Context context;
     private final List<Notification> notificationList;
+    private SelectNotificationListener listener;
 
 
-    public NotificationAdapter(Context context, List<Notification> notificationList) {
+    public NotificationAdapter(Context context, List<Notification> notificationList, SelectNotificationListener listener) {
         this.context = context;
         this.notificationList = notificationList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -52,6 +56,8 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         holder.txt_date.setText(notification.getDate_notification());
         Glide.with(holder.img_item_utensil.getContext()).load(R.drawable.ic_liquid_soap).placeholder(R.drawable.ic_liquid_soap).error(R.drawable.ic_launcher_background).into(holder.img_item_utensil);
         holder.card_item.setCardBackgroundColor(context.getResources().getColor(R.color.pastel_purple));
+
+        holder.btn_do_task_notification.setOnClickListener(v -> listener.onItemClicked(notificationList.get(position)));
     }
 
     @Override
@@ -61,12 +67,13 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        CardView card_item;
+        CardView card_item, btn_do_task_notification;
         ImageView img_task_type, img_item_utensil, img_type_notification;
         TextView txt_task_description, txt_date;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             card_item = itemView.findViewById(R.id.card_item_notification);
+            btn_do_task_notification = itemView.findViewById(R.id.btn_do_task_notification);
             img_task_type = itemView.findViewById(R.id.img_type_task_notification);
             img_item_utensil = itemView.findViewById(R.id.img_item_utensil_notification);
             img_type_notification = itemView.findViewById(R.id.img_type_notification);

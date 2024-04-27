@@ -58,7 +58,6 @@ public class CleaningFragment extends Fragment {
             simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
             String date_now = simpleDateFormat.format(calendar.getTime());
 
-
             Member member = new Member("Ruténia", "marina@gmail.com", "123456", "uidchsdchehefh");
             Place place = new Place("Quarto", "rotgjiorijg");
             Cleaning cleaning = new Cleaning(id_cleaning, date_now, place, member);

@@ -26,14 +26,16 @@ import com.isaura.activity.SignIn;
 import com.isaura.activity.adapter.NotificationAdapter;
 import com.isaura.model.Notification;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 
-public class MeFragment extends Fragment {
+public class MeFragment extends Fragment implements SelectNotificationListener{
     MaterialCardView btn_update_profile, btn_sign_out;
     ProgressBar progressBar;
-    TextView txt_profile_display_name;
+    TextView txt_profile_display_name, txt_notification_empty;
     RecyclerView recyclerView;
     NotificationAdapter notificationAdapter;
     FirebaseAuth firebaseAuth;
@@ -45,6 +47,7 @@ public class MeFragment extends Fragment {
         inicializeComponents(root);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        SelectNotificationListener selectNotificationListener = this;
 
         txt_profile_display_name.setText(Objects.requireNonNull(firebaseAuth.getCurrentUser()).getDisplayName());
 
@@ -56,13 +59,24 @@ public class MeFragment extends Fragment {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot notification: snapshot.child("notification").getChildren()) {
-                    Notification notification1 = notification.getValue(Notification.class);
-                    notificationList.add(notification1);
+                if(snapshot.exists()) {
+                    for (DataSnapshot notification: snapshot.child("notification").getChildren()) {
+                        Notification notification1 = notification.getValue(Notification.class);
+                        if(!notification1.isDone()) {
+                            notificationList.add(notification1);
+                        }
+                    }
+                    if(notificationList.isEmpty()) {
+                        recyclerView.setVisibility(View.GONE);
+                        progressBar.setVisibility(View.GONE);
+                        txt_notification_empty.setVisibility(View.VISIBLE);
+                    }
+                    else{
+                        notificationAdapter = new NotificationAdapter(getContext(), notificationList, selectNotificationListener);
+                        progressBar.setVisibility(View.GONE);
+                        recyclerView.setAdapter(notificationAdapter);
+                    }
                 }
-                notificationAdapter = new NotificationAdapter(getContext(), notificationList);
-                recyclerView.setAdapter(notificationAdapter);
-                progressBar.setVisibility(View.GONE);
             }
 
             @Override
@@ -78,7 +92,7 @@ public class MeFragment extends Fragment {
             if(firebaseAuth != null) {
                 firebaseAuth.signOut();
                 startActivity(new Intent(root.getContext(), SignIn.class));
-                requireActivity().finish();
+                getActivity().finish();
             }
         });
 
@@ -90,6 +104,23 @@ public class MeFragment extends Fragment {
         btn_sign_out = root.findViewById(R.id.btn_sign_out);
         txt_profile_display_name = root.findViewById(R.id.txt_profile_display_name);
         progressBar = root.findViewById(R.id.progress_bar_notification);
+        txt_notification_empty = root.findViewById(R.id.txt_notification_empty);
     }
 
+    @Override
+    public void onItemClicked(Notification notification) {
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        String date_now = simpleDateFormat.format(calendar.getTime());
+
+        if(notification.getType() == 1) {
+            databaseReference.child("notification").child(notification.getRequestUtensil().getUtensil().getName()).child("done").setValue(true);
+            databaseReference.child("notification").child(notification.getRequestUtensil().getUtensil().getName()).child("date_done").setValue(date_now);
+        }
+        else{
+            Toast.makeText(getContext(), "Brevemente", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
 }

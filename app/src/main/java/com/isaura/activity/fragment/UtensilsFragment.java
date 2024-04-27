@@ -9,9 +9,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.card.MaterialCardView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.isaura.R;
+import com.isaura.activity.adapter.NotificationAdapter;
 import com.isaura.model.Member;
 import com.isaura.model.Notification;
 import com.isaura.model.RequestUtensil;
@@ -26,7 +31,7 @@ public class UtensilsFragment extends Fragment {
             card_napkin, card_matches, card_dish_soap, card_sponge, card_scrub, card_salt, card_trashbag,
             card_aluminium_foil, card_plastic_foil, card_bath_detergent, card_liquid_soap;
     FirebaseDatabase database;
-    DatabaseReference reference_notification;
+    DatabaseReference reference_notification, databaseReference;
     Calendar calendar;
     SimpleDateFormat simpleDateFormat;
 
@@ -37,11 +42,14 @@ public class UtensilsFragment extends Fragment {
 
         database = FirebaseDatabase.getInstance();
         reference_notification = database.getReference("notification");
+        databaseReference = database.getReference();
 
         btn_napkin.setOnClickListener(v -> {
             calendar = Calendar.getInstance();
             simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
             String date_now = simpleDateFormat.format(calendar.getTime());
+            String id_notification = reference_notification.push().getKey();
+            assert id_notification != null;
 
             Member member = new Member("Ruténia", "marina@gmail.com", "123456", "uidchsdchehefh");
             Utensil utensil = new Utensil("guardanapos", "https//:firebase-guadanapos.jpg", true);
