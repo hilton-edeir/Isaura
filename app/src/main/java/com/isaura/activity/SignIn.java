@@ -1,6 +1,9 @@
 package com.isaura.activity;
 
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,10 +12,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.isaura.R;
 
 import java.util.Objects;
@@ -23,7 +30,9 @@ public class SignIn extends AppCompatActivity {
     TextInputEditText fld_email, fld_code;
     Button btn_sign_in;
     ProgressBar progressBar;
-    public FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
+    FirebaseStorage storage;
+    StorageReference storageRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +41,9 @@ public class SignIn extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
 
         mAuth = FirebaseAuth.getInstance();
+        storage = FirebaseStorage.getInstance();
 
-        lyt_email = findViewById(R.id.lyt_email);
-        lyt_code = findViewById(R.id.lyt_code);
-        fld_email = findViewById(R.id.fld_email);
-        fld_code = findViewById(R.id.fld_code);
-        btn_sign_in = findViewById(R.id.btn_sign_in);
-        progressBar = findViewById(R.id.progress_bar);
+        inicializeComponents();
 
         btn_sign_in.setOnClickListener(v -> {
             String email = Objects.requireNonNull(fld_email.getText()).toString();
@@ -77,6 +82,37 @@ public class SignIn extends AppCompatActivity {
             }
 
         });
+    }
+
+    /*
+    private void savetofirebase() {
+        Resources resources = getResources();
+        Uri img = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" +
+                resources.getResourcePackageName(R.drawable.ic_bathroom) + '/' +
+                resources.getResourceTypeName(R.drawable.ic_bathroom) + '/' +
+                resources.getResourceEntryName(R.drawable.ic_bathroom) );
+
+        storageRef = storage.getReference("utensils").child(System.currentTimeMillis() + "pn");
+        storageRef.putFile(img).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        Toast.makeText(SignIn.this, uri.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+    }
+*/
+    private void inicializeComponents() {
+        lyt_email = findViewById(R.id.lyt_email);
+        lyt_code = findViewById(R.id.lyt_code);
+        fld_email = findViewById(R.id.fld_email);
+        fld_code = findViewById(R.id.fld_code);
+        btn_sign_in = findViewById(R.id.btn_sign_in);
+        progressBar = findViewById(R.id.progress_bar);
     }
 
     @Override
