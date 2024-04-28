@@ -40,7 +40,7 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
     NotificationAdapter notificationAdapter;
     FirebaseAuth firebaseAuth;
     FirebaseDatabase database;
-    DatabaseReference reference_notification;
+    DatabaseReference reference_activity;
     List<Activity> activityList = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
 
         firebaseAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
-        reference_notification = database.getReference("notification");
+        reference_activity = database.getReference("activity");
         SelectNotificationListener selectNotificationListener = this;
 
         txt_profile_display_name.setText(Objects.requireNonNull(firebaseAuth.getCurrentUser()).getDisplayName());
@@ -58,7 +58,7 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         activityList.clear();
 
-        reference_notification.addValueEventListener(new ValueEventListener() {
+        reference_activity.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()) {
@@ -119,11 +119,11 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
         String date_now = simpleDateFormat.format(calendar.getTime());
 
         if(activity.getType() == 1) {
-            reference_notification.child(String.valueOf(activity.getId())).child("done").setValue(true);
-            reference_notification.child(String.valueOf(activity.getId())).child("date_done").setValue(date_now);
+            reference_activity.child(String.valueOf(activity.getId())).child("done").setValue(true);
+            reference_activity.child(String.valueOf(activity.getId())).child("date_done").setValue(date_now);
         }
         else if(activity.getType() == 2){
-            reference_notification.child(String.valueOf(activity.getId())).child("done").setValue(true);
+            reference_activity.child(String.valueOf(activity.getId())).child("done").setValue(true);
         }
     }
 }

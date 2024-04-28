@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,22 +25,28 @@ import com.isaura.R;
 import com.isaura.model.LinkedList;
 import com.isaura.model.Member;
 
+import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class CleaningFragment extends Fragment {
-
-    MaterialCardView btn_see_schedule, card_task_living_room, card_task_kitchen, card_task_bathroom, card_task_trash, card_task_free;
-    TextView txt_date_scheduled_to_clean, txt_username_kitchen_cleaning, txt_username_bathroom_cleaning, txt_username_livingroom_cleaning, txt_username_trash_cleaning, txt_username_free_cleaning;
+    Button btn_test;
+    MaterialCardView btn_see_calendar, card_task_living_room, card_task_kitchen, card_task_bathroom, card_task_trash, card_task_free;
+    TextView txt_date_selected, txt_username_kitchen_cleaning, txt_username_bathroom_cleaning, txt_username_livingroom_cleaning, txt_username_trash_cleaning, txt_username_free_cleaning;
     ImageView img_user_kitchen_cleaning, img_user_bathroom_cleaning, img_user_livingroom_cleaning, img_user_trash_cleaning, img_user_free_cleaning;
     FirebaseDatabase database;
-    DatabaseReference reference_original_list_order, reference_last_rotated_list_order, reference_cleaning_distribution, reference_member, reference_notification;
+    DatabaseReference reference_original_list_order, reference_last_rotated_list_order, reference_cleaning_distribution, reference_member, reference_activity;
     long ID_NOTIFICATION = 0;
     FirebaseAuth mAuth;
     Calendar calendar;
+    long NUMBER_OF_SATURDAYS = 0;
     SimpleDateFormat simpleDateFormat;
     List<String> original_list_order = new ArrayList<>();
     List<String> last_rotated_list = new ArrayList<>();
@@ -54,13 +62,12 @@ public class CleaningFragment extends Fragment {
         reference_original_list_order = database.getReference("original-list-order-cleaning");
         reference_last_rotated_list_order = database.getReference("last-rotated-list-order-cleaning");
         reference_member = database.getReference("member");
-        reference_notification = database.getReference("notification");
+        reference_activity = database.getReference("activity");
 
         inicialize_components(root);
         original_cleaning_list_order_update();
 
-
-        reference_notification.addValueEventListener(new ValueEventListener() {
+        reference_activity.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
@@ -112,8 +119,7 @@ public class CleaningFragment extends Fragment {
             }
         });
 
-
-        btn_see_schedule.setOnClickListener(v -> {
+        btn_test.setOnClickListener(v -> {
 
             calendar = Calendar.getInstance();
             simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
@@ -138,12 +144,35 @@ public class CleaningFragment extends Fragment {
             //reference_notification.child("test-new-notification").child(Integer.toString((int) ID_NOTIFICATION + 1)).setValue(activity).addOnCompleteListener(task -> System.out.println(task));
         });
 
+        btn_see_calendar.setOnClickListener(v -> {
+            MaterialDatePicker<Long> materialDatePicker = MaterialDatePicker.Builder.datePicker().setTitleText("Calendário").setSelection(MaterialDatePicker.todayInUtcMilliseconds()).build();
+            materialDatePicker.addOnPositiveButtonClickListener(aLong -> {
+
+                String date_selected = new SimpleDateFormat("dd-MM-yyy", Locale.getDefault()).format(new Date(aLong));
+                txt_date_selected.setText(MessageFormat.format("Data: {0}", date_selected));
+
+                calendar = Calendar.getInstance();
+                simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                String date_now = simpleDateFormat.format(calendar.getTime());
+
+                String[] selected_date_splited = date_selected.split("-", 3);
+                String[] date_now_splited = date_now.split("-", 3);
+
+                LocalDate startDate = LocalDate.of(Integer.parseInt(date_now_splited[2]), Integer.parseInt(date_now_splited[1]), Integer.parseInt(date_now_splited[0]));
+                LocalDate endDate = LocalDate.of(Integer.parseInt(selected_date_splited[2]), Integer.parseInt(selected_date_splited[1]), Integer.parseInt(selected_date_splited[0]));
+
+                NUMBER_OF_SATURDAYS = countSaturdays(startDate, endDate);
+
+            });
+            materialDatePicker.show(getActivity().getSupportFragmentManager(), "tag");
+        });
         return root;
     }
 
     public void inicialize_components(View root) {
-        btn_see_schedule= root.findViewById(R.id.btn_see_schedule);
-        txt_date_scheduled_to_clean = root.findViewById(R.id.txt_date_scheduled_to_clean);
+        txt_date_selected = root.findViewById(R.id.txt_date_selected);
+        btn_see_calendar = root.findViewById(R.id.btn_see_calendar);
+        btn_test= root.findViewById(R.id.btn_test);
         txt_username_kitchen_cleaning = root.findViewById(R.id.txt_username_kitchen_cleaning);
         txt_username_bathroom_cleaning = root.findViewById(R.id.txt_username_bathroom_cleaning);
         txt_username_livingroom_cleaning = root.findViewById(R.id.txt_username_livingroom_cleaning);
@@ -202,5 +231,18 @@ public class CleaningFragment extends Fragment {
             }
         });
 
+    }
+
+    private static long countSaturdays(LocalDate startDate, LocalDate endDate)
+    {
+        long count = 0;
+
+        while (!startDate.isAfter(endDate)) {
+            if(startDate.getDayOfWeek() == DayOfWeek.SATURDAY) {
+                count++;
+            }
+            startDate = startDate.plusDays(1);
+        }
+        return count;
     }
 }

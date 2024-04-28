@@ -37,7 +37,7 @@ public class ActivityFragment extends Fragment {
     ImageView img_user_profile_all_activity;
     TextView txt_greeting_all_activity, txt_name_profile_all_activity, txt_activity_empty;
     ProgressBar progress_bar_all_activities;
-    DatabaseReference reference_notification;
+    DatabaseReference reference_activity;
     FirebaseAuth firebaseAuth;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,11 +50,11 @@ public class ActivityFragment extends Fragment {
         allActivitiesList.clear();
 
         progress_bar_all_activities.setVisibility(View.VISIBLE);
-        reference_notification = FirebaseDatabase.getInstance().getReference();
-        reference_notification.addValueEventListener(new ValueEventListener() {
+        reference_activity = FirebaseDatabase.getInstance().getReference();
+        reference_activity.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot notification: snapshot.child("notification").getChildren()) {
+                for (DataSnapshot notification: snapshot.child("acitivity").getChildren()) {
                     Activity activity1 = notification.getValue(Activity.class);
                     if(activity1.isDone()) {
                         allActivitiesList.add(activity1);

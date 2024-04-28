@@ -31,7 +31,7 @@ public class UtensilsFragment extends Fragment {
             card_napkin, card_matches, card_dish_soap, card_sponge, card_scrub, card_salt, card_trashbag,
             card_aluminium_foil, card_plastic_foil, card_bath_detergent, card_liquid_soap;
     FirebaseDatabase database;
-    DatabaseReference reference_notification;
+    DatabaseReference reference_activity;
     Calendar calendar;
     SimpleDateFormat simpleDateFormat;
     List<Activity> activityList = new ArrayList<>();
@@ -43,9 +43,9 @@ public class UtensilsFragment extends Fragment {
         inicializeComponents(root);
 
         database = FirebaseDatabase.getInstance();
-        reference_notification = database.getReference("notification");
+        reference_activity = database.getReference("activity");
 
-        reference_notification.addValueEventListener(new ValueEventListener() {
+        reference_activity.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
@@ -87,7 +87,7 @@ public class UtensilsFragment extends Fragment {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
             else {
-                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                reference_activity.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
             }
         });
 
@@ -115,7 +115,7 @@ public class UtensilsFragment extends Fragment {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
             else {
-                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                reference_activity.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
             }
         });
 
@@ -143,7 +143,7 @@ public class UtensilsFragment extends Fragment {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
             else {
-                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                reference_activity.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
             }
         });
 
@@ -170,7 +170,7 @@ public class UtensilsFragment extends Fragment {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
             else {
-                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                reference_activity.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
             }
         });
 
@@ -198,7 +198,7 @@ public class UtensilsFragment extends Fragment {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
             else {
-                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                reference_activity.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
             }
         });
 
@@ -226,7 +226,7 @@ public class UtensilsFragment extends Fragment {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
             else {
-                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                reference_activity.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
             }
         });
 
@@ -254,7 +254,7 @@ public class UtensilsFragment extends Fragment {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
             else {
-                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                reference_activity.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
             }
         });
 
@@ -282,7 +282,7 @@ public class UtensilsFragment extends Fragment {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
             else {
-                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                reference_activity.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
             }
         });
 
@@ -310,7 +310,7 @@ public class UtensilsFragment extends Fragment {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
             else {
-                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                reference_activity.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
             }
         });
 
@@ -338,7 +338,7 @@ public class UtensilsFragment extends Fragment {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
             else {
-                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                reference_activity.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
             }
         });
 
@@ -366,7 +366,7 @@ public class UtensilsFragment extends Fragment {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
             else {
-                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                reference_activity.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
             }
         });
 
@@ -414,6 +414,7 @@ public class UtensilsFragment extends Fragment {
             card_liquid_soap.setCardBackgroundColor(0);
         }
     }
+
 
      /*Fragment cleaningScheduleFragment = new CleaningFragment();
        FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
