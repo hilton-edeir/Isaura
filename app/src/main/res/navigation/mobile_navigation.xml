@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_activity"
-        android:name="com.isaura.activity.fragment.AllActivitiesFragment"
+        android:name="com.isaura.activity.fragment.ActivityFragment"
         android:label="@string/title_activity"
         tools:layout="@layout/all_activities_fragment" />
 

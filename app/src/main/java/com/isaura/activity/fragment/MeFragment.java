@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.isaura.R;
 import com.isaura.activity.SignIn;
 import com.isaura.activity.adapter.NotificationAdapter;
-import com.isaura.model.Notification;
+import com.isaura.model.Activity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
     FirebaseAuth firebaseAuth;
     FirebaseDatabase database;
     DatabaseReference reference_notification;
-    List<Notification> notificationList = new ArrayList<>();
+    List<Activity> activityList = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.me_fragment, container, false);
@@ -56,7 +56,7 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
 
         recyclerView = root.findViewById(R.id.recyclerview_notification);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        notificationList.clear();
+        activityList.clear();
 
         reference_notification.addValueEventListener(new ValueEventListener() {
             @Override
@@ -64,18 +64,18 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
                 if(snapshot.exists()) {
                     progressBar.setVisibility(View.VISIBLE);
                     for (DataSnapshot notification: snapshot.getChildren()) {
-                        Notification notification1 = notification.getValue(Notification.class);
-                        if(!notification1.isDone()) {
-                            notificationList.add(notification1);
+                        Activity activity1 = notification.getValue(Activity.class);
+                        if(!activity1.isDone()) {
+                            activityList.add(activity1);
                         }
                     }
-                    if(notificationList.isEmpty()) {
+                    if(activityList.isEmpty()) {
                         recyclerView.setVisibility(View.GONE);
                         progressBar.setVisibility(View.GONE);
                         txt_notification_empty.setVisibility(View.VISIBLE);
                     }
                     else {
-                        notificationAdapter = new NotificationAdapter(getContext(), notificationList, selectNotificationListener);
+                        notificationAdapter = new NotificationAdapter(getContext(), activityList, selectNotificationListener);
                         progressBar.setVisibility(View.GONE);
                         recyclerView.setAdapter(notificationAdapter);
                         notificationAdapter.notifyDataSetChanged();
@@ -113,19 +113,17 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
     }
 
     @Override
-    public void onItemClicked(Notification notification) {
+    public void onItemClicked(Activity activity) {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
         String date_now = simpleDateFormat.format(calendar.getTime());
 
-        if(notification.getType() == 1) {
-            reference_notification.child(notification.getId()).child("done").setValue(true);
-            reference_notification.child(notification.getId()).child("date_done").setValue(date_now);
+        if(activity.getType() == 1) {
+            reference_notification.child(String.valueOf(activity.getId())).child("done").setValue(true);
+            reference_notification.child(String.valueOf(activity.getId())).child("date_done").setValue(date_now);
         }
-        else if(notification.getType() == 2){
-            Toast.makeText(getContext(), "Brevemente", Toast.LENGTH_SHORT).show();
+        else if(activity.getType() == 2){
+            reference_notification.child(String.valueOf(activity.getId())).child("done").setValue(true);
         }
-
-
     }
 }

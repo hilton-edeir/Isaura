@@ -13,23 +13,22 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.google.firebase.database.ValueEventListener;
 import com.isaura.R;
 import com.isaura.activity.fragment.SelectNotificationListener;
-import com.isaura.model.Notification;
+import com.isaura.model.Activity;
 
 import java.util.List;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.MyViewHolder> {
 
     private final Context context;
-    private final List<Notification> notificationList;
+    private final List<Activity> activityList;
     private SelectNotificationListener listener;
 
 
-    public NotificationAdapter(Context context, List<Notification> notificationList, SelectNotificationListener listener) {
+    public NotificationAdapter(Context context, List<Activity> activityList, SelectNotificationListener listener) {
         this.context = context;
-        this.notificationList = notificationList;
+        this.activityList = activityList;
         this.listener = listener;
     }
 
@@ -41,9 +40,9 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     @Override
     public void onBindViewHolder(@NonNull NotificationAdapter.MyViewHolder holder, int position) {
-        Notification notification = notificationList.get(position);
+        Activity activity = activityList.get(position);
 
-        if(notification.getType() == 1) {
+        if(activity.getType() == 1) {
             holder.txt_task_description.setText("Pedido de reposição");
             Glide.with(holder.img_type_notification.getContext()).load(R.drawable.ic_bell).placeholder(R.drawable.ic_bell).error(R.drawable.ic_launcher_background).into(holder.img_type_notification);
             Glide.with(holder.img_task_type.getContext()).load(R.drawable.ic_utensils).placeholder(R.drawable.ic_utensils).error(R.drawable.ic_launcher_background).into(holder.img_task_type);
@@ -54,7 +53,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             Glide.with(holder.img_type_notification.getContext()).load(R.drawable.ic_to_do).placeholder(R.drawable.ic_to_do).error(R.drawable.ic_launcher_background).into(holder.img_type_notification);
             Glide.with(holder.img_task_type.getContext()).load(R.drawable.ic_cleaning).placeholder(R.drawable.ic_cleaning).error(R.drawable.ic_launcher_background).into(holder.img_task_type);
         }
-        holder.txt_date.setText(notification.getDate_notification());
+        holder.txt_date.setText(activity.getDate_created());
         Glide.with(holder.img_item_utensil.getContext()).load(R.drawable.ic_liquid_soap).placeholder(R.drawable.ic_liquid_soap).error(R.drawable.ic_launcher_background).into(holder.img_item_utensil);
 
         int nightModeFlags = context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
@@ -64,12 +63,12 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         else {
             holder.card_item.setCardBackgroundColor(context.getResources().getColor(R.color.pastel_purple));
         }
-        holder.btn_do_task_notification.setOnClickListener(v -> listener.onItemClicked(notificationList.get(position)));
+        holder.btn_do_task_notification.setOnClickListener(v -> listener.onItemClicked(activityList.get(position)));
     }
 
     @Override
     public int getItemCount() {
-        return notificationList.size();
+        return activityList.size();
     }
 
     static class MyViewHolder extends RecyclerView.ViewHolder {

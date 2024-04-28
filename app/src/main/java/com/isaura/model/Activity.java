@@ -1,32 +1,42 @@
 package com.isaura.model;
 
 public class Activity {
-    private String id;
+    private int id;
     private int type;
     private String date_created;
-    private boolean done;
     private String date_done;
-    private String member;
-    private String place;
+    private boolean done;
+    private Member member;
+    private Place place;
     private Utensil utensil;
 
-    public Activity() {}
+    public Activity(){}
 
-    public Activity(String id, int type, String date_created, boolean done, String date_done, String member, String place) {
+    public Activity(int id, String date_created, String date_done, boolean done, int type, Member member, Utensil utensil) {
         this.id = id;
-        this.type = type;
         this.date_created = date_created;
-        this.done = done;
         this.date_done = date_done;
+        this.done = done;
+        this.type = type;
+        this.member = member;
+        this.utensil = utensil;
+    }
+
+    public Activity(int id, String date_created, String date_done, boolean done, int type, Member member, Place place) {
+        this.id = id;
+        this.date_created = date_created;
+        this.date_done = date_done;
+        this.done = done;
+        this.type = type;
         this.member = member;
         this.place = place;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -46,14 +56,6 @@ public class Activity {
         this.date_created = date_created;
     }
 
-    public boolean isDone() {
-        return done;
-    }
-
-    public void setDone(boolean done) {
-        this.done = done;
-    }
-
     public String getDate_done() {
         return date_done;
     }
@@ -62,19 +64,27 @@ public class Activity {
         this.date_done = date_done;
     }
 
-    public String getMember() {
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
+    }
+
+    public Member getMember() {
         return member;
     }
 
-    public void setMember(String member) {
+    public void setMember(Member member) {
         this.member = member;
     }
 
-    public String getPlace() {
+    public Place getPlace() {
         return place;
     }
 
-    public void setPlace(String place) {
+    public void setPlace(Place place) {
         this.place = place;
     }
 

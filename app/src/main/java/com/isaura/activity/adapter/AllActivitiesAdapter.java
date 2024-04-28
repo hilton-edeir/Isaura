@@ -14,16 +14,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.isaura.R;
-import com.isaura.model.Notification;
+import com.isaura.model.Activity;
 
 import java.util.List;
 
 public class AllActivitiesAdapter extends RecyclerView.Adapter<AllActivitiesAdapter.AllActivitiesHolder> {
 
     private Context context;
-    private List<Notification> allActivitiesArrayList;
+    private List<Activity> allActivitiesArrayList;
 
-    public AllActivitiesAdapter(Context context, List<Notification> allActivities) {
+    public AllActivitiesAdapter(Context context, List<Activity> allActivities) {
         this.context = context;
         this.allActivitiesArrayList = allActivities;
     }
@@ -38,19 +38,19 @@ public class AllActivitiesAdapter extends RecyclerView.Adapter<AllActivitiesAdap
 
     @Override
     public void onBindViewHolder(@NonNull AllActivitiesHolder holder, int position) {
-        Notification notification = allActivitiesArrayList.get(position);
+        Activity activity = allActivitiesArrayList.get(position);
 
-        if (notification.getType() == 1) {
+        if (activity.getType() == 1) {
             Glide.with(holder.img_user_profile.getContext()).load(R.drawable.ic_user_hilton).placeholder(R.drawable.ic_user_hilton).error(R.drawable.ic_launcher_background).into(holder.img_user_profile);
             Glide.with(holder.img_item.getContext()).load(R.drawable.ic_liquid_soap).placeholder(R.drawable.ic_liquid_soap).error(R.drawable.ic_launcher_background).into(holder.img_item);
-            holder.txt_username.setText(notification.getRequestUtensil().getMember().getName());
+            holder.txt_username.setText(activity.getMember().getName());
             holder.txt_task_description.setText("fez reposição");
 
         }
-        else if (notification.getType()==2) {
+        else if (activity.getType()==2) {
             Glide.with(holder.img_user_profile.getContext()).load(R.drawable.ic_user_hilton).placeholder(R.drawable.ic_user_hilton).error(R.drawable.ic_launcher_background).into(holder.img_user_profile);
             Glide.with(holder.img_item.getContext()).load(R.drawable.ic_kitchen).placeholder(R.drawable.ic_kitchen).error(R.drawable.ic_launcher_background).into(holder.img_item);
-            holder.txt_username.setText(notification.getCleaning().getMember().getName());
+            holder.txt_username.setText(activity.getMember().getName());
             holder.txt_task_description.setText("limpou a");
             Glide.with(holder.img_date_activity.getContext()).load(R.drawable.ic_to_do).placeholder(R.drawable.ic_to_do).error(R.drawable.ic_launcher_background).into(holder.img_date_activity);
         }
@@ -64,7 +64,7 @@ public class AllActivitiesAdapter extends RecyclerView.Adapter<AllActivitiesAdap
         }
 
         Glide.with(holder.img_date_activity.getContext()).load(R.drawable.icon_calendar).placeholder(R.drawable.icon_calendar).error(R.drawable.ic_launcher_background).into(holder.img_date_activity);
-        holder.txt_date_activity.setText(notification.getDate_done());
+        holder.txt_date_activity.setText(activity.getDate_done());
 
     }
 

@@ -20,12 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.isaura.R;
-import com.isaura.model.Activity;
-import com.isaura.model.Cleaning;
 import com.isaura.model.LinkedList;
-import com.isaura.model.Notification;
 import com.isaura.model.Member;
-import com.isaura.model.Place;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -138,8 +134,8 @@ public class CleaningFragment extends Fragment {
             original_list_order.clear();
             last_rotated_list.clear();
 
-            Activity activity = new Activity(Integer.toString((int) ID_NOTIFICATION), 2, date_now, false, "", rotated_list.get(0), "kitchen" );
-            reference_notification.child("test-new-notification").child(Integer.toString((int) ID_NOTIFICATION + 1)).setValue(activity).addOnCompleteListener(task -> System.out.println(task));
+            //Activity activity = new Activity(Integer.toString((int) ID_NOTIFICATION), 2, date_now, false, "", rotated_list.get(0), "kitchen" );
+            //reference_notification.child("test-new-notification").child(Integer.toString((int) ID_NOTIFICATION + 1)).setValue(activity).addOnCompleteListener(task -> System.out.println(task));
         });
 
         return root;

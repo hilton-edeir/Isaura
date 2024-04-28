@@ -13,17 +13,17 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.isaura.R;
-import com.isaura.activity.adapter.NotificationAdapter;
 import com.isaura.model.Member;
-import com.isaura.model.Notification;
-import com.isaura.model.RequestUtensil;
+import com.isaura.model.Activity;
 import com.isaura.model.Utensil;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+
 public class UtensilsFragment extends Fragment {
 
     MaterialCardView btn_napkin, btn_matches, btn_dish_soap, btn_sponge, btn_scrub, btn_salt,
@@ -34,7 +34,8 @@ public class UtensilsFragment extends Fragment {
     DatabaseReference reference_notification;
     Calendar calendar;
     SimpleDateFormat simpleDateFormat;
-    long id_notification = 0;
+    List<Activity> activityList = new ArrayList<>();
+    int ID_NOTIFICATION = 0;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -48,7 +49,11 @@ public class UtensilsFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    id_notification = snapshot.getChildrenCount();
+                    ID_NOTIFICATION = (int) snapshot.getChildrenCount() + 1;
+                    for(DataSnapshot notification: snapshot.getChildren()) {
+                        Activity notific = notification.getValue(Activity.class);
+                        activityList.add(notific);
+                    }
                 }
             }
             @Override
@@ -65,21 +70,26 @@ public class UtensilsFragment extends Fragment {
 
             Member member = new Member("Ruténia", "marina@gmail.com", "123456", "uidchsdchehefh", 4);
             Utensil utensil = new Utensil("guardanapos", "https//:firebase-guadanapos.jpg", true);
-            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
+            Activity activity = new Activity(ID_NOTIFICATION, date_now, "null", false, 1, member, utensil);
+            boolean exists = false;
 
-            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
-                if(task.isSuccessful()) {
-                    if(task.getResult().exists()) {
-                        Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        reference_notification.child(id_notification + 1 + "").setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            if(!(activityList.isEmpty())){
+                for(Activity notification: activityList) {
+                    if(notification.getType() == 1) {
+                        if(notification.getUtensil().getName().equals(utensil.getName())) {
+                            exists = true;
+                        }
                     }
                 }
-            });
+            }
 
+            if(exists) {
+                Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            }
         });
 
         btn_matches.setOnClickListener(v -> {
@@ -89,19 +99,26 @@ public class UtensilsFragment extends Fragment {
 
             Member member = new Member("Carline", "carline@gmail.com", "123456", "uidchsdchehefh", 2);
             Utensil utensil = new Utensil("fosforos", "https//:firebase-fosforos.jpg", true);
-            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
-                if(task.isSuccessful()) {
-                    if(task.getResult().exists()) {
-                        Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        reference_notification.child(id_notification + 1 + "").setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            Activity activity = new Activity(ID_NOTIFICATION, date_now, "null", false, 1, member, utensil);
+            boolean exists = false;
+
+            if(!(activityList.isEmpty())){
+                for(Activity notification: activityList) {
+                    if(notification.getType() == 1) {
+                        if(notification.getUtensil().getName().equals(utensil.getName())) {
+                            exists = true;
+                        }
                     }
                 }
-            });
+            }
+
+            if(exists) {
+                Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            }
         });
 
         btn_dish_soap.setOnClickListener(v -> {
@@ -111,20 +128,26 @@ public class UtensilsFragment extends Fragment {
 
             Member member = new Member("Hilton", "hilton@gmail.com", "123456", "uidchsdchehefh", 5);
             Utensil utensil = new Utensil("detergente-loica", "https//:firebase-fosforos.jpg", true);
-            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
-                if(task.isSuccessful()) {
-                    if(task.getResult().exists()) {
-                        Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        reference_notification.child(id_notification + 1 + "").setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            Activity activity = new Activity(ID_NOTIFICATION, date_now, "null", false, 1, member, utensil);
+            boolean exists = false;
+
+            if(!(activityList.isEmpty())){
+                for(Activity notification: activityList) {
+                    if(notification.getType() == 1) {
+                        if(notification.getUtensil().getName().equals(utensil.getName())) {
+                            exists = true;
+                        }
                     }
                 }
-            });
+            }
 
+            if(exists) {
+                Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            }
         });
 
         btn_sponge.setOnClickListener(v -> {
@@ -134,19 +157,25 @@ public class UtensilsFragment extends Fragment {
 
             Member member = new Member("Marina", "marina@gmail.com", "123456", "uidchsdchehefh", 1);
             Utensil utensil = new Utensil("esponja", "https//:firebase-fosforos.jpg", true);
-            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1,requestUtensil);
+            Activity activity = new Activity(ID_NOTIFICATION, date_now, "null", false, 1, member, utensil);
+            boolean exists = false;
 
-            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
-                if(task.isSuccessful()) {
-                    if(task.getResult().exists()) {
-                        Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        reference_notification.child(id_notification + 1 + "").setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            if(!(activityList.isEmpty())){
+                for(Activity notification: activityList) {
+                    if(notification.getType() == 1) {
+                        if(notification.getUtensil().getName().equals(utensil.getName())) {
+                            exists = true;
+                        }
                     }
                 }
-            });
+            }
+
+            if(exists) {
+                Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            }
         });
 
         btn_scrub.setOnClickListener(v -> {
@@ -156,19 +185,26 @@ public class UtensilsFragment extends Fragment {
 
             Member member = new Member("Marina", "marina@gmail.com", "123456", "uidchsdchehefh", 1);
             Utensil utensil = new Utensil("fergao", "https//:firebase-fosforos.jpg", true);
-            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
-                if(task.isSuccessful()) {
-                    if(task.getResult().exists()) {
-                        Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        reference_notification.child(id_notification + 1 + "").setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            Activity activity = new Activity(ID_NOTIFICATION, date_now, "null", false, 1, member, utensil);
+            boolean exists = false;
+
+            if(!(activityList.isEmpty())){
+                for(Activity notification: activityList) {
+                    if(notification.getType() == 1) {
+                        if(notification.getUtensil().getName().equals(utensil.getName())) {
+                            exists = true;
+                        }
                     }
                 }
-            });
+            }
+
+            if(exists) {
+                Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            }
         });
 
         btn_salt.setOnClickListener(v -> {
@@ -178,19 +214,26 @@ public class UtensilsFragment extends Fragment {
 
             Member member = new Member("Maria", "maria@gmail.com", "123456", "uidchsdchehefh", 3);
             Utensil utensil = new Utensil("sal", "https//:firebase-fosforos.jpg", true);
-            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
-                if(task.isSuccessful()) {
-                    if(task.getResult().exists()) {
-                        Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        reference_notification.child(id_notification + 1 + "").setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            Activity activity = new Activity(ID_NOTIFICATION, date_now, "null", false, 1, member, utensil);
+            boolean exists = false;
+
+            if(!(activityList.isEmpty())){
+                for(Activity notification: activityList) {
+                    if(notification.getType() == 1) {
+                        if(notification.getUtensil().getName().equals(utensil.getName())) {
+                            exists = true;
+                        }
                     }
                 }
-            });
+            }
+
+            if(exists) {
+                Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            }
         });
 
         btn_trashbag.setOnClickListener(v -> {
@@ -200,20 +243,26 @@ public class UtensilsFragment extends Fragment {
 
             Member member = new Member("Hilton", "hilton@gmail.com", "123456", "uidchsdchehefh", 5);
             Utensil utensil = new Utensil("saco-lixo", "https//:firebase-fosforos.jpg", true);
-            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
-                if(task.isSuccessful()) {
-                    if(task.getResult().exists()) {
-                        Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        reference_notification.child(id_notification + 1 + "").setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            Activity activity = new Activity(ID_NOTIFICATION, date_now, "null", false, 1, member, utensil);
+            boolean exists = false;
+
+            if(!(activityList.isEmpty())){
+                for(Activity notification: activityList) {
+                    if(notification.getType() == 1) {
+                        if(notification.getUtensil().getName().equals(utensil.getName())) {
+                            exists = true;
+                        }
                     }
                 }
-            });
+            }
 
+            if(exists) {
+                Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            }
         });
 
         btn_aluminium_foil.setOnClickListener(v -> {
@@ -223,19 +272,26 @@ public class UtensilsFragment extends Fragment {
 
             Member member = new Member("Hilton", "hilton@gmail.com", "123456", "uidchsdchehefh", 5);
             Utensil utensil = new Utensil("rolo-aluminio", "https//:firebase-fosforos.jpg", true);
-            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
-                if(task.isSuccessful()) {
-                    if(task.getResult().exists()) {
-                        Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        reference_notification.child(id_notification + 1 + "").setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            Activity activity = new Activity(ID_NOTIFICATION, date_now, "null", false, 1, member, utensil);
+            boolean exists = false;
+
+            if(!(activityList.isEmpty())){
+                for(Activity notification: activityList) {
+                    if(notification.getType() == 1) {
+                        if(notification.getUtensil().getName().equals(utensil.getName())) {
+                            exists = true;
+                        }
                     }
                 }
-            });
+            }
+
+            if(exists) {
+                Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            }
         });
 
         btn_plastic_foil.setOnClickListener(v -> {
@@ -245,19 +301,26 @@ public class UtensilsFragment extends Fragment {
 
             Member member = new Member("Hilton", "hilton@gmail.com", "123456", "uidchsdchehefh", 5);
             Utensil utensil = new Utensil("plastico-aderente", "https//:firebase-fosforos.jpg", true);
-            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
-                if(task.isSuccessful()) {
-                    if(task.getResult().exists()) {
-                        Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        reference_notification.child(id_notification + 1 + "").setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            Activity activity = new Activity(ID_NOTIFICATION, date_now, "null", false, 1, member, utensil);
+            boolean exists = false;
+
+            if(!(activityList.isEmpty())){
+                for(Activity notification: activityList) {
+                    if(notification.getType() == 1) {
+                        if(notification.getUtensil().getName().equals(utensil.getName())) {
+                            exists = true;
+                        }
                     }
                 }
-            });
+            }
+
+            if(exists) {
+                Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            }
         });
 
         btn_bath_detergent.setOnClickListener(v -> {
@@ -267,19 +330,26 @@ public class UtensilsFragment extends Fragment {
 
             Member member = new Member("Marina", "marina@gmail.com", "123456", "uidchsdchehefh", 1);
             Utensil utensil = new Utensil("detergente-limpeza", "https//:firebase-fosforos.jpg", true);
-            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
-                if(task.isSuccessful()) {
-                    if(task.getResult().exists()) {
-                        Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        reference_notification.child(id_notification + 1 + "").setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            Activity activity = new Activity(ID_NOTIFICATION, date_now, "null", false, 1, member, utensil);
+            boolean exists = false;
+
+            if(!(activityList.isEmpty())){
+                for(Activity notification: activityList) {
+                    if(notification.getType() == 1) {
+                        if(notification.getUtensil().getName().equals(utensil.getName())) {
+                            exists = true;
+                        }
                     }
                 }
-            });
+            }
+
+            if(exists) {
+                Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            }
         });
 
         btn_liquid_soap.setOnClickListener(v -> {
@@ -289,19 +359,26 @@ public class UtensilsFragment extends Fragment {
 
             Member member = new Member("Marina", "marina@gmail.com", "123456", "uidchsdchehefh", 1);
             Utensil utensil = new Utensil("sabao-liquido", "https//:firebase-fosforos.jpg", true);
-            RequestUtensil requestUtensil = new RequestUtensil(date_now, utensil, member);
-            Notification notification = new Notification(id_notification + 1 + "", date_now, "null", false, 1, requestUtensil);
 
-            reference_notification.child(id_notification + 1 + "").get().addOnCompleteListener(task -> {
-                if(task.isSuccessful()) {
-                    if(task.getResult().exists()) {
-                        Toast.makeText(root.getContext(), "Já foi pedido uma vez", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        reference_notification.child(id_notification + 1 + "").setValue(notification).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            Activity activity = new Activity(ID_NOTIFICATION, date_now, "null", false, 1, member, utensil);
+            boolean exists = false;
+
+            if(!(activityList.isEmpty())){
+                for(Activity notification: activityList) {
+                    if(notification.getType() == 1) {
+                        if(notification.getUtensil().getName().equals(utensil.getName())) {
+                            exists = true;
+                        }
                     }
                 }
-            });
+            }
+
+            if(exists) {
+                Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                reference_notification.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+            }
         });
 
         return root;

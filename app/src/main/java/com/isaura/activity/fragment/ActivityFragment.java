@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.isaura.R;
-import com.isaura.model.Notification;
+import com.isaura.model.Activity;
 import com.isaura.activity.adapter.AllActivitiesAdapter;
 
 import java.util.ArrayList;
@@ -29,10 +29,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-public class AllActivitiesFragment extends Fragment {
+public class ActivityFragment extends Fragment {
 
     private AllActivitiesAdapter allActivitiesAdapter;
-    private final List<Notification> allActivitiesList = new ArrayList<>();
+    private final List<Activity> allActivitiesList = new ArrayList<>();
     RecyclerView recyclerview_all_activities;
     ImageView img_user_profile_all_activity;
     TextView txt_greeting_all_activity, txt_name_profile_all_activity, txt_activity_empty;
@@ -55,9 +55,9 @@ public class AllActivitiesFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot notification: snapshot.child("notification").getChildren()) {
-                    Notification notification1 = notification.getValue(Notification.class);
-                    if(notification1.isDone()) {
-                        allActivitiesList.add(notification1);
+                    Activity activity1 = notification.getValue(Activity.class);
+                    if(activity1.isDone()) {
+                        allActivitiesList.add(activity1);
                     }
                 }
                 if(allActivitiesList.isEmpty()) {

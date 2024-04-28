@@ -1,7 +1,7 @@
 package com.isaura.activity.fragment;
 
-import com.isaura.model.Notification;
+import com.isaura.model.Activity;
 
 public interface SelectNotificationListener {
-    void onItemClicked(Notification notification);
+    void onItemClicked(Activity activity);
 }
