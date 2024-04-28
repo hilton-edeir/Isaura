@@ -39,14 +39,17 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
     RecyclerView recyclerView;
     NotificationAdapter notificationAdapter;
     FirebaseAuth firebaseAuth;
-    private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-    private List<Notification> notificationList = new ArrayList<>();
+    FirebaseDatabase database;
+    DatabaseReference reference_notification;
+    List<Notification> notificationList = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.me_fragment, container, false);
         inicializeComponents(root);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+        reference_notification = database.getReference("notification");
         SelectNotificationListener selectNotificationListener = this;
 
         txt_profile_display_name.setText(Objects.requireNonNull(firebaseAuth.getCurrentUser()).getDisplayName());
@@ -54,13 +57,13 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
         recyclerView = root.findViewById(R.id.recyclerview_notification);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         notificationList.clear();
-        progressBar.setVisibility(View.VISIBLE);
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        reference_notification.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()) {
-                    for (DataSnapshot notification: snapshot.child("notification").getChildren()) {
+                    progressBar.setVisibility(View.VISIBLE);
+                    for (DataSnapshot notification: snapshot.getChildren()) {
                         Notification notification1 = notification.getValue(Notification.class);
                         if(!notification1.isDone()) {
                             notificationList.add(notification1);
@@ -116,8 +119,8 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
         String date_now = simpleDateFormat.format(calendar.getTime());
 
         if(notification.getType() == 1) {
-            databaseReference.child("notification").child(notification.getId()).child("done").setValue(true);
-            databaseReference.child("notification").child(notification.getId()).child("date_done").setValue(date_now);
+            reference_notification.child(notification.getId()).child("done").setValue(true);
+            reference_notification.child(notification.getId()).child("date_done").setValue(date_now);
         }
         else if(notification.getType() == 2){
             Toast.makeText(getContext(), "Brevemente", Toast.LENGTH_SHORT).show();

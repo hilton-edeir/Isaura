@@ -6,7 +6,7 @@ import java.util.List;
 
 public class LinkedList {
     //utility function to insert node at the end of the list
-    static Node insertNode(Node head, Member val) {
+    static Node insertNode(Node head, String val) {
         Node newNode = new Node(val);
         if (head == null) {
             head = newNode;
@@ -35,20 +35,19 @@ public class LinkedList {
     static String printList(Node head) {
         String print = "";
         while (head.next != null) {
-            print += head.num.getEmail() + "->";
-            //System.out.print(head.num.getName() + "->");
+            print += head.num + "->";
             head = head.next;
         }
 
         //System.out.println(head.num.getName());
-        print += head.num.getEmail();
+        print += head.num;
         return print;
     }
 
-    public static List<String> schecule(ArrayList<Member> memberList) {
+    public static List<String> schecule(List<String> memberList) {
 
         Node head = null;
-        ArrayList<Member> membersDistrubuted = new ArrayList<>();
+        List<Member> membersDistrubuted = new ArrayList<>();
 
         System.out.println("Array size: " + memberList.size());
         //inserting Node

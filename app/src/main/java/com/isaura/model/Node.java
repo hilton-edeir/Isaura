@@ -2,9 +2,9 @@ package com.isaura.model;
 
 
 public class Node {
-    Member num;
+    String num;
     Node next;
-    Node(Member member) {
+    Node(String member) {
         num = member;
         next = null;
     }
