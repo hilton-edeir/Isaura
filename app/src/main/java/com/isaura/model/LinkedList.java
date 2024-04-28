@@ -44,10 +44,9 @@ public class LinkedList {
         return print;
     }
 
-    public static List<String> schecule(List<String> memberList) {
+    public static List<String> schecule(List<String> memberList, int rotation_number) {
 
         Node head = null;
-        List<Member> membersDistrubuted = new ArrayList<>();
 
         System.out.println("Array size: " + memberList.size());
         //inserting Node
@@ -57,13 +56,12 @@ public class LinkedList {
 
         System.out.println(printList(head));
 
-        int k = 1;
-        Node newHead = rotateRight(head, k); //calling function for rotating
-        System.out.println("After " + k + " iterations: ");
+        Node newHead = rotateRight(head, rotation_number); //calling function for rotating
+        System.out.println("After " + rotation_number + " iterations: ");
 
         List<String> membersEmails = Arrays.asList(printList(newHead).split("->", memberList.size()));
 
-        return membersEmails; //list after rotating nodes
+        return membersEmails;
 
     }
 }

@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.firebase.auth.FirebaseAuth;
@@ -50,6 +51,8 @@ public class CleaningFragment extends Fragment {
     SimpleDateFormat simpleDateFormat;
     List<String> original_list_order = new ArrayList<>();
     List<String> last_rotated_list = new ArrayList<>();
+    List<String> rotated_list = new ArrayList<>();
+    List<Member> member_list = new ArrayList<>();
     List<String> original_list_order_updated;
     @Nullable
     @Override
@@ -64,8 +67,8 @@ public class CleaningFragment extends Fragment {
         reference_member = database.getReference("member");
         reference_activity = database.getReference("activity");
 
+        inicialize_original_list_order();
         inicialize_components(root);
-        original_cleaning_list_order_update();
 
         reference_activity.addValueEventListener(new ValueEventListener() {
             @Override
@@ -79,6 +82,7 @@ public class CleaningFragment extends Fragment {
 
             }
         });
+
         reference_original_list_order.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -86,11 +90,10 @@ public class CleaningFragment extends Fragment {
                     for(DataSnapshot member: snapshot.getChildren()){
                         String member_name = member.getValue(String.class);
                         original_list_order.add(member_name);
-                        System.out.println(member_name);
                     }
                 }
                 else {
-                    System.out.println("Original list is empty");
+                    System.out.println("original list order is empty");
                 }
             }
 
@@ -99,6 +102,7 @@ public class CleaningFragment extends Fragment {
                 System.out.printf(error.toString());
             }
         });
+
         reference_last_rotated_list_order.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -106,7 +110,6 @@ public class CleaningFragment extends Fragment {
                     for(DataSnapshot member: snapshot.getChildren()){
                         String member_name = member.getValue(String.class);
                         last_rotated_list.add(member_name);
-                        System.out.println(member_name);
                     }
                 }
                 else {
@@ -119,29 +122,9 @@ public class CleaningFragment extends Fragment {
             }
         });
 
+
         btn_test.setOnClickListener(v -> {
 
-            calendar = Calendar.getInstance();
-            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-            String date_now = simpleDateFormat.format(calendar.getTime());
-
-            List<String> rotated_list;
-
-            if(last_rotated_list.isEmpty()) {
-                rotated_list = LinkedList.schecule(original_list_order);
-            }
-            else {
-                rotated_list = LinkedList.schecule(last_rotated_list);
-            }
-            System.out.println(rotated_list);
-
-            reference_last_rotated_list_order.removeValue();
-            reference_last_rotated_list_order.setValue(rotated_list).addOnCompleteListener(task -> System.out.println(task));
-            original_list_order.clear();
-            last_rotated_list.clear();
-
-            //Activity activity = new Activity(Integer.toString((int) ID_NOTIFICATION), 2, date_now, false, "", rotated_list.get(0), "kitchen" );
-            //reference_notification.child("test-new-notification").child(Integer.toString((int) ID_NOTIFICATION + 1)).setValue(activity).addOnCompleteListener(task -> System.out.println(task));
         });
 
         btn_see_calendar.setOnClickListener(v -> {
@@ -163,10 +146,84 @@ public class CleaningFragment extends Fragment {
 
                 NUMBER_OF_SATURDAYS = countSaturdays(startDate, endDate);
 
+                if(last_rotated_list.isEmpty()) {
+                    rotated_list = LinkedList.schecule(original_list_order,(int) NUMBER_OF_SATURDAYS);
+                }
+                else {
+                    rotated_list = LinkedList.schecule(last_rotated_list, (int) NUMBER_OF_SATURDAYS);
+                }
+
+                reference_last_rotated_list_order.removeValue();
+                reference_last_rotated_list_order.setValue(rotated_list).addOnCompleteListener(task -> System.out.println(task));
+
+                txt_username_kitchen_cleaning.setText(rotated_list.get(0));
+                txt_username_bathroom_cleaning.setText(rotated_list.get(1));
+                txt_username_livingroom_cleaning.setText(rotated_list.get(2));
+                txt_username_trash_cleaning.setText(rotated_list.get(3));
+                txt_username_free_cleaning.setText(rotated_list.get(4));
+
+                original_list_order.clear();
+                last_rotated_list.clear();
+
+                /*for(Member member: member_list) {
+            if(member.getName().startsWith(rotated_list.get(0))) {
+                Glide.with(img_user_kitchen_cleaning.getContext()).load(member_list.get(0).getUrl_image()).placeholder(R.drawable.ic_user_hilton).error(R.drawable.ic_launcher_background).into(img_user_kitchen_cleaning);
+            }
+            else if(member.getName().startsWith(rotated_list.get(1))) {
+                Glide.with(img_user_kitchen_cleaning.getContext()).load(member_list.get(1).getUrl_image()).placeholder(R.drawable.ic_user_hilton).error(R.drawable.ic_launcher_background).into(img_user_kitchen_cleaning);
+            }
+            else if(member.getName().startsWith(rotated_list.get(2))) {
+                Glide.with(img_user_kitchen_cleaning.getContext()).load(member_list.get(2).getUrl_image()).placeholder(R.drawable.ic_user_hilton).error(R.drawable.ic_launcher_background).into(img_user_kitchen_cleaning);
+            }
+            else if(member.getName().startsWith(rotated_list.get(3))) {
+                Glide.with(img_user_kitchen_cleaning.getContext()).load(member_list.get(3).getUrl_image()).placeholder(R.drawable.ic_user_hilton).error(R.drawable.ic_launcher_background).into(img_user_kitchen_cleaning);
+            }
+            else if(member.getName().startsWith(rotated_list.get(4))) {
+                Glide.with(img_user_kitchen_cleaning.getContext()).load(member_list.get(3).getUrl_image()).placeholder(R.drawable.ic_user_hilton).error(R.drawable.ic_launcher_background).into(img_user_kitchen_cleaning);
+            }
+
+        }*/
+
             });
             materialDatePicker.show(getActivity().getSupportFragmentManager(), "tag");
         });
         return root;
+    }
+
+    private void inicialize_original_list_order() {
+        reference_member.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    original_list_order_updated = Arrays.asList(new String[(int) snapshot.getChildrenCount()]);
+                    for(DataSnapshot member: snapshot.getChildren()) {
+                        Member member1 = member.getValue(Member.class);
+                        if(member1.getAssigned_table_order() != 0) {
+                            if(member1.getName().contains(" ")) {
+                                String[] temp_name = member1.getName().split(" ",2);
+                                member1.setName(temp_name[0]);
+                            }
+                            if(member1.getAssigned_table_order() != 0) {
+                                original_list_order_updated.set(member1.getAssigned_table_order() - 1, member1.getName());
+                            }
+                        }
+                    }
+                    reference_original_list_order.setValue(original_list_order_updated).addOnCompleteListener(task1 -> System.out.println("members updated to original list"));
+                    txt_username_kitchen_cleaning.setText(original_list_order_updated.get(0));
+                    txt_username_bathroom_cleaning.setText(original_list_order_updated.get(1));
+                    txt_username_livingroom_cleaning.setText(original_list_order_updated.get(2));
+                    txt_username_trash_cleaning.setText(original_list_order_updated.get(3));
+                    txt_username_free_cleaning.setText(original_list_order_updated.get(4));
+                }
+                else {
+                    System.out.println("The member node is empty");
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                System.out.println(error);
+            }
+        });
     }
 
     public void inicialize_components(View root) {
@@ -200,43 +257,8 @@ public class CleaningFragment extends Fragment {
         }
     }
 
-
-    public void original_cleaning_list_order_update() {
-        reference_member.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    original_list_order_updated = Arrays.asList(new String[(int) snapshot.getChildrenCount()]);
-                    for(DataSnapshot member: snapshot.getChildren()) {
-                        Member member1 = member.getValue(Member.class);
-                        if(member1.getAssigned_table_order() != 0) {
-                            if(member1.getName().contains(" ")) {
-                                String[] temp_name = member1.getName().split(" ",2);
-                                member1.setName(temp_name[0]);
-                            }
-                            if(member1.getAssigned_table_order() != 0) {
-                                original_list_order_updated.set(member1.getAssigned_table_order() - 1, member1.getName());
-                            }
-                        }
-                    }
-                    reference_original_list_order.setValue(original_list_order_updated).addOnCompleteListener(task1 -> System.out.println("members updated to original list"));
-                }
-                else {
-                    System.out.println("There's no user");
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                System.out.println(error);
-            }
-        });
-
-    }
-
-    private static long countSaturdays(LocalDate startDate, LocalDate endDate)
-    {
+    private static long countSaturdays(LocalDate startDate, LocalDate endDate) {
         long count = 0;
-
         while (!startDate.isAfter(endDate)) {
             if(startDate.getDayOfWeek() == DayOfWeek.SATURDAY) {
                 count++;
@@ -245,4 +267,6 @@ public class CleaningFragment extends Fragment {
         }
         return count;
     }
+
+
 }
