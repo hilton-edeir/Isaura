@@ -83,7 +83,6 @@ public class UtensilsFragment extends Fragment {
                     }
                 }
             }
-
             if(exists) {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
@@ -112,7 +111,6 @@ public class UtensilsFragment extends Fragment {
                     }
                 }
             }
-
             if(exists) {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
@@ -141,7 +139,6 @@ public class UtensilsFragment extends Fragment {
                     }
                 }
             }
-
             if(exists) {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
@@ -169,7 +166,6 @@ public class UtensilsFragment extends Fragment {
                     }
                 }
             }
-
             if(exists) {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
@@ -198,7 +194,6 @@ public class UtensilsFragment extends Fragment {
                     }
                 }
             }
-
             if(exists) {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
@@ -227,7 +222,6 @@ public class UtensilsFragment extends Fragment {
                     }
                 }
             }
-
             if(exists) {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
@@ -256,7 +250,6 @@ public class UtensilsFragment extends Fragment {
                     }
                 }
             }
-
             if(exists) {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
@@ -285,7 +278,6 @@ public class UtensilsFragment extends Fragment {
                     }
                 }
             }
-
             if(exists) {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
@@ -314,7 +306,6 @@ public class UtensilsFragment extends Fragment {
                     }
                 }
             }
-
             if(exists) {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
@@ -343,7 +334,6 @@ public class UtensilsFragment extends Fragment {
                     }
                 }
             }
-
             if(exists) {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
@@ -372,7 +362,6 @@ public class UtensilsFragment extends Fragment {
                     }
                 }
             }
-
             if(exists) {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
