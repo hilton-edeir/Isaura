@@ -41,20 +41,18 @@ public class ActivityFragment extends Fragment {
     FirebaseAuth firebaseAuth;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.all_activities_fragment, container, false);
-
         inicializeComponents(view);
+        reference_activity = FirebaseDatabase.getInstance().getReference("activity");
 
         recyclerview_all_activities.setLayoutManager(new LinearLayoutManager(getContext()));
-        allActivitiesList.clear();
 
-        progress_bar_all_activities.setVisibility(View.VISIBLE);
-        reference_activity = FirebaseDatabase.getInstance().getReference();
         reference_activity.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot notification: snapshot.child("acitivity").getChildren()) {
+                allActivitiesList.clear();
+                progress_bar_all_activities.setVisibility(View.VISIBLE);
+                for(DataSnapshot notification: snapshot.getChildren()) {
                     Activity activity1 = notification.getValue(Activity.class);
                     if(activity1.isDone()) {
                         allActivitiesList.add(activity1);
@@ -66,9 +64,7 @@ public class ActivityFragment extends Fragment {
                     txt_activity_empty.setVisibility(View.VISIBLE);
                 }
                 else{
-                    allActivitiesAdapter = new AllActivitiesAdapter(getContext(), allActivitiesList);
                     progress_bar_all_activities.setVisibility(View.GONE);
-                    recyclerview_all_activities.setAdapter(allActivitiesAdapter);
                     allActivitiesAdapter.notifyDataSetChanged();
                 }
             }
@@ -77,6 +73,9 @@ public class ActivityFragment extends Fragment {
                 System.out.println(error);
             }
         });
+
+        allActivitiesAdapter = new AllActivitiesAdapter(getContext(), allActivitiesList);
+        recyclerview_all_activities.setAdapter(allActivitiesAdapter);
 
         return view;
     }

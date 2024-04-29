@@ -36,60 +36,50 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
     MaterialCardView btn_update_profile, btn_sign_out;
     ProgressBar progressBar;
     TextView txt_profile_display_name, txt_notification_empty;
-    RecyclerView recyclerView;
+    RecyclerView recyclerview_notification;
     NotificationAdapter notificationAdapter;
     FirebaseAuth firebaseAuth;
-    FirebaseDatabase database;
     DatabaseReference reference_activity;
     List<Activity> activityList = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.me_fragment, container, false);
         inicializeComponents(root);
-
-        firebaseAuth = FirebaseAuth.getInstance();
-        database = FirebaseDatabase.getInstance();
-        reference_activity = database.getReference("activity");
         SelectNotificationListener selectNotificationListener = this;
+        reference_activity = FirebaseDatabase.getInstance().getReference("activity");
 
-        txt_profile_display_name.setText(Objects.requireNonNull(firebaseAuth.getCurrentUser()).getDisplayName());
-
-        recyclerView = root.findViewById(R.id.recyclerview_notification);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        activityList.clear();
+        recyclerview_notification.setLayoutManager(new LinearLayoutManager(getContext()));
 
         reference_activity.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()) {
-                    progressBar.setVisibility(View.VISIBLE);
-                    for (DataSnapshot notification: snapshot.getChildren()) {
-                        Activity activity1 = notification.getValue(Activity.class);
-                        if(!activity1.isDone()) {
-                            activityList.add(activity1);
-                        }
-                    }
-                    if(activityList.isEmpty()) {
-                        recyclerView.setVisibility(View.GONE);
-                        progressBar.setVisibility(View.GONE);
-                        txt_notification_empty.setVisibility(View.VISIBLE);
-                    }
-                    else {
-                        notificationAdapter = new NotificationAdapter(getContext(), activityList, selectNotificationListener);
-                        progressBar.setVisibility(View.GONE);
-                        recyclerView.setAdapter(notificationAdapter);
-                        notificationAdapter.notifyDataSetChanged();
-
+                activityList.clear();
+                progressBar.setVisibility(View.VISIBLE);
+                for(DataSnapshot notification: snapshot.getChildren()) {
+                    Activity activity1 = notification.getValue(Activity.class);
+                    assert activity1 != null;
+                    if(!activity1.isDone()) {
+                        activityList.add(activity1);
                     }
                 }
+                if(activityList.isEmpty()) {
+                    recyclerview_notification.setVisibility(View.GONE);
+                    progressBar.setVisibility(View.GONE);
+                    txt_notification_empty.setVisibility(View.VISIBLE);
+                }
+                else {
+                    progressBar.setVisibility(View.GONE);
+                    notificationAdapter.notifyDataSetChanged();
+                }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 System.out.println(error);
             }
         });
 
+        notificationAdapter = new NotificationAdapter(getContext(), activityList, selectNotificationListener);
+        recyclerview_notification.setAdapter(notificationAdapter);
 
         btn_update_profile.setOnClickListener(v -> Toast.makeText(root.getContext(),"Brevemente" , Toast.LENGTH_SHORT).show());
 
@@ -110,6 +100,10 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
         txt_profile_display_name = root.findViewById(R.id.txt_profile_display_name);
         progressBar = root.findViewById(R.id.progress_bar_notification);
         txt_notification_empty = root.findViewById(R.id.txt_notification_empty);
+        recyclerview_notification = root.findViewById(R.id.recyclerview_notification);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        txt_profile_display_name.setText(Objects.requireNonNull(firebaseAuth.getCurrentUser()).getDisplayName());
     }
 
     @Override

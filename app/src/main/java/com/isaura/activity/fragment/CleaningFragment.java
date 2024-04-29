@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
@@ -30,6 +31,9 @@ import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjuster;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -122,48 +126,35 @@ public class CleaningFragment extends Fragment {
             }
         });
 
+        LocalDate nextSaturday = LocalDate.now().with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
+        txt_date_selected.setText("Data: " + nextSaturday);
 
         btn_test.setOnClickListener(v -> {
 
         });
 
         btn_see_calendar.setOnClickListener(v -> {
-            MaterialDatePicker<Long> materialDatePicker = MaterialDatePicker.Builder.datePicker().setTitleText("Calendário").setSelection(MaterialDatePicker.todayInUtcMilliseconds()).build();
-            materialDatePicker.addOnPositiveButtonClickListener(aLong -> {
+            if(last_rotated_list.isEmpty()) {
+                rotated_list = LinkedList.schecule(original_list_order, 1);
+            }
+            else {
+                rotated_list = LinkedList.schecule(last_rotated_list, 1);
+            }
 
-                String date_selected = new SimpleDateFormat("dd-MM-yyy", Locale.getDefault()).format(new Date(aLong));
-                txt_date_selected.setText(MessageFormat.format("Data: {0}", date_selected));
+            reference_last_rotated_list_order.removeValue();
+            reference_last_rotated_list_order.setValue(rotated_list).addOnCompleteListener(task -> System.out.println(task));
 
-                calendar = Calendar.getInstance();
-                simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-                String date_now = simpleDateFormat.format(calendar.getTime());
+            txt_username_kitchen_cleaning.setText(rotated_list.get(0));
+            txt_username_bathroom_cleaning.setText(rotated_list.get(1));
+            txt_username_livingroom_cleaning.setText(rotated_list.get(2));
+            txt_username_trash_cleaning.setText(rotated_list.get(3));
+            txt_username_free_cleaning.setText(rotated_list.get(4));
 
-                String[] selected_date_splited = date_selected.split("-", 3);
-                String[] date_now_splited = date_now.split("-", 3);
-
-                LocalDate startDate = LocalDate.of(Integer.parseInt(date_now_splited[2]), Integer.parseInt(date_now_splited[1]), Integer.parseInt(date_now_splited[0]));
-                LocalDate endDate = LocalDate.of(Integer.parseInt(selected_date_splited[2]), Integer.parseInt(selected_date_splited[1]), Integer.parseInt(selected_date_splited[0]));
-
-                NUMBER_OF_SATURDAYS = countSaturdays(startDate, endDate);
-
-                if(last_rotated_list.isEmpty()) {
-                    rotated_list = LinkedList.schecule(original_list_order,(int) NUMBER_OF_SATURDAYS);
-                }
-                else {
-                    rotated_list = LinkedList.schecule(last_rotated_list, (int) NUMBER_OF_SATURDAYS);
-                }
-
-                reference_last_rotated_list_order.removeValue();
-                reference_last_rotated_list_order.setValue(rotated_list).addOnCompleteListener(task -> System.out.println(task));
-
-                txt_username_kitchen_cleaning.setText(rotated_list.get(0));
-                txt_username_bathroom_cleaning.setText(rotated_list.get(1));
-                txt_username_livingroom_cleaning.setText(rotated_list.get(2));
-                txt_username_trash_cleaning.setText(rotated_list.get(3));
-                txt_username_free_cleaning.setText(rotated_list.get(4));
-
-                original_list_order.clear();
-                last_rotated_list.clear();
+            original_list_order.clear();
+            last_rotated_list.clear();
+            LocalDate next_nextSaturday = LocalDate.from(nextSaturday).with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
+            txt_date_selected.setText("Data: " + next_nextSaturday);
+            inicialize_original_list_order();
 
                 /*for(Member member: member_list) {
             if(member.getName().startsWith(rotated_list.get(0))) {
@@ -180,12 +171,8 @@ public class CleaningFragment extends Fragment {
             }
             else if(member.getName().startsWith(rotated_list.get(4))) {
                 Glide.with(img_user_kitchen_cleaning.getContext()).load(member_list.get(3).getUrl_image()).placeholder(R.drawable.ic_user_hilton).error(R.drawable.ic_launcher_background).into(img_user_kitchen_cleaning);
-            }
+            }*/
 
-        }*/
-
-            });
-            materialDatePicker.show(getActivity().getSupportFragmentManager(), "tag");
         });
         return root;
     }
@@ -209,11 +196,21 @@ public class CleaningFragment extends Fragment {
                         }
                     }
                     reference_original_list_order.setValue(original_list_order_updated).addOnCompleteListener(task1 -> System.out.println("members updated to original list"));
-                    txt_username_kitchen_cleaning.setText(original_list_order_updated.get(0));
-                    txt_username_bathroom_cleaning.setText(original_list_order_updated.get(1));
-                    txt_username_livingroom_cleaning.setText(original_list_order_updated.get(2));
-                    txt_username_trash_cleaning.setText(original_list_order_updated.get(3));
-                    txt_username_free_cleaning.setText(original_list_order_updated.get(4));
+
+                    if(last_rotated_list.isEmpty()) {
+                        txt_username_kitchen_cleaning.setText(original_list_order_updated.get(0));
+                        txt_username_bathroom_cleaning.setText(original_list_order_updated.get(1));
+                        txt_username_livingroom_cleaning.setText(original_list_order_updated.get(2));
+                        txt_username_trash_cleaning.setText(original_list_order_updated.get(3));
+                        txt_username_free_cleaning.setText(original_list_order_updated.get(4));
+                    }
+                    else {
+                        txt_username_kitchen_cleaning.setText(last_rotated_list.get(0));
+                        txt_username_bathroom_cleaning.setText(last_rotated_list.get(1));
+                        txt_username_livingroom_cleaning.setText(last_rotated_list.get(2));
+                        txt_username_trash_cleaning.setText(last_rotated_list.get(3));
+                        txt_username_free_cleaning.setText(last_rotated_list.get(4));
+                    }
                 }
                 else {
                     System.out.println("The member node is empty");
