@@ -89,11 +89,11 @@ public class Settings extends AppCompatActivity {
 
         btn_save_changes.setOnClickListener(v -> {
             if(profile_image != null){
-                StorageReference image_reference = storage_ref_member.child(System.currentTimeMillis() + "." + getFileExtension(profile_image));
+                String member_uid = firebaseAuth.getCurrentUser().getUid();
+                StorageReference image_reference = storage_ref_member.child(member_uid + ".png");
                 image_reference.putFile(profile_image).addOnSuccessListener(taskSnapshot -> {
                     image_reference.getDownloadUrl().addOnSuccessListener(uri -> {
-                        String key = firebaseAuth.getCurrentUser().getUid();
-                        reference_member.child(key).child("url_image").setValue(uri).addOnCompleteListener(task -> {
+                        reference_member.child(member_uid).child("url_image").setValue(uri).addOnCompleteListener(task -> {
                             progress_bar_settings.setVisibility(View.GONE);
                             Toast.makeText(Settings.this, "Alterações guardadas", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Settings.this, Home.class);

@@ -1,5 +1,7 @@
 package com.isaura.activity.fragment;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,16 +15,24 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.isaura.R;
 import com.isaura.model.Activity;
 import com.isaura.activity.adapter.AllActivitiesAdapter;
+import com.isaura.model.Member;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -38,6 +48,7 @@ public class ActivityFragment extends Fragment {
     TextView txt_greeting_all_activity, txt_name_profile_all_activity, txt_activity_empty;
     ProgressBar progress_bar_all_activities;
     DatabaseReference reference_activity;
+    StorageReference ref_storage_member;
     FirebaseAuth firebaseAuth;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -88,7 +99,6 @@ public class ActivityFragment extends Fragment {
         txt_activity_empty = view.findViewById(R.id.txt_all_activity_empty);
         progress_bar_all_activities = view.findViewById(R.id.progress_bar_all_activities);
 
-        firebaseAuth = FirebaseAuth.getInstance();
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
@@ -104,7 +114,21 @@ public class ActivityFragment extends Fragment {
             txt_greeting_all_activity.setText("Bom dia");
         }
 
-        txt_name_profile_all_activity.setText(Objects.requireNonNull(firebaseAuth.getCurrentUser()).getDisplayName());
-    }
+        String member_name = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+        String member_uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        txt_name_profile_all_activity.setText(member_name);
 
+        ref_storage_member = FirebaseStorage.getInstance().getReference("member").child(member_uid + ".png");
+
+        try {
+            File localFile = File.createTempFile("tempfile", ".png");
+            ref_storage_member.getFile(localFile).addOnSuccessListener(taskSnapshot -> {
+                Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
+                img_user_profile_all_activity.setImageBitmap(bitmap);
+            }).addOnFailureListener(e -> System.out.println(e));
+        }
+        catch(IOException e){
+            System.out.println(e);
+        }
+    }
 }
