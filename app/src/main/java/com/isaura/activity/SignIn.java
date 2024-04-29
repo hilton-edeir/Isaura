@@ -119,7 +119,7 @@ public class SignIn extends AppCompatActivity {
         fld_email = findViewById(R.id.fld_email);
         fld_code = findViewById(R.id.fld_code);
         btn_sign_in = findViewById(R.id.btn_sign_in);
-        progressBar = findViewById(R.id.progress_bar);
+        progressBar = findViewById(R.id.progress_bar_sign_in);
     }
 
     @Override

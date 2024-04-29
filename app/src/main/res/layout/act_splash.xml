@@ -28,7 +28,7 @@
             android:fontFamily="@font/lilita_one"
             android:textColor="@color/md_theme_onPrimary"
             android:text="Isaura Lovers"
-            android:textSize="35sp">
+            android:textSize="50sp">
         </TextView>
 
     </LinearLayout>

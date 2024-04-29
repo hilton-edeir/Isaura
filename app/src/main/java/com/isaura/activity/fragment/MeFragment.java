@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.isaura.R;
+import com.isaura.activity.Settings;
 import com.isaura.activity.SignIn;
 import com.isaura.activity.adapter.NotificationAdapter;
 import com.isaura.model.Activity;
@@ -81,7 +83,10 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
         notificationAdapter = new NotificationAdapter(getContext(), activityList, selectNotificationListener);
         recyclerview_notification.setAdapter(notificationAdapter);
 
-        btn_update_profile.setOnClickListener(v -> Toast.makeText(root.getContext(),"Brevemente" , Toast.LENGTH_SHORT).show());
+        btn_update_profile.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), Settings.class);
+            startActivity(intent);
+        });
 
         btn_sign_out.setOnClickListener(v -> {
             if(firebaseAuth != null) {

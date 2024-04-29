@@ -8,15 +8,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.bumptech.glide.Glide;
 import com.google.android.material.card.MaterialCardView;
-import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,19 +24,14 @@ import com.isaura.R;
 import com.isaura.model.LinkedList;
 import com.isaura.model.Member;
 
-import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class CleaningFragment extends Fragment {
     Button btn_test;
@@ -48,11 +40,11 @@ public class CleaningFragment extends Fragment {
     ImageView img_user_kitchen_cleaning, img_user_bathroom_cleaning, img_user_livingroom_cleaning, img_user_trash_cleaning, img_user_free_cleaning;
     FirebaseDatabase database;
     DatabaseReference reference_original_list_order, reference_last_rotated_list_order, reference_cleaning_distribution, reference_member, reference_activity;
-    long ID_NOTIFICATION = 0;
     FirebaseAuth mAuth;
-    Calendar calendar;
     long NUMBER_OF_SATURDAYS = 0;
+    long ID_NOTIFICATION = 0;
     SimpleDateFormat simpleDateFormat;
+    Calendar calendar;
     List<String> original_list_order = new ArrayList<>();
     List<String> last_rotated_list = new ArrayList<>();
     List<String> rotated_list = new ArrayList<>();
@@ -61,8 +53,8 @@ public class CleaningFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         View root = inflater.inflate(R.layout.cleaning_fragment, container, false);
+        inicialize_components(root);
 
         database = FirebaseDatabase.getInstance();
         reference_cleaning_distribution = database.getReference("cleaning-distribution");
@@ -72,7 +64,6 @@ public class CleaningFragment extends Fragment {
         reference_activity = database.getReference("activity");
 
         inicialize_original_list_order();
-        inicialize_components(root);
 
         reference_activity.addValueEventListener(new ValueEventListener() {
             @Override
@@ -83,7 +74,7 @@ public class CleaningFragment extends Fragment {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                System.out.println(error);
             }
         });
 
@@ -91,6 +82,7 @@ public class CleaningFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()) {
+                    original_list_order.clear();
                     for(DataSnapshot member: snapshot.getChildren()){
                         String member_name = member.getValue(String.class);
                         original_list_order.add(member_name);
@@ -111,6 +103,7 @@ public class CleaningFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()) {
+                    last_rotated_list.clear();
                     for(DataSnapshot member: snapshot.getChildren()){
                         String member_name = member.getValue(String.class);
                         last_rotated_list.add(member_name);
@@ -185,13 +178,13 @@ public class CleaningFragment extends Fragment {
                     original_list_order_updated = Arrays.asList(new String[(int) snapshot.getChildrenCount()]);
                     for(DataSnapshot member: snapshot.getChildren()) {
                         Member member1 = member.getValue(Member.class);
-                        if(member1.getAssigned_table_order() != 0) {
+                        if(member1.getCleaning_order_number() != 0) {
                             if(member1.getName().contains(" ")) {
                                 String[] temp_name = member1.getName().split(" ",2);
                                 member1.setName(temp_name[0]);
                             }
-                            if(member1.getAssigned_table_order() != 0) {
-                                original_list_order_updated.set(member1.getAssigned_table_order() - 1, member1.getName());
+                            if(member1.getCleaning_order_number() != 0) {
+                                original_list_order_updated.set(member1.getCleaning_order_number() - 1, member1.getName());
                             }
                         }
                     }

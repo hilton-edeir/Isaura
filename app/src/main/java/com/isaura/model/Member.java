@@ -5,16 +5,16 @@ public class Member {
     private String email;
     private String code;
     private String url_image;
-    private int assigned_table_order;
+    private int cleaning_order_number;
 
     public Member(){}
 
-    public Member(String name, String email, String code, String url_image, int assigned_table_order) {
+    public Member(String name, String email, String code, String url_image, int cleaning_order_number) {
         this.name = name;
         this.email = email;
         this.code = code;
         this.url_image = url_image;
-        this.assigned_table_order = assigned_table_order;
+        this.cleaning_order_number = cleaning_order_number;
     }
 
     public String getName() {
@@ -49,11 +49,11 @@ public class Member {
         this.url_image = url_image;
     }
 
-    public int getAssigned_table_order() {
-        return assigned_table_order;
+    public int getCleaning_order_number() {
+        return cleaning_order_number;
     }
 
-    public void setAssigned_table_order(int assigned_table_order) {
-        this.assigned_table_order = assigned_table_order;
+    public void setCleaning_order_number(int cleaning_order_number) {
+        this.cleaning_order_number = cleaning_order_number;
     }
 }

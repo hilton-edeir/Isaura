@@ -3,4 +3,5 @@
     <style name="Base.Theme.Isaura" parent="Theme.Material3.Dark">
         <item name="android:windowIsTranslucent">true</item>
     </style>
+
 </resources>

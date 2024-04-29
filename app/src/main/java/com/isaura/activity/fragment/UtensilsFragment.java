@@ -55,13 +55,15 @@ public class UtensilsFragment extends Fragment {
                         activityList.add(notific);
                     }
                 }
+                else {
+                    ID_NOTIFICATION = 1;
+                }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
-
 
         btn_napkin.setOnClickListener(v -> {
             calendar = Calendar.getInstance();
@@ -415,9 +417,4 @@ public class UtensilsFragment extends Fragment {
         }
     }
 
-
-     /*Fragment cleaningScheduleFragment = new CleaningFragment();
-       FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-       fm.replace(R.id.nav_host_fragment_act_home, cleaningScheduleFragment).commit();
-     */
 }
