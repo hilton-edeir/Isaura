@@ -92,6 +92,7 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btn_create_cleaning_task"
             android:clickable="true"
             android:focusable="true"
             android:layout_width="80dp"

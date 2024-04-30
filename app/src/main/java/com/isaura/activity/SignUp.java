@@ -7,11 +7,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,16 +18,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.isaura.R;
 import com.isaura.model.Member;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 public class SignUp extends AppCompatActivity {
 
     TextInputLayout lyt_name, lyt_email, lyt_code;
     TextInputEditText fld_name, fld_email, fld_code;
-    ProgressBar progressBar;
-    Button btn_sign_up;
+    ProgressBar progress_bar_sign_up;
+    Button btn_sign_up, btn_sign_in;
     FirebaseAuth mAuth;
     FirebaseDatabase database;
     DatabaseReference reference_member, reference_original_list_order;
@@ -53,7 +48,7 @@ public class SignUp extends AppCompatActivity {
         fld_email = findViewById(R.id.fld_email);
         fld_code = findViewById(R.id.fld_code);
         btn_sign_up = findViewById(R.id.btn_sign_up);
-        progressBar = findViewById(R.id.progress_bar);
+        progress_bar_sign_up = findViewById(R.id.progress_bar_sign_up);
 
         btn_sign_up.setOnClickListener(v -> {
             String name = Objects.requireNonNull(fld_name.getText()).toString();
@@ -80,9 +75,7 @@ public class SignUp extends AppCompatActivity {
                 lyt_email.setHelperText(null);
                 lyt_code.setHelperText(null);
 
-
-
-                progressBar.setVisibility(View.VISIBLE);
+                progress_bar_sign_up.setVisibility(View.VISIBLE);
 
                 mAuth.createUserWithEmailAndPassword(email, code)
                         .addOnCompleteListener(this, task -> {
@@ -93,9 +86,9 @@ public class SignUp extends AppCompatActivity {
                                 mAuth.getCurrentUser().updateProfile(profileUpdates)
                                         .addOnCompleteListener(task1 -> {
                                             if (task1.isSuccessful()) {
-                                                Member member = new Member(name, email, code, "user.png",0);
+                                                Member member = new Member(name, email, code, "avatar",0);
                                                 reference_member.child(mAuth.getCurrentUser().getUid()).setValue(member).addOnCompleteListener(task2 -> {
-                                                    progressBar.setVisibility(View.GONE);
+                                                    progress_bar_sign_up.setVisibility(View.GONE);
                                                     Toast.makeText(SignUp.this, "Conta criada com sucesso", Toast.LENGTH_LONG).show();
                                                     startActivity(new Intent(SignUp.this, SignIn.class));
                                                     finish();
@@ -104,16 +97,18 @@ public class SignUp extends AppCompatActivity {
                                         });
                             }
                             else {
-                                progressBar.setVisibility(View.GONE);
+                                progress_bar_sign_up.setVisibility(View.GONE);
                                 Toast.makeText(SignUp.this, "Falha ao criar a conta", Toast.LENGTH_LONG).show();
                             }
                         });
             }
         });
 
+        btn_sign_in.setOnClickListener(v -> {
+            Intent intent = new Intent(SignUp.this, SignIn.class);
+            startActivity(intent);
+        });
+
     }
 
-    public void sign_in(View view) {
-        startActivity(new Intent(SignUp.this, SignIn.class));
-    }
 }

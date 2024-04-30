@@ -119,6 +119,7 @@
         android:fontFamily="@font/lilita_one"
         android:textSize="18sp"
         android:visibility="visible"
+        android:textAllCaps="false"
         android:layout_marginBottom="20dp"/>
 
 
@@ -134,25 +135,24 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/space_mono_bold"
             android:text="Tem a conta?"
-            android:textSize="22sp"
-            android:layout_marginEnd="7dp"/>
+            android:textSize="20sp"/>
 
-        <TextView
-            android:id="@+id/txt_sign_up"
+        <Button
+            android:id="@+id/btn_sign_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lilita_one"
+            android:textAllCaps="false"
+            android:textSize="20sp"
             android:text="Entrar"
+            android:textStyle="bold"
             android:textColor="@color/md_theme_primary"
-            android:textSize="22sp"
-            android:onClick="sign_in"
-            android:clickable="true"
-            android:focusable="true" />
+            style="@style/Widget.MaterialComponents.Button.TextButton"/>
 
     </LinearLayout>
 
     <ProgressBar
-        android:id="@+id/progress_bar"
+        android:id="@+id/progress_bar_sign_up"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:visibility="gone"

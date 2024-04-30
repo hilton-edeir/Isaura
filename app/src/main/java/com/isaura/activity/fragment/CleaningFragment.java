@@ -1,5 +1,6 @@
 package com.isaura.activity.fragment;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.isaura.R;
+import com.isaura.activity.CreateCleaning;
 import com.isaura.activity.adapter.CleaningAdapter;
 import com.isaura.model.Member;
 import com.isaura.model.Place;
@@ -37,6 +40,7 @@ public class CleaningFragment extends Fragment implements SelectCleaningListener
     RecyclerView recyclerview_cleaning;
     ProgressBar progress_bar_cleaning;
     TextView txt_cleaning_empty, txt_cleaning_date;
+    CardView btn_create_cleaning_task;
     FirebaseDatabase database;
     DatabaseReference reference_original_list_order, reference_last_rotated_list_order, reference_place, reference_member, reference_activity;
     FirebaseAuth mAuth;
@@ -64,7 +68,6 @@ public class CleaningFragment extends Fragment implements SelectCleaningListener
         reference_last_rotated_list_order = database.getReference("last-rotated-list-order-cleaning");
         reference_member = database.getReference("member");
         reference_activity = database.getReference("activity");
-
 
         reference_place.addValueEventListener(new ValueEventListener() {
             @Override
@@ -100,6 +103,11 @@ public class CleaningFragment extends Fragment implements SelectCleaningListener
         }
         assert nextSaturday != null;
         txt_cleaning_date.setText(nextSaturday.toString());
+
+        btn_create_cleaning_task.setOnClickListener(v -> {
+            Intent intent = new Intent(root.getContext(), CreateCleaning.class);
+            startActivity(intent);
+        });
 
         return root;
 
@@ -201,7 +209,7 @@ public class CleaningFragment extends Fragment implements SelectCleaningListener
         recyclerview_cleaning = root.findViewById(R.id.recyclerview_cleaning);
         progress_bar_cleaning = root.findViewById(R.id.progress_bar_cleaning);
         txt_cleaning_empty = root.findViewById(R.id.txt_cleaning_empty);
-
+        btn_create_cleaning_task = root.findViewById(R.id.btn_create_cleaning_task);
     }
 
     private static long countSaturdays(LocalDate startDate, LocalDate endDate) {
