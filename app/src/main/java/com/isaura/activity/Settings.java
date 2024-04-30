@@ -50,7 +50,6 @@ public class Settings extends AppCompatActivity {
         fld_username_setting = findViewById(R.id.fld_username_setting);
         fld_email_setting = findViewById(R.id.fld_email_setting);
         progress_bar_settings = findViewById(R.id.progress_bar_settings);
-        progress_bar_settings = findViewById(R.id.progress_bar_settings);
 
         reference_member = FirebaseDatabase.getInstance().getReference("member");
         storage_ref_member = FirebaseStorage.getInstance().getReference("member");

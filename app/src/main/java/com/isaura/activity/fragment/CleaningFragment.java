@@ -1,15 +1,13 @@
 package com.isaura.activity.fragment;
 
 import android.animation.LayoutTransition;
-import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,8 +25,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.isaura.R;
-import com.isaura.model.Activity;
-import com.isaura.model.LinkedList;
+import com.isaura.activity.adapter.CleaningAdapter;
+import com.isaura.activity.adapter.NotificationAdapter;
 import com.isaura.model.Member;
 import com.isaura.model.Place;
 
@@ -37,18 +35,14 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
-public class CleaningFragment extends Fragment {
+public class CleaningFragment extends Fragment implements SelectCleaningListener{
 
     RecyclerView recyclerview_cleaning;
-    MaterialCardView btn_see_calendar;
     ProgressBar progress_bar_cleaning;
-    LinearLayout layout;
-
-    TextView txt_date_selected, detailsText;
+    TextView txt_cleaning_empty, txt_cleaning_date;
     FirebaseDatabase database;
     DatabaseReference reference_original_list_order, reference_last_rotated_list_order, reference_place, reference_member, reference_activity;
     FirebaseAuth mAuth;
@@ -62,11 +56,13 @@ public class CleaningFragment extends Fragment {
     List<Member> member_list = new ArrayList<>();
     List<Place> placeList = new ArrayList<>();
     List<String> original_list_order_updated;
+    CleaningAdapter cleaningAdapter;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.cleaning_fragment, container, false);
         inicialize_components(root);
+        SelectCleaningListener selectNotificationListener = this;
 
         database = FirebaseDatabase.getInstance();
         reference_place = database.getReference("place");
@@ -83,19 +79,16 @@ public class CleaningFragment extends Fragment {
                 progress_bar_cleaning.setVisibility(View.VISIBLE);
                 for(DataSnapshot place: snapshot.getChildren()) {
                     Place place1 = place.getValue(Place.class);
-                    assert place1 != null;
-                    if(!activity1.isDone()) {
-                        activityList.add(activity1);
-                    }
+                    placeList.add(place1);
                 }
-                if(activityList.isEmpty()) {
-                    recyclerview_notification.setVisibility(View.GONE);
-                    progressBar.setVisibility(View.GONE);
-                    txt_notification_empty.setVisibility(View.VISIBLE);
+                if(placeList.isEmpty()) {
+                    recyclerview_cleaning.setVisibility(View.GONE);
+                    progress_bar_cleaning.setVisibility(View.GONE);
+                    txt_cleaning_empty.setVisibility(View.VISIBLE);
                 }
                 else {
-                    progressBar.setVisibility(View.GONE);
-                    notificationAdapter.notifyDataSetChanged();
+                    progress_bar_cleaning.setVisibility(View.GONE);
+                    cleaningAdapter.notifyDataSetChanged();
                 }
             }
             @Override
@@ -104,20 +97,15 @@ public class CleaningFragment extends Fragment {
             }
         });
 
+        cleaningAdapter = new CleaningAdapter(getContext(), placeList, selectNotificationListener);
+        recyclerview_cleaning.setAdapter(cleaningAdapter);
 
-        reference_activity.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    ID_NOTIFICATION = snapshot.getChildrenCount();
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                System.out.println(error);
-            }
-        });
+        /*LocalDate nextSaturday = LocalDate.now().with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
+        txt_date_selected.setText("Data: " + nextSaturday);*/
 
+        return root;
+
+        /*
         reference_original_list_order.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -157,18 +145,8 @@ public class CleaningFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
                 System.out.printf(error.toString());
             }
-        });
+        });*/
 
-        LocalDate nextSaturday = LocalDate.now().with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
-        txt_date_selected.setText("Data: " + nextSaturday);
-
-
-
-        card_task_kitchen.setOnClickListener(v -> {
-            expand(root);
-        });
-
-        return root;
     }
 
     /*
@@ -221,33 +199,29 @@ public class CleaningFragment extends Fragment {
 
 
     public void inicialize_components(View root) {
+        txt_cleaning_date = root.findViewById(R.id.txt_cleaning_date);
         recyclerview_cleaning = root.findViewById(R.id.recyclerview_cleaning);
         progress_bar_cleaning = root.findViewById(R.id.progress_bar_cleaning);
         txt_cleaning_empty = root.findViewById(R.id.txt_cleaning_empty);
 
-        txt_date_selected = root.findViewById(R.id.txt_date_selected);
-        btn_see_calendar = root.findViewById(R.id.btn_see_calendar);
-        layout = root.findViewById(R.id.layout);
-        layout.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
-        detailsText = root.findViewById(R.id.detailsText);
-
-    }
-
-    public void expand(View view) {
-        int v = (detailsText.getVisibility() == View.GONE)? View.VISIBLE: View.GONE;
-        TransitionManager.beginDelayedTransition(layout, new AutoTransition());
-        detailsText.setVisibility(v);
     }
 
     private static long countSaturdays(LocalDate startDate, LocalDate endDate) {
         long count = 0;
-        while (!startDate.isAfter(endDate)) {
-            if(startDate.getDayOfWeek() == DayOfWeek.SATURDAY) {
-                count++;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            while (!startDate.isAfter(endDate)) {
+                if(startDate.getDayOfWeek() == DayOfWeek.SATURDAY) {
+                    count++;
+                }
+                startDate = startDate.plusDays(1);
             }
-            startDate = startDate.plusDays(1);
         }
         return count;
+    }
+
+    @Override
+    public void onItemClicked(Place place) {
+
     }
 
 

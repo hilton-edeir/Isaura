@@ -26,8 +26,8 @@
                 android:id="@+id/img_place_to_clean"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_kitchen"
-                android:layout_marginEnd="8dp"/>
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_kitchen" />
 
             <TextView
                 android:id="@+id/txt_task_description_cleaning"
@@ -50,7 +50,7 @@
                 android:layout_marginEnd="8dp" />
 
             <ImageView
-                android:id="@+id/img_user_kitchen_cleaning"
+                android:id="@+id/img_user_cleaning"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:src="@drawable/ic_user_hilton" />
@@ -66,6 +66,7 @@
 
             <TextView
                 android:id="@+id/detailsText"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"

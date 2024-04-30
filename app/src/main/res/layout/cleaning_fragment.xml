@@ -8,7 +8,7 @@
     android:layout_marginTop="20dp"
     android:layout_marginStart="20dp"
     android:layout_marginEnd="20dp"
-    android:layout_marginBottom="100dp"
+    android:layout_marginBottom="80dp"
     tools:context=".activity.fragment.CleaningFragment">
 
     <LinearLayout
@@ -37,105 +37,73 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_marginBottom="10dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/icon_calendar"/>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/btn_see_calendar"
-                    android:layout_width="50dp"
-                    android:layout_height="40dp"
-                    android:clickable="true"
-                    android:focusable="true">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/icon_calendar"/>
-                    </LinearLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cronograma de limpeza"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/lilita_one"
-                    android:layout_marginStart="10dp"/>
-
-                <TextView
-                    android:id="@+id/txt_date_selected"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sáb 04 de maio de 2024"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/space_mono_bold"
-                    android:layout_marginStart="10dp"/>
-            </LinearLayout>
-
-        </LinearLayout>
+        <TextView
+            android:id="@+id/txt_cleaning_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data de limpeza"
+            android:textSize="16sp"
+            android:fontFamily="@font/space_mono_bold"
+            android:layout_marginStart="10dp"/>
 
     </LinearLayout>
 
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="450dp"
         android:layout_marginTop="10dp">
 
-        <RelativeLayout
+        <ProgressBar
+            android:id="@+id/progress_bar_cleaning"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:visibility="gone"
+            android:layout_centerInParent="true"/>
+
+        <TextView
+            android:id="@+id/txt_cleaning_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Nenhum cronograma"
+            android:fontFamily="monospace"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_cleaning"
+            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ProgressBar
-                android:id="@+id/progress_bar_cleaning"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:visibility="gone"
-                android:layout_centerInParent="true"/>
+        </androidx.recyclerview.widget.RecyclerView>
 
-            <TextView
-                android:id="@+id/txt_cleaning_empty"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:text="Nenhum cronograma"
-                android:fontFamily="monospace"
-                android:layout_centerInParent="true"
-                android:visibility="gone"/>
+    </RelativeLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerview_cleaning"
-                android:visibility="visible"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-            </androidx.recyclerview.widget.RecyclerView>
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/extended_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="4dp"
+            android:layout_gravity="bottom|right"
+            android:contentDescription="Criar"
+            android:text="Criar"
+            app:icon="@drawable/ic_add_black_24dp"/>
 
-        </RelativeLayout>
-
-    </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </LinearLayout>
