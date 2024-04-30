@@ -27,7 +27,7 @@ import com.squareup.picasso.Picasso;
 import java.util.Objects;
 
 public class Settings extends AppCompatActivity {
-    CardView btn_save_changes, btn_upload_photo;
+    CardView btn_save_changes, btn_go_back, btn_upload_photo;
     ImageView img_user_profile_setting1, img_user_profile_setting2;
     TextView txt_username_setting, txt_email_setting;
     ProgressBar progress_bar_settings;
@@ -43,6 +43,7 @@ public class Settings extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
 
         btn_save_changes = findViewById(R.id.btn_save_changes);
+        btn_go_back = findViewById(R.id.btn_go_back);
         btn_upload_photo = findViewById(R.id.btn_upload_profile_image);
         img_user_profile_setting1 = findViewById(R.id.img_user_profile_setting1);
         img_user_profile_setting2 = findViewById(R.id.img_user_profile_setting2);
@@ -71,7 +72,7 @@ public class Settings extends AppCompatActivity {
                         img_user_profile_setting1.setImageURI(profile_image_selected);
                     }
                     else {
-                        Toast.makeText(Settings.this, "No image selected", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Settings.this, "Selecione uma imagem", Toast.LENGTH_SHORT).show();
                     }
                 }
         );
@@ -81,6 +82,7 @@ public class Settings extends AppCompatActivity {
             intent.setType("image/*");
             intent.setAction(Intent.ACTION_GET_CONTENT);
             activityResultLauncher.launch(intent);
+            btn_save_changes.setEnabled(true);
         });
 
         btn_save_changes.setOnClickListener(v -> {
@@ -99,6 +101,7 @@ public class Settings extends AppCompatActivity {
                                         if (task1.isSuccessful()) {
                                             progress_bar_settings.setVisibility(View.GONE);
                                             Toast.makeText(Settings.this, "Alterações guardadas", Toast.LENGTH_SHORT).show();
+                                            btn_save_changes.setEnabled(false);
                                             Intent intent = new Intent(Settings.this, Home.class);
                                             startActivity(intent);
                                             finish();
@@ -113,6 +116,12 @@ public class Settings extends AppCompatActivity {
             else  {
                 Toast.makeText(Settings.this, "No image selected", Toast.LENGTH_SHORT).show();
             }
+        });
+
+        btn_save_changes.setOnClickListener(v -> {
+            Intent intent = new Intent(Settings.this, Home.class);
+            startActivity(intent);
+            finish();
         });
     }
 
