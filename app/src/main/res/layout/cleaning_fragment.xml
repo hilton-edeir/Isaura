@@ -100,353 +100,42 @@
 
     </LinearLayout>
 
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp">
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_task_kitchen"
-                app:cardBackgroundColor="@color/pastel_blue"
-                android:layout_width="match_parent"
+            <ProgressBar
+                android:id="@+id/progress_bar_cleaning"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:visibility="gone"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:id="@+id/txt_cleaning_empty"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:clickable="true"
-                android:focusable="true">
+                android:textSize="15sp"
+                android:text="Nenhum cronograma"
+                android:fontFamily="monospace"
+                android:layout_centerInParent="true"
+                android:visibility="gone"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="20dp"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="bottom">
-
-                        <ImageView
-                            android:id="@+id/img_place_to_clean"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/ic_kitchen"
-                            android:layout_marginEnd="8dp"/>
-
-                        <TextView
-                            android:id="@+id/txt_task_description_cleaning"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="- limpeza pelo"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:layout_marginEnd="5dp" />
-
-                        <TextView
-                            android:id="@+id/txt_username_kitchen_cleaning"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/space_mono_bold"
-                            android:text="Hilton"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginEnd="8dp" />
-
-                        <ImageView
-                            android:id="@+id/img_user_kitchen_cleaning"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_user_hilton" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/layout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:animateLayoutChanges="true">
-
-                        <TextView
-                            android:id="@+id/detailsText"
-                            android:visibility="gone"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="18sp"
-                            android:fontFamily="serif-monospace"
-                            android:text="This is a test to see how the expandable transition will works"
-                            android:layout_marginTop="15dp"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_task_living_room"
-                app:cardBackgroundColor="@color/pastel_yellow"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_cleaning"
+                android:visibility="visible"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginBottom="10dp">
+                android:layout_height="match_parent">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="12dp"
-                    android:orientation="vertical">
+            </androidx.recyclerview.widget.RecyclerView>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="bottom">
+        </RelativeLayout>
 
-                        <ImageView
-                            android:id="@+id/img_activity2"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/ic_bathroom"
-                            android:layout_marginEnd="8dp"/>
-
-                        <TextView
-                            android:id="@+id/txt_task_description2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="- limpeza pela"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:layout_marginEnd="8dp" />
-
-                        <TextView
-                            android:id="@+id/txt_username_bathroom_cleaning"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/space_mono_bold"
-                            android:text="Marina"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginEnd="5dp" />
-
-                        <ImageView
-                            android:id="@+id/img_user_bathroom_cleaning"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_user_maria" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_task_bathroom"
-                app:cardBackgroundColor="@color/pastel_pink"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginBottom="10dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="bottom"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/img_activity3"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:layout_marginEnd="8dp"
-                            android:src="@drawable/ic_living_room" />
-
-
-                        <TextView
-                            android:id="@+id/txt_task_description3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp"
-                            android:fontFamily="serif-monospace"
-                            android:text="- limpeza pela"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/txt_username_livingroom_cleaning"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="8dp"
-                            android:fontFamily="@font/space_mono_bold"
-                            android:text="Carline"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:id="@+id/img_user_livingroom_cleaning"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_user_carline" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_task_trash"
-                app:cardBackgroundColor="@color/pastel_green"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginBottom="10dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="12dp"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="bottom">
-
-                        <ImageView
-                            android:id="@+id/img_activity4"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/ic_trash"
-                            android:layout_marginEnd="8dp"/>
-
-                        <TextView
-                            android:id="@+id/txt_task_description4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="- limpeza pelo"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:layout_marginEnd="5dp" />
-
-                        <TextView
-                            android:id="@+id/txt_username_trash_cleaning"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/space_mono_bold"
-                            android:text="Maria"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginEnd="8dp" />
-
-                        <ImageView
-                            android:id="@+id/img_user_trash_cleaning"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_user_maria" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_task_free"
-                app:cardBackgroundColor="@color/pastel_purple"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginBottom="10dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="12dp"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="bottom">
-
-                        <ImageView
-                            android:id="@+id/img_activity5"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/ic_user_free"
-                            android:layout_marginEnd="8dp"/>
-
-                        <TextView
-                            android:id="@+id/txt_task_description5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="- féria da"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:layout_marginEnd="5dp" />
-
-                        <TextView
-                            android:id="@+id/txt_username_free_cleaning"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/space_mono_bold"
-                            android:text="Ruténia"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginEnd="8dp" />
-
-                        <ImageView
-                            android:id="@+id/img_user_free_cleaning"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_user_rutenia" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <EditText
-                android:layout_marginTop="20dp"
-                android:id="@+id/Id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="your name"
-                android:background="@android:color/transparent" >
-            </EditText>
-            <EditText
-                android:layout_marginTop="20dp"
-                android:id="@+id/I"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="your name"
-                android:background="@android:color/transparent" >
-            </EditText>
-
-        </LinearLayout>
-
-
-    </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 
 </LinearLayout>

@@ -1,21 +1,22 @@
 package com.isaura.model;
 
+import java.util.List;
+
 public class Place {
     private String name;
     private String url_image;
-    private int assigned_order;
+    private List<String> cleaning_order_list;
+    private List<String> last_cleaning_order_list;
+    private List<String> next_cleaning_order_list;
 
     public Place() {}
 
-    public Place(String name, String url_image) {
+    public Place(String name, String url_image, List<String> cleaning_order_list, List<String> last_cleaning_order_list, List<String> next_cleaning_order_list) {
         this.name = name;
         this.url_image = url_image;
-    }
-
-    public Place(String name, String url_image, int assigned_order) {
-        this.name = name;
-        this.url_image = url_image;
-        this.assigned_order = assigned_order;
+        this.cleaning_order_list = cleaning_order_list;
+        this.last_cleaning_order_list = last_cleaning_order_list;
+        this.next_cleaning_order_list = next_cleaning_order_list;
     }
 
     public String getName() {
@@ -34,11 +35,27 @@ public class Place {
         this.url_image = url_image;
     }
 
-    public int getAssigned_order() {
-        return assigned_order;
+    public List<String> getCleaning_order_list() {
+        return cleaning_order_list;
     }
 
-    public void setAssigned_order(int assigned_order) {
-        this.assigned_order = assigned_order;
+    public void setCleaning_order_list(List<String> cleaning_order_list) {
+        this.cleaning_order_list = cleaning_order_list;
+    }
+
+    public List<String> getLast_cleaning_order_list() {
+        return last_cleaning_order_list;
+    }
+
+    public void setLast_cleaning_order_list(List<String> last_cleaning_order_list) {
+        this.last_cleaning_order_list = last_cleaning_order_list;
+    }
+
+    public List<String> getNext_cleaning_order_list() {
+        return next_cleaning_order_list;
+    }
+
+    public void setNext_cleaning_order_list(List<String> next_cleaning_order_list) {
+        this.next_cleaning_order_list = next_cleaning_order_list;
     }
 }
