@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,6 +31,7 @@ import com.isaura.R;
 import com.isaura.model.Activity;
 import com.isaura.activity.adapter.AllActivitiesAdapter;
 import com.isaura.model.Member;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,16 +49,31 @@ public class ActivityFragment extends Fragment {
     ImageView img_user_profile_all_activity;
     TextView txt_greeting_all_activity, txt_name_profile_all_activity, txt_activity_empty;
     ProgressBar progress_bar_all_activities;
-    DatabaseReference reference_activity;
-    StorageReference ref_storage_member;
-    FirebaseAuth firebaseAuth;
+    DatabaseReference reference_activity, reference_member;
+    String url_user_image;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.all_activities_fragment, container, false);
         inicializeComponents(view);
         reference_activity = FirebaseDatabase.getInstance().getReference("activity");
+        reference_member = FirebaseDatabase.getInstance().getReference("member");
 
         recyclerview_all_activities.setLayoutManager(new LinearLayoutManager(getContext()));
+        reference_member.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot member: snapshot.getChildren()) {
+                    Member member1 = member.getValue(Member.class);
+                    if (member1.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
+                        Picasso.with(getContext()).load(member1.getUrl_image()).into(img_user_profile_all_activity);
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                System.out.println(error);
+            }
+        });
 
         reference_activity.addValueEventListener(new ValueEventListener() {
             @Override
@@ -99,6 +116,8 @@ public class ActivityFragment extends Fragment {
         txt_activity_empty = view.findViewById(R.id.txt_all_activity_empty);
         progress_bar_all_activities = view.findViewById(R.id.progress_bar_all_activities);
 
+        txt_name_profile_all_activity.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
@@ -106,29 +125,15 @@ public class ActivityFragment extends Fragment {
 
         if(hour>= 12 && hour < 17){
             txt_greeting_all_activity.setText("Boa tarde");
-        } else if(hour >= 17 && hour < 21){
+        }
+        else if(hour >= 17 && hour < 21){
             txt_greeting_all_activity.setText("Boa noite");
-        } else if(hour >= 21 && hour < 24){
+        }
+        else if(hour >= 21 && hour < 24){
             txt_greeting_all_activity.setText("Boa noite");
-        } else {
+        }
+        else {
             txt_greeting_all_activity.setText("Bom dia");
-        }
-
-        String member_name = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
-        String member_uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        txt_name_profile_all_activity.setText(member_name);
-
-        ref_storage_member = FirebaseStorage.getInstance().getReference("member").child(member_uid + ".png");
-
-        try {
-            File localFile = File.createTempFile("tempfile", ".png");
-            ref_storage_member.getFile(localFile).addOnSuccessListener(taskSnapshot -> {
-                Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
-                img_user_profile_all_activity.setImageBitmap(bitmap);
-            }).addOnFailureListener(e -> System.out.println(e));
-        }
-        catch(IOException e){
-            System.out.println(e);
         }
     }
 }

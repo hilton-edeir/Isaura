@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,8 @@ import com.isaura.activity.Settings;
 import com.isaura.activity.SignIn;
 import com.isaura.activity.adapter.NotificationAdapter;
 import com.isaura.model.Activity;
+import com.isaura.model.Member;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,11 +40,12 @@ import java.util.Objects;
 public class MeFragment extends Fragment implements SelectNotificationListener{
     MaterialCardView btn_update_profile, btn_sign_out;
     ProgressBar progressBar;
+    ImageView img_user_profile_me;
     TextView txt_profile_display_name, txt_notification_empty;
     RecyclerView recyclerview_notification;
     NotificationAdapter notificationAdapter;
     FirebaseAuth firebaseAuth;
-    DatabaseReference reference_activity;
+    DatabaseReference reference_activity, reference_member;
     List<Activity> activityList = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,6 +53,7 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
         inicializeComponents(root);
         SelectNotificationListener selectNotificationListener = this;
         reference_activity = FirebaseDatabase.getInstance().getReference("activity");
+        reference_member = FirebaseDatabase.getInstance().getReference("member");
 
         recyclerview_notification.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -83,6 +88,23 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
         notificationAdapter = new NotificationAdapter(getContext(), activityList, selectNotificationListener);
         recyclerview_notification.setAdapter(notificationAdapter);
 
+
+        reference_member.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot member: snapshot.getChildren()) {
+                    Member member1 = member.getValue(Member.class);
+                    if (member1.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
+                        Picasso.with(getContext()).load(member1.getUrl_image()).into(img_user_profile_me);
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                System.out.println(error);
+            }
+        });
+
         btn_update_profile.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), Settings.class);
             startActivity(intent);
@@ -103,6 +125,7 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
         btn_update_profile = root.findViewById(R.id.btn_update_profile);
         btn_sign_out = root.findViewById(R.id.btn_sign_out);
         txt_profile_display_name = root.findViewById(R.id.txt_profile_display_name);
+        img_user_profile_me = root.findViewById(R.id.img_user_profile_me);
         progressBar = root.findViewById(R.id.progress_bar_notification);
         txt_notification_empty = root.findViewById(R.id.txt_notification_empty);
         recyclerview_notification = root.findViewById(R.id.recyclerview_notification);

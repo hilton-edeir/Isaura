@@ -55,7 +55,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginBottom="2dp"
-            android:src="@drawable/ic_user_hilton" />
+            android:src="@drawable/ic_avatar" />
 
 
         <com.google.android.material.card.MaterialCardView
@@ -120,12 +120,12 @@
                         android:id="@+id/img_user_profile_activity"
                         android:layout_width="30dp"
                         android:layout_height="25dp"
-                        android:src="@drawable/ic_user_hilton"
+                        android:src="@drawable/ic_avatar"
                         android:layout_marginEnd="15dp"/>
 
 
                     <TextView
-                        android:id="@+id/txt_task_description_activity"
+                        android:id="@+id/txt_username_setting"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif-monospace"
@@ -149,11 +149,11 @@
 
 
                     <TextView
-                        android:id="@+id/txt_task_descripti_activity"
+                        android:id="@+id/txt_email_setting"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif-monospace"
-                        android:text="utilizador@gmail.com "
+                        android:text="utilizador@gmail.com"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginEnd="8dp" />
@@ -178,7 +178,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif-monospace"
-                        android:text="notificação"
+                        android:text="Notificação"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginEnd="8dp" />
@@ -208,6 +208,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lilita_one"
                     android:text="Guardar"
+                    android:textColor="@color/md_theme_primary"
                     android:textSize="18sp"/>
             </LinearLayout>
 

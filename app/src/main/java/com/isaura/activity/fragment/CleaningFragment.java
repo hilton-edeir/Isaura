@@ -1,12 +1,16 @@
 package com.isaura.activity.fragment;
 
+import android.animation.LayoutTransition;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -35,8 +39,9 @@ import java.util.List;
 
 public class CleaningFragment extends Fragment {
     Button btn_test;
+    LinearLayout layout;
     MaterialCardView btn_see_calendar, card_task_living_room, card_task_kitchen, card_task_bathroom, card_task_trash, card_task_free;
-    TextView txt_date_selected, txt_username_kitchen_cleaning, txt_username_bathroom_cleaning, txt_username_livingroom_cleaning, txt_username_trash_cleaning, txt_username_free_cleaning;
+    TextView txt_date_selected, txt_username_kitchen_cleaning, txt_username_bathroom_cleaning, txt_username_livingroom_cleaning, txt_username_trash_cleaning, txt_username_free_cleaning, detailsText;
     ImageView img_user_kitchen_cleaning, img_user_bathroom_cleaning, img_user_livingroom_cleaning, img_user_trash_cleaning, img_user_free_cleaning;
     FirebaseDatabase database;
     DatabaseReference reference_original_list_order, reference_last_rotated_list_order, reference_cleaning_distribution, reference_member, reference_activity;
@@ -167,6 +172,11 @@ public class CleaningFragment extends Fragment {
             }*/
 
         });
+
+        card_task_kitchen.setOnClickListener(v -> {
+            expand(root);
+        });
+
         return root;
     }
 
@@ -232,6 +242,9 @@ public class CleaningFragment extends Fragment {
         img_user_free_cleaning = root.findViewById(R.id.img_user_free_cleaning);
 
         card_task_kitchen = root.findViewById(R.id.card_task_kitchen);
+        layout = root.findViewById(R.id.layout);
+        layout.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+        detailsText = root.findViewById(R.id.detailsText);
         card_task_living_room = root.findViewById(R.id.card_task_living_room);
         card_task_bathroom = root.findViewById(R.id.card_task_bathroom);
         card_task_trash = root.findViewById(R.id.card_task_trash);
@@ -245,6 +258,12 @@ public class CleaningFragment extends Fragment {
             card_task_trash.setCardBackgroundColor(0);
             card_task_free.setCardBackgroundColor(0);
         }
+    }
+
+    public void expand(View view) {
+        int v = (detailsText.getVisibility() == View.GONE)? View.VISIBLE: View.GONE;
+        TransitionManager.beginDelayedTransition(layout, new AutoTransition());
+        detailsText.setVisibility(v);
     }
 
     private static long countSaturdays(LocalDate startDate, LocalDate endDate) {

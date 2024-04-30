@@ -33,6 +33,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.picasso)
     implementation(libs.glide)
     implementation(libs.firebase.ui.database)
     implementation(libs.firebase.ui.storage)
