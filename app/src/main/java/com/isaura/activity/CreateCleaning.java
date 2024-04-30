@@ -18,7 +18,9 @@ public class CreateCleaning extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_create_cleaning);
-        Objects.requireNonNull(getActionBar()).hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
+
+
 
     }
 }

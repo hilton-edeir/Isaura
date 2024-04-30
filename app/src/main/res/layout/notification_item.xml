@@ -56,7 +56,7 @@
                     android:id="@+id/img_type_notification"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/ic_bell"
+                    android:src="@drawable/ic_clock"
                     android:layout_marginEnd="5dp"/>
 
                 <TextView
