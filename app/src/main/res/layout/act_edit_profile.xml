@@ -12,7 +12,6 @@
     android:orientation="vertical"
     tools:context=".activity.EditProfile">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,7 +47,6 @@
             android:layout_marginBottom="2dp"
             android:src="@drawable/ic_avatar" />
 
-
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/btn_upload_profile_image"
             android:clickable="true"
@@ -75,7 +73,6 @@
         </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -108,12 +105,12 @@
                         android:src="@drawable/ic_avatar"
                         android:layout_marginEnd="15dp"/>
 
-
                     <EditText
                         android:id="@+id/fld_username_setting"
                         android:layout_width="wrap_content"
-                        android:fontFamily="serif-monospace"
                         android:layout_height="wrap_content"
+                        android:fontFamily="serif-monospace"
+                        android:inputType="textPersonName"
                         android:text="Utilizador"
                         android:textSize="16sp"
                         android:textStyle="bold"
@@ -133,13 +130,13 @@
                         android:src="@drawable/ic_email"
                         android:layout_marginEnd="15dp"/>
 
-
                     <EditText
                         android:id="@+id/fld_email_setting"
                         android:layout_width="wrap_content"
                         android:fontFamily="serif-monospace"
                         android:layout_height="wrap_content"
                         android:text="utilizador@gmail.com"
+                        android:inputType="textEmailAddress"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:background="@android:color/transparent"/>
@@ -158,12 +155,12 @@
                         android:src="@drawable/ic_password"
                         android:layout_marginEnd="15dp"/>
 
-
                     <EditText
                         android:id="@+id/fld_password_setting"
                         android:layout_width="wrap_content"
-                        android:fontFamily="serif-monospace"
                         android:layout_height="wrap_content"
+                        android:fontFamily="serif-monospace"
+                        android:inputType="numberPassword"
                         android:text="*************"
                         android:textSize="16sp"
                         android:textStyle="bold"
@@ -216,6 +213,7 @@
 
                         <com.google.android.material.switchmaterial.SwitchMaterial
                             android:id="@+id/swt_notification"
+                            android:enabled="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
                     </LinearLayout>
@@ -225,6 +223,20 @@
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:id="@+id/progress_bar_settings"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_marginTop="30dp"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -243,8 +255,8 @@
                     android:id="@+id/btn_go_back"
                     android:clickable="true"
                     android:focusable="true"
-                    android:layout_width="150dp"
-                    android:layout_height="44dp"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="30dp">
 
@@ -253,7 +265,6 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:orientation="horizontal">
-
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -269,8 +280,8 @@
                     android:id="@+id/btn_save_changes"
                     android:clickable="true"
                     android:focusable="true"
-                    android:layout_width="150dp"
-                    android:layout_height="44dp"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
                     android:saveEnabled="false"
                     android:layout_marginTop="10dp">
 
@@ -279,7 +290,6 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:orientation="horizontal">
-
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -295,14 +305,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
-        <ProgressBar
-            android:id="@+id/progress_bar_settings"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:visibility="gone"
-            android:layout_marginTop="30dp"/>
 
     </LinearLayout>
 

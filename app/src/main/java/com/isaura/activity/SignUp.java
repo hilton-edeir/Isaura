@@ -36,19 +36,12 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.act_sign_up);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
+        inicialize_components();
+
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         reference_member = database.getReference("member");
         reference_original_list_order = database.getReference("original-list-order");
-
-        lyt_name = findViewById(R.id.lyt_name);
-        lyt_email = findViewById(R.id.lyt_email);
-        lyt_code = findViewById(R.id.lyt_code);
-        fld_name = findViewById(R.id.fld_name);
-        fld_email = findViewById(R.id.fld_email);
-        fld_code = findViewById(R.id.fld_code);
-        btn_sign_up = findViewById(R.id.btn_sign_up);
-        progress_bar_sign_up = findViewById(R.id.progress_bar_sign_up);
 
         btn_sign_up.setOnClickListener(v -> {
             String name = Objects.requireNonNull(fld_name.getText()).toString();
@@ -109,6 +102,18 @@ public class SignUp extends AppCompatActivity {
             startActivity(intent);
         });
 
+    }
+
+    private void inicialize_components() {
+        lyt_name = findViewById(R.id.lyt_name);
+        lyt_email = findViewById(R.id.lyt_email);
+        lyt_code = findViewById(R.id.lyt_code);
+        fld_name = findViewById(R.id.fld_name);
+        fld_email = findViewById(R.id.fld_email);
+        fld_code = findViewById(R.id.fld_code);
+        btn_sign_up = findViewById(R.id.btn_sign_up);
+        btn_sign_in = findViewById(R.id.btn_sign_in);
+        progress_bar_sign_up = findViewById(R.id.progress_bar_sign_up);
     }
 
 }

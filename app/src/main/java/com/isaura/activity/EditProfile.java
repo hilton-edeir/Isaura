@@ -42,14 +42,7 @@ public class EditProfile extends AppCompatActivity {
         setContentView(R.layout.act_edit_profile);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-        btn_save_changes = findViewById(R.id.btn_save_changes);
-        btn_go_back = findViewById(R.id.btn_go_back);
-        btn_upload_photo = findViewById(R.id.btn_upload_profile_image);
-        img_user_profile_setting1 = findViewById(R.id.img_user_profile_setting1);
-        img_user_profile_setting2 = findViewById(R.id.img_user_profile_setting2);
-        fld_username_setting = findViewById(R.id.fld_username_setting);
-        fld_email_setting = findViewById(R.id.fld_email_setting);
-        progress_bar_settings = findViewById(R.id.progress_bar_settings);
+        inicialize_components();
 
         reference_member = FirebaseDatabase.getInstance().getReference("member");
         storage_ref_member = FirebaseStorage.getInstance().getReference("member");
@@ -59,7 +52,6 @@ public class EditProfile extends AppCompatActivity {
             Picasso.with(getApplicationContext()).load(user.getPhotoUrl()).into(img_user_profile_setting1);
             Picasso.with(getApplicationContext()).load(user.getPhotoUrl()).into(img_user_profile_setting2);
         }
-
         fld_username_setting.setText(user.getDisplayName());
         fld_email_setting.setText(user.getEmail());
 
@@ -122,6 +114,17 @@ public class EditProfile extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+    }
+
+    private void inicialize_components() {
+        btn_save_changes = findViewById(R.id.btn_save_changes);
+        btn_go_back = findViewById(R.id.btn_go_back);
+        btn_upload_photo = findViewById(R.id.btn_upload_profile_image);
+        img_user_profile_setting1 = findViewById(R.id.img_user_profile_setting1);
+        img_user_profile_setting2 = findViewById(R.id.img_user_profile_setting2);
+        fld_username_setting = findViewById(R.id.fld_username_setting);
+        fld_email_setting = findViewById(R.id.fld_email_setting);
+        progress_bar_settings = findViewById(R.id.progress_bar_settings);
     }
 
     /*

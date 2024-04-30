@@ -55,7 +55,7 @@
             android:clickable="true"
             android:focusable="true"
             android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_marginEnd="20dp">
 
             <LinearLayout
@@ -64,18 +64,13 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginEnd="2dp"
-                    android:src="@drawable/ic_user_edit" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/space_mono_bold"
+                    android:fontFamily="@font/lilita_one"
+                    android:textColor="@color/md_theme_primary"
                     android:text="Editar"
-                    android:textSize="15sp"/>
+                    android:textSize="18sp"/>
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
@@ -85,7 +80,7 @@
             android:clickable="true"
             android:focusable="true"
             android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_marginEnd="8dp">
 
             <LinearLayout
@@ -94,18 +89,13 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginEnd="2dp"
-                    android:src="@drawable/ic_user_signout" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/space_mono_bold"
+                    android:fontFamily="@font/lilita_one"
                     android:text="Sair"
-                    android:textSize="15sp"/>
+                    android:textColor="@color/md_theme_error"
+                    android:textSize="18sp"/>
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>

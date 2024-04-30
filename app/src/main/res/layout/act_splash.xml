@@ -16,8 +16,8 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/isaura_logo">
         </ImageView>
 
@@ -28,7 +28,7 @@
             android:fontFamily="@font/lilita_one"
             android:textColor="@color/md_theme_onPrimary"
             android:text="Isaura Lovers"
-            android:textSize="40sp">
+            android:textSize="30sp">
         </TextView>
 
     </LinearLayout>
