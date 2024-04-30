@@ -16,31 +16,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:orientation="horizontal"
         android:gravity="bottom">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/text_table"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:gravity="start">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_setting"
-                android:layout_marginEnd="6dp" />
-
-            <TextView
-                android:id="@+id/text_table"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lilita_one"
-                android:text="Definições"
-                android:textSize="27sp" />
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lilita_one"
+            android:text="Definições"
+            android:textSize="27sp"/>
     </LinearLayout>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -62,7 +53,7 @@
             android:id="@+id/btn_upload_profile_image"
             android:clickable="true"
             android:focusable="true"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="40dp"
             android:layout_marginTop="10dp">
 
@@ -72,17 +63,12 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginEnd="5dp"
-                    android:src="@drawable/ic_user_edit" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/space_mono_bold"
                     android:text="Mudar avatar"
+                    android:textColor="@color/md_theme_primary"
                     android:textSize="15sp"/>
             </LinearLayout>
 
@@ -98,7 +84,6 @@
         android:layout_marginTop="20dp">
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_item_activity"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_marginBottom="10dp">
@@ -165,6 +150,46 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginBottom="10dp"
+                    android:gravity="bottom">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/ic_password"
+                        android:layout_marginEnd="15dp"/>
+
+
+                    <EditText
+                        android:id="@+id/fld_password_setting"
+                        android:layout_width="wrap_content"
+                        android:fontFamily="serif-monospace"
+                        android:layout_height="wrap_content"
+                        android:text="*************"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:background="@android:color/transparent"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
                     android:gravity="center">
 
                     <ImageView
@@ -173,6 +198,7 @@
                         android:layout_height="25dp"
                         android:src="@drawable/ic_bell"
                         android:layout_marginEnd="15dp"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

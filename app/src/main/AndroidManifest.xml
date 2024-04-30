@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Isaura"
         tools:targetApi="31">
         <activity
+            android:name=".activity.CreateCleaning"
+            android:exported="false" />
+        <activity
             android:name=".activity.Settings"
             android:exported="false" />
         <activity

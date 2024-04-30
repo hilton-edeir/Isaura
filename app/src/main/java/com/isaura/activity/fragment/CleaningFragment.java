@@ -1,14 +1,10 @@
 package com.isaura.activity.fragment;
 
-import android.animation.LayoutTransition;
 import android.os.Build;
 import android.os.Bundle;
-import android.transition.AutoTransition;
-import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -17,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,7 +21,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.isaura.R;
 import com.isaura.activity.adapter.CleaningAdapter;
-import com.isaura.activity.adapter.NotificationAdapter;
 import com.isaura.model.Member;
 import com.isaura.model.Place;
 
@@ -100,8 +94,12 @@ public class CleaningFragment extends Fragment implements SelectCleaningListener
         cleaningAdapter = new CleaningAdapter(getContext(), placeList, selectNotificationListener);
         recyclerview_cleaning.setAdapter(cleaningAdapter);
 
-        /*LocalDate nextSaturday = LocalDate.now().with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
-        txt_date_selected.setText("Data: " + nextSaturday);*/
+        LocalDate nextSaturday = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            nextSaturday = LocalDate.now().with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
+        }
+        assert nextSaturday != null;
+        txt_cleaning_date.setText(nextSaturday.toString());
 
         return root;
 

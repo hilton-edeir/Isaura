@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -82,7 +83,7 @@ public class SignIn extends AppCompatActivity {
                                     startActivity(new Intent(SignIn.this, Home.class));
                                     finish();
                                 } else {
-                                    Toast.makeText(SignIn.this, "Autenticação Falhada",Toast.LENGTH_SHORT).show();
+                                    Snackbar.make(Objects.requireNonNull(this.getCurrentFocus()), "Falha na autenticação", Snackbar.LENGTH_SHORT).show();
                                 }
                             });
                 }

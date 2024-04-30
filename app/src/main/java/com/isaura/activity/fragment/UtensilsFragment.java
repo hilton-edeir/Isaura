@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 
 public class UtensilsFragment extends Fragment {
 
@@ -49,10 +51,14 @@ public class UtensilsFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
+                    activityList.clear();
                     ID_NOTIFICATION = (int) snapshot.getChildrenCount() + 1;
                     for(DataSnapshot notification: snapshot.getChildren()) {
                         Activity notific = notification.getValue(Activity.class);
-                        activityList.add(notific);
+                        assert notific != null;
+                        if(!notific.isDone()) {
+                            activityList.add(notific);
+                        }
                     }
                 }
                 else {
@@ -89,7 +95,8 @@ public class UtensilsFragment extends Fragment {
                 Toast.makeText(getContext(), "Já foi pedido", Toast.LENGTH_SHORT).show();
             }
             else {
-                reference_activity.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Toast.makeText(root.getContext(), "Notificação enviada", Toast.LENGTH_SHORT).show());
+                activityList.clear();
+                reference_activity.child(String.valueOf(ID_NOTIFICATION)).setValue(activity).addOnCompleteListener(task1 -> Snackbar.make(Objects.requireNonNull(root.getRootView()), "Notificação Enviada", Snackbar.LENGTH_SHORT).show());
             }
         });
 

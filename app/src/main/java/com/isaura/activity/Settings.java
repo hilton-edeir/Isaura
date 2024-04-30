@@ -39,7 +39,7 @@ public class Settings extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings);
+        setContentView(R.layout.act_settings);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
         btn_save_changes = findViewById(R.id.btn_save_changes);
