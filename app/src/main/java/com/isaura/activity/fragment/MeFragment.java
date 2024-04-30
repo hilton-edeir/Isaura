@@ -8,11 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,18 +23,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.isaura.R;
-import com.isaura.activity.Settings;
+import com.isaura.activity.EditProfile;
 import com.isaura.activity.SignIn;
 import com.isaura.activity.adapter.NotificationAdapter;
 import com.isaura.model.Activity;
-import com.isaura.model.Member;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Objects;
 
 public class MeFragment extends Fragment implements SelectNotificationListener{
     MaterialCardView btn_update_profile, btn_sign_out;
@@ -97,7 +93,7 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
         recyclerview_notification.setAdapter(notificationAdapter);
 
         btn_update_profile.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), Settings.class);
+            Intent intent = new Intent(getContext(), EditProfile.class);
             startActivity(intent);
         });
 

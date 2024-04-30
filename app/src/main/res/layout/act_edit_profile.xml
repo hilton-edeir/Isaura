@@ -10,7 +10,7 @@
     android:layout_marginEnd="20dp"
     android:layout_marginBottom="80dp"
     android:orientation="vertical"
-    tools:context=".activity.Settings">
+    tools:context=".activity.EditProfile">
 
 
     <LinearLayout
@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lilita_one"
-            android:text="Definições"
+            android:text="Edição"
             android:textSize="27sp"/>
     </LinearLayout>
 
@@ -66,10 +66,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/space_mono_bold"
+                    android:fontFamily="@font/lilita_one"
                     android:text="Mudar avatar"
                     android:textColor="@color/md_theme_primary"
-                    android:textSize="15sp"/>
+                    android:textSize="16sp"/>
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>

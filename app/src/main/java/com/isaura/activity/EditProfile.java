@@ -26,7 +26,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 
-public class Settings extends AppCompatActivity {
+public class EditProfile extends AppCompatActivity {
     CardView btn_save_changes, btn_go_back, btn_upload_photo;
     ImageView img_user_profile_setting1, img_user_profile_setting2;
     EditText fld_username_setting, fld_email_setting;
@@ -39,7 +39,7 @@ public class Settings extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.act_settings);
+        setContentView(R.layout.act_edit_profile);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
         btn_save_changes = findViewById(R.id.btn_save_changes);
@@ -72,7 +72,7 @@ public class Settings extends AppCompatActivity {
                         img_user_profile_setting1.setImageURI(profile_image_selected);
                     }
                     else {
-                        Toast.makeText(Settings.this, "Selecione uma imagem", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditProfile.this, "Selecione uma imagem", Toast.LENGTH_SHORT).show();
                     }
                 }
         );
@@ -99,9 +99,9 @@ public class Settings extends AppCompatActivity {
                                     .addOnCompleteListener(task1 -> {
                                         if (task1.isSuccessful()) {
                                             progress_bar_settings.setVisibility(View.GONE);
-                                            Toast.makeText(Settings.this, "Alterações guardadas", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(EditProfile.this, "Alterações guardadas", Toast.LENGTH_SHORT).show();
                                             btn_save_changes.setEnabled(false);
-                                            Intent intent = new Intent(Settings.this, Home.class);
+                                            Intent intent = new Intent(EditProfile.this, Home.class);
                                             startActivity(intent);
                                             finish();
                                         }
@@ -110,15 +110,15 @@ public class Settings extends AppCompatActivity {
                     });
                 }).addOnProgressListener(snapshot -> {
                     progress_bar_settings.setVisibility(View.VISIBLE);
-                }).addOnFailureListener(e -> Toast.makeText(Settings.this, "Falha ao guardar a imagem", Toast.LENGTH_SHORT).show());
+                }).addOnFailureListener(e -> Toast.makeText(EditProfile.this, "Falha ao guardar a imagem", Toast.LENGTH_SHORT).show());
             }
             else  {
-                Toast.makeText(Settings.this, "No image selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditProfile.this, "No image selected", Toast.LENGTH_SHORT).show();
             }
         });
 
         btn_go_back.setOnClickListener(v -> {
-            Intent intent = new Intent(Settings.this, Home.class);
+            Intent intent = new Intent(EditProfile.this, Home.class);
             startActivity(intent);
             finish();
         });
