@@ -19,19 +19,13 @@
         android:orientation="horizontal"
         android:gravity="bottom">
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_cleaning"
-            android:layout_marginEnd="6dp"/>
-
         <TextView
+            android:id="@+id/text_table"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lilita_one"
             android:text="Limpeza"
             android:textSize="27sp"/>
-
     </LinearLayout>
 
     <com.google.android.material.divider.MaterialDivider
@@ -47,8 +41,8 @@
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginBottom="10dp">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -66,20 +60,102 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="25dp"
-                        android:src="@drawable/ic_avatar"
+                        android:src="@drawable/ic_house_room"
                         android:layout_marginEnd="15dp"/>
 
 
-                    <EditText
+                    <TextView
                         android:layout_width="wrap_content"
-                        android:fontFamily="serif-monospace"
                         android:layout_height="wrap_content"
-                        android:text="Utilizador"
+                        android:fontFamily="monospace"
+                        android:text="Cômodo de limpeza"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:background="@android:color/transparent"/>
+                        android:layout_marginEnd="8dp"/>
 
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="bottom">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textFil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:hint="Nome">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:inputType="text"
+                            android:layout_height="wrap_content"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textFild"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Imagem">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:fontFamily="monospace"
+                            android:typeface="monospace"
+                            android:inputType="text"
+                            android:layout_height="wrap_content"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="bottom">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/ic_group"
+                        android:layout_marginEnd="15dp"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="Cronograma de limpeza"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="8dp"/>
+
+                </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -87,54 +163,41 @@
                     android:layout_marginBottom="10dp"
                     android:gravity="bottom">
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/ic_email"
-                        android:layout_marginEnd="15dp"/>
-
-
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:fontFamily="serif-monospace"
-                        android:layout_height="wrap_content"
-                        android:text="utilizador@gmail.com"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:background="@android:color/transparent"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/ic_bell"
-                        android:layout_marginEnd="15dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif-monospace"
-                        android:text="Notificação"
+                        android:text="Escreva por ordem consecutiva os nomes"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginEnd="8dp"/>
 
-                    <LinearLayout
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="bottom">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textFiel"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="end">
+                        android:layout_marginBottom="10dp"
+                        android:hint="Lista">
 
-                        <com.google.android.material.switchmaterial.SwitchMaterial
-                            android:layout_width="wrap_content"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:fontFamily="monospace"
+                            android:typeface="monospace"
+                            android:inputType="text"
                             android:layout_height="wrap_content"/>
-                    </LinearLayout>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
 
                 </LinearLayout>
 

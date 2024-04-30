@@ -19,7 +19,6 @@
         android:gravity="bottom">
 
         <TextView
-            android:id="@+id/text_table"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lilita_one"

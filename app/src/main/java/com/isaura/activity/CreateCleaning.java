@@ -20,7 +20,12 @@ public class CreateCleaning extends AppCompatActivity {
         setContentView(R.layout.act_create_cleaning);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
+        inicialize_components();
+
+    }
 
 
+
+    private void inicialize_components() {
     }
 }
