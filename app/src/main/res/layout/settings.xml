@@ -51,7 +51,7 @@
         android:layout_marginTop="30dp">
 
         <ImageView
-            android:id="@+id/img_avatar"
+            android:id="@+id/img_user_profile_setting1"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginBottom="2dp"
@@ -117,7 +117,7 @@
                     android:gravity="bottom">
 
                     <ImageView
-                        android:id="@+id/img_user_profile_activity"
+                        android:id="@+id/img_user_profile_setting2"
                         android:layout_width="30dp"
                         android:layout_height="25dp"
                         android:src="@drawable/ic_avatar"

@@ -19,6 +19,7 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -50,30 +51,20 @@ public class ActivityFragment extends Fragment {
     TextView txt_greeting_all_activity, txt_name_profile_all_activity, txt_activity_empty;
     ProgressBar progress_bar_all_activities;
     DatabaseReference reference_activity, reference_member;
-    String url_user_image;
+    FirebaseUser user;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.all_activities_fragment, container, false);
         inicializeComponents(view);
         reference_activity = FirebaseDatabase.getInstance().getReference("activity");
         reference_member = FirebaseDatabase.getInstance().getReference("member");
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if(user.getPhotoUrl()!=null) {
+            Picasso.with(getContext()).load(user.getPhotoUrl()).into(img_user_profile_all_activity);
+        }
 
         recyclerview_all_activities.setLayoutManager(new LinearLayoutManager(getContext()));
-        reference_member.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot member: snapshot.getChildren()) {
-                    Member member1 = member.getValue(Member.class);
-                    if (member1.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
-                        Picasso.with(getContext()).load(member1.getUrl_image()).into(img_user_profile_all_activity);
-                    }
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                System.out.println(error);
-            }
-        });
 
         reference_activity.addValueEventListener(new ValueEventListener() {
             @Override

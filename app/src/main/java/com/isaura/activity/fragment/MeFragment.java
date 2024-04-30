@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -46,6 +47,7 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
     NotificationAdapter notificationAdapter;
     FirebaseAuth firebaseAuth;
     DatabaseReference reference_activity, reference_member;
+    FirebaseUser user;
     List<Activity> activityList = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,9 +56,16 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
         SelectNotificationListener selectNotificationListener = this;
         reference_activity = FirebaseDatabase.getInstance().getReference("activity");
         reference_member = FirebaseDatabase.getInstance().getReference("member");
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+        txt_profile_display_name.setText(user.getDisplayName());
+
+        if(user.getPhotoUrl()!=null) {
+            Picasso.with(getContext()).load(user.getPhotoUrl()).into(img_user_profile_me);
+        }
 
         recyclerview_notification.setLayoutManager(new LinearLayoutManager(getContext()));
-
         reference_activity.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -84,26 +93,8 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
                 System.out.println(error);
             }
         });
-
         notificationAdapter = new NotificationAdapter(getContext(), activityList, selectNotificationListener);
         recyclerview_notification.setAdapter(notificationAdapter);
-
-
-        reference_member.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot member: snapshot.getChildren()) {
-                    Member member1 = member.getValue(Member.class);
-                    if (member1.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
-                        Picasso.with(getContext()).load(member1.getUrl_image()).into(img_user_profile_me);
-                    }
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                System.out.println(error);
-            }
-        });
 
         btn_update_profile.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), Settings.class);
@@ -129,9 +120,6 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
         progressBar = root.findViewById(R.id.progress_bar_notification);
         txt_notification_empty = root.findViewById(R.id.txt_notification_empty);
         recyclerview_notification = root.findViewById(R.id.recyclerview_notification);
-
-        firebaseAuth = FirebaseAuth.getInstance();
-        txt_profile_display_name.setText(Objects.requireNonNull(firebaseAuth.getCurrentUser()).getDisplayName());
     }
 
     @Override
