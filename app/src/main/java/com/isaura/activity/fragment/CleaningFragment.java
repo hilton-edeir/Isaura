@@ -127,9 +127,6 @@ public class CleaningFragment extends Fragment {
         LocalDate nextSaturday = LocalDate.now().with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
         txt_date_selected.setText("Data: " + nextSaturday);
 
-        btn_test.setOnClickListener(v -> {
-
-        });
 
         btn_see_calendar.setOnClickListener(v -> {
             if(last_rotated_list.isEmpty()) {
@@ -229,7 +226,6 @@ public class CleaningFragment extends Fragment {
     public void inicialize_components(View root) {
         txt_date_selected = root.findViewById(R.id.txt_date_selected);
         btn_see_calendar = root.findViewById(R.id.btn_see_calendar);
-        btn_test= root.findViewById(R.id.btn_test);
         txt_username_kitchen_cleaning = root.findViewById(R.id.txt_username_kitchen_cleaning);
         txt_username_bathroom_cleaning = root.findViewById(R.id.txt_username_bathroom_cleaning);
         txt_username_livingroom_cleaning = root.findViewById(R.id.txt_username_livingroom_cleaning);

@@ -27,8 +27,8 @@
             android:gravity="start">
 
             <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/ic_setting"
                 android:layout_marginEnd="6dp" />
 
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lilita_one"
                 android:text="Definições"
-                android:textSize="30sp" />
+                android:textSize="27sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -124,15 +124,16 @@
                         android:layout_marginEnd="15dp"/>
 
 
-                    <TextView
-                        android:id="@+id/txt_username_setting"
+                    <EditText
+                        android:id="@+id/fld_username_setting"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:fontFamily="serif-monospace"
-                        android:text="Utilizador "
+                        android:layout_height="wrap_content"
+                        android:text="Utilizador"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:layout_marginEnd="8dp" />
+                        android:background="@android:color/transparent"/>
+
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -148,15 +149,15 @@
                         android:layout_marginEnd="15dp"/>
 
 
-                    <TextView
-                        android:id="@+id/txt_email_setting"
+                    <EditText
+                        android:id="@+id/fld_email_setting"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:fontFamily="serif-monospace"
+                        android:layout_height="wrap_content"
                         android:text="utilizador@gmail.com"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:layout_marginEnd="8dp" />
+                        android:background="@android:color/transparent"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -164,7 +165,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginBottom="10dp"
-                    android:gravity="bottom">
+                    android:gravity="center">
 
                     <ImageView
                         android:id="@+id/img_user"
@@ -172,8 +173,6 @@
                         android:layout_height="25dp"
                         android:src="@drawable/ic_bell"
                         android:layout_marginEnd="15dp"/>
-
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -181,7 +180,20 @@
                         android:text="Notificação"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:layout_marginEnd="8dp" />
+                        android:layout_marginEnd="8dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="end">
+
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/swt_notification"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -191,60 +203,70 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="bottom">
+            android:orientation="horizontal"
+            android:gravity="bottom"
+            android:layout_marginBottom="20dp">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btn_go_back"
-                android:clickable="true"
-                android:focusable="true"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_marginTop="10dp">
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:gravity="center">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btn_go_back"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="150dp"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp">
 
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/lilita_one"
-                        android:text="Voltar"
-                        android:textSize="18sp"/>
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btn_save_changes"
-                android:clickable="true"
-                android:focusable="true"
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:saveEnabled="false"
-                android:layout_marginTop="10dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/lilita_one"
-                        android:text="Guardar"
-                        android:textColor="@color/md_theme_primary"
-                        android:textSize="18sp"/>
-                </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lilita_one"
+                            android:text="Voltar"
+                            android:textSize="18sp"/>
+                    </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btn_save_changes"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="150dp"
+                    android:layout_height="44dp"
+                    android:saveEnabled="false"
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lilita_one"
+                            android:text="Guardar"
+                            android:textColor="@color/md_theme_primary"
+                            android:textSize="18sp"/>
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
 
         </LinearLayout>
 

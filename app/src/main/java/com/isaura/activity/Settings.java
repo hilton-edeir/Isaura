@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -29,7 +29,7 @@ import java.util.Objects;
 public class Settings extends AppCompatActivity {
     CardView btn_save_changes, btn_go_back, btn_upload_photo;
     ImageView img_user_profile_setting1, img_user_profile_setting2;
-    TextView txt_username_setting, txt_email_setting;
+    EditText fld_username_setting, fld_email_setting;
     ProgressBar progress_bar_settings;
     DatabaseReference reference_member;
     StorageReference storage_ref_member;
@@ -47,8 +47,9 @@ public class Settings extends AppCompatActivity {
         btn_upload_photo = findViewById(R.id.btn_upload_profile_image);
         img_user_profile_setting1 = findViewById(R.id.img_user_profile_setting1);
         img_user_profile_setting2 = findViewById(R.id.img_user_profile_setting2);
-        txt_username_setting = findViewById(R.id.txt_username_setting);
-        txt_email_setting = findViewById(R.id.txt_email_setting);
+        fld_username_setting = findViewById(R.id.fld_username_setting);
+        fld_email_setting = findViewById(R.id.fld_email_setting);
+        progress_bar_settings = findViewById(R.id.progress_bar_settings);
         progress_bar_settings = findViewById(R.id.progress_bar_settings);
 
         reference_member = FirebaseDatabase.getInstance().getReference("member");
@@ -60,8 +61,8 @@ public class Settings extends AppCompatActivity {
             Picasso.with(getApplicationContext()).load(user.getPhotoUrl()).into(img_user_profile_setting2);
         }
 
-        txt_username_setting.setText(user.getDisplayName());
-        txt_email_setting.setText(user.getEmail());
+        fld_username_setting.setText(user.getDisplayName());
+        fld_email_setting.setText(user.getEmail());
 
         ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -82,7 +83,6 @@ public class Settings extends AppCompatActivity {
             intent.setType("image/*");
             intent.setAction(Intent.ACTION_GET_CONTENT);
             activityResultLauncher.launch(intent);
-            btn_save_changes.setEnabled(true);
         });
 
         btn_save_changes.setOnClickListener(v -> {
@@ -118,7 +118,7 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-        btn_save_changes.setOnClickListener(v -> {
+        btn_go_back.setOnClickListener(v -> {
             Intent intent = new Intent(Settings.this, Home.class);
             startActivity(intent);
             finish();
