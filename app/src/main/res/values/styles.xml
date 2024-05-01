@@ -3,5 +3,7 @@
     <style name="chipText" parent="TextAppearance.MaterialComponents.Chip">
         <item name="fontFamily">@font/space_mono_bold</item>
         <item name="android:fontFamily">@font/space_mono_bold</item>
+        <item name="chipStrokeColor">@color/md_theme_primary</item>
+        <item name="chipStrokeWidth">1dp</item>
     </style>
 </resources>

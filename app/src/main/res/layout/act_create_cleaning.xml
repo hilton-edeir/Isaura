@@ -89,7 +89,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
-                            android:text="Escolha um ou mais comôdos"
+                            android:text="Escolha um ou mais cômodos"
                             android:textSize="18sp"
                             android:textStyle="bold"
                             android:layout_marginEnd="8dp"/>
