@@ -19,6 +19,10 @@ public class Place {
         this.next_cleaning_order_list = next_cleaning_order_list;
     }
 
+    public Place(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
