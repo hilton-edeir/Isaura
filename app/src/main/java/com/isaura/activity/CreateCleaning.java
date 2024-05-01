@@ -33,7 +33,7 @@ import java.util.Random;
 
 public class CreateCleaning extends AppCompatActivity {
     LinearLayout layout_empty_house_division, layout_fld_name_house_division, layout_chip_group, layout_hidden_show;
-    Button btn_add_house_division, btn_show_fld_to_add_house, btn_cancel_fld_to_add_house;
+    Button btn_add_house_division, btn_show_fld_to_add_house, btn_cancel_fld_to_add_house, btn_create_list;
     TextInputLayout lyt_name_house_division;
     TextInputEditText fld_name_house_division;
     TextView txt_house_division_selected, txt_cleaning_list;
@@ -122,6 +122,7 @@ public class CreateCleaning extends AppCompatActivity {
                         chip.setOnCloseIconClickListener(v -> {
                             reference_place.child(place1.getName()).removeValue();
                             chip_group_name_house_division.removeView(chip);
+                            placeList.clear();
                         });
                     }
                     layout_chip_group.setVisibility(View.VISIBLE);
@@ -129,6 +130,9 @@ public class CreateCleaning extends AppCompatActivity {
                 }
                 else {
                     txt_house_division_selected.setText("Escolha o cômodo acima");
+                    txt_cleaning_list.setText(null);
+                    chip_group_member_for_list.clearCheck();
+                    placeList.clear();
                     layout_chip_group.setVisibility(View.GONE);
                     layout_empty_house_division.setVisibility(View.VISIBLE);
                 }
@@ -141,20 +145,21 @@ public class CreateCleaning extends AppCompatActivity {
 
         chip_group_name_house_division.setOnCheckedStateChangeListener((chipGroup, list) -> {
             if(list.isEmpty()) {
-                txt_house_division_selected.setText("Esclha o cômodo acima");
+                txt_house_division_selected.setText("Escolha o cômodo acima");
             }
             else {
                 StringBuilder stringBuilder = new StringBuilder();
                 for(int i: list) {
                     Chip chip = findViewById(i);
-                    stringBuilder.append(",").append(chip.getText());
+                    stringBuilder.append(", ").append(chip.getText());
                 }
-                txt_house_division_selected.setText(stringBuilder.toString().replaceFirst(",", " "));
+                txt_house_division_selected.setText(stringBuilder.toString().replaceFirst(", ", ""));
             }
         });
 
         chip_group_member_for_list.setOnCheckedStateChangeListener((chipGroup, list) -> {
             if(placeList.isEmpty()) {
+                chipGroup.clearCheck();
                 Toast.makeText(CreateCleaning.this, "Escolha o cômodo", Toast.LENGTH_SHORT).show();
             }
             else {
@@ -165,9 +170,9 @@ public class CreateCleaning extends AppCompatActivity {
                     StringBuilder stringBuilder = new StringBuilder();
                     for(int i: list) {
                         Chip chip = findViewById(i);
-                        stringBuilder.append(",").append(chip.getText());
+                        stringBuilder.append(" » ").append(chip.getText());
                     }
-                    txt_cleaning_list.setText(stringBuilder.toString().replaceFirst(",", " "));
+                    txt_cleaning_list.setText(stringBuilder.toString().replaceFirst(" » ", ""));
                 }
             }
         });
@@ -237,6 +242,10 @@ public class CreateCleaning extends AppCompatActivity {
                 }
             }
         });
+
+        btn_create_list.setOnClickListener(v -> {
+            txt_cleaning_list.getText();
+        });
     }
 
     private void inicialize_components() {
@@ -246,6 +255,7 @@ public class CreateCleaning extends AppCompatActivity {
         layout_hidden_show = findViewById(R.id.layout_hidden_show);
         btn_add_house_division = findViewById(R.id.btn_add_house_division);
         btn_show_fld_to_add_house = findViewById(R.id.btn_show_fld_to_add_house);
+        btn_create_list = findViewById(R.id.btn_create_list);
         btn_cancel_fld_to_add_house = findViewById(R.id.btn_cancel_fld_to_add_house);
         lyt_name_house_division = findViewById(R.id.lyt_name_house_division);
         fld_name_house_division = findViewById(R.id.fld_name_house_division);

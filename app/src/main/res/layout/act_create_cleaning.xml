@@ -30,18 +30,17 @@
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="15dp"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="10dp">
 
             <com.google.android.material.card.MaterialCardView
                 app:cardBackgroundColor="@color/pastel_purple"
@@ -59,7 +58,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="15dp"
                         android:gravity="bottom">
 
                         <ImageView
@@ -71,9 +70,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/space_mono_bold"
+                            android:fontFamily="@font/lilita_one"
                             android:text="Cômodo da casa"
-                            android:textSize="18sp"
+                            android:textSize="20sp"
                             android:textStyle="bold"
                             android:layout_marginEnd="8dp"/>
 
@@ -83,7 +82,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="15dp"
                         android:gravity="bottom">
 
                         <TextView
@@ -91,7 +90,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
                             android:text="Escolha um ou mais comôdos"
-                            android:textSize="17sp"
+                            android:textSize="18sp"
                             android:textStyle="bold"
                             android:layout_marginEnd="8dp"/>
 
@@ -144,7 +143,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="20dp"
                         android:layout_marginBottom="10dp"
                         android:gravity="bottom"
                         android:animateLayoutChanges="true">
@@ -189,7 +188,7 @@
                             android:text="Adicionar"
                             android:fontFamily="@font/lilita_one"
                             android:textStyle="bold"
-                            android:textSize="15sp"
+                            android:textSize="18sp"
                             android:textAllCaps="false"
                             android:visibility="visible"
                             style="@style/Widget.MaterialComponents.Button.TextButton" />
@@ -201,7 +200,7 @@
                             android:text="Cancelar"
                             android:fontFamily="@font/lilita_one"
                             android:textStyle="bold"
-                            android:textSize="15sp"
+                            android:textSize="18sp"
                             android:textAllCaps="false"
                             android:visibility="gone"
                             style="@style/Widget.MaterialComponents.Button.TextButton" />
@@ -213,7 +212,7 @@
                             android:text="Adicionar"
                             android:fontFamily="@font/lilita_one"
                             android:textStyle="bold"
-                            android:textSize="15sp"
+                            android:textSize="18sp"
                             android:textAllCaps="false"
                             android:layout_marginStart="8dp"
                             android:visibility="gone"
@@ -234,14 +233,14 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="20dp"
+                    android:padding="25dp"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_marginBottom="20dp"
+                        android:layout_marginBottom="15dp"
                         android:gravity="bottom">
 
                         <ImageView
@@ -253,9 +252,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/space_mono_bold"
-                            android:text="Cronograma de limpeza"
-                            android:textSize="18sp"
+                            android:fontFamily="@font/lilita_one"
+                            android:text="Lista de limpeza"
+                            android:textSize="20sp"
                             android:textStyle="bold"
                             android:layout_marginEnd="8dp"/>
 
@@ -272,22 +271,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="serif-monospace"
-                            android:text="Lista de limpeza no cômodo"
-                            android:textSize="17sp"
-                            android:textStyle="bold"
-                            android:layout_marginEnd="8dp"/>
-
-                        <TextView
-                            android:id="@+id/txt_house_division_selected"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="serif-monospace"
-                            android:text="Selecione o cômodo acima"
-                            android:textColor="@color/md_theme_primary"
-                            android:textSize="17sp"
-                            android:textStyle="bold"
-                            android:textFontWeight="700"
-                            android:layout_marginEnd="8dp"/>
+                            android:text="Escolha os membros por ordem de sequência"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
 
                     </LinearLayout>
 
@@ -309,7 +295,27 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginBottom="30dp">
+                        android:layout_marginBottom="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lista para o cômodo"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:fontFamily="serif-monospace"
+                            android:layout_marginBottom="5dp"/>
+
+                        <TextView
+                            android:id="@+id/txt_house_division_selected"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="serif-monospace"
+                            android:text="Escolha o cômodo acima"
+                            android:textColor="@color/md_theme_primary"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="10dp"/>
 
                         <TextView
                             android:id="@+id/txt_cleaning_list"
@@ -317,6 +323,26 @@
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
                             android:fontFamily="@font/space_mono_bold"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="end">
+
+                        <Button
+                            android:id="@+id/btn_create_list"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Criar lista"
+                            android:fontFamily="@font/lilita_one"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textAllCaps="false"
+                            android:layout_marginStart="8dp"
+                            style="@style/Widget.MaterialComponents.Button.TextButton" />
 
                     </LinearLayout>
 

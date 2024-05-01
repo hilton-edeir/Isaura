@@ -44,7 +44,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
         if(activity.getType() == 1) {
             holder.txt_task_description.setText("Pedido de reposição");
-            Glide.with(holder.img_type_notification.getContext()).load(R.drawable.ic_clock).placeholder(R.drawable.ic_clock).error(R.drawable.ic_launcher_background).into(holder.img_type_notification);
+            Glide.with(holder.img_type_notification.getContext()).load(R.drawable.ic_bell).placeholder(R.drawable.ic_bell).error(R.drawable.ic_launcher_background).into(holder.img_type_notification);
             Glide.with(holder.img_task_type.getContext()).load(R.drawable.ic_utensils).placeholder(R.drawable.ic_utensils).error(R.drawable.ic_launcher_background).into(holder.img_task_type);
 
         }

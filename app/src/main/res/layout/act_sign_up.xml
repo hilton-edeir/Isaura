@@ -48,7 +48,7 @@
         app:endIconMode="clear_text"
         app:helperTextTextColor="@color/md_theme_error"
         app:startIconContentDescription="name"
-        app:startIconDrawable="@drawable/ic_person_24dp"
+        app:startIconDrawable="@drawable/person_24px"
         android:layout_marginBottom="12dp">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -71,7 +71,7 @@
         app:endIconMode="clear_text"
         app:helperTextTextColor="@color/md_theme_error"
         app:startIconContentDescription="Código"
-        app:startIconDrawable="@drawable/ic_email_black_24dp"
+        app:startIconDrawable="@drawable/mail_24px"
         android:layout_marginBottom="12dp">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -96,7 +96,7 @@
         app:endIconMode="password_toggle"
         app:helperTextTextColor="@color/md_theme_error"
         app:startIconContentDescription="Código"
-        app:startIconDrawable="@drawable/ic_password_24dp"
+        app:startIconDrawable="@drawable/lock_24px"
         android:layout_marginBottom="12dp">
 
         <com.google.android.material.textfield.TextInputEditText
