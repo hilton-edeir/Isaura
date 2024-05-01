@@ -11,16 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputEditText;
@@ -31,6 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.isaura.R;
+import com.isaura.model.Member;
 import com.isaura.model.Place;
 
 import java.util.ArrayList;
@@ -39,14 +32,13 @@ import java.util.Objects;
 import java.util.Random;
 
 public class CreateCleaning extends AppCompatActivity {
-
     LinearLayout layout_empty_house_division, layout_fld_name_house_division, layout_chip_group, layout_hidden_show;
     Button btn_add_house_division, btn_show_fld_to_add_house, btn_cancel_fld_to_add_house;
     TextInputLayout lyt_name_house_division;
     TextInputEditText fld_name_house_division;
-    TextView txt_house_division_selected;
-    ChipGroup chip_group_name_house_division;
-    DatabaseReference reference_place;
+    TextView txt_house_division_selected, txt_cleaning_list;
+    ChipGroup chip_group_name_house_division, chip_group_member_for_list;
+    DatabaseReference reference_place, reference_member;
     List<Place> placeList = new ArrayList<>();
 
     @Override
@@ -54,10 +46,38 @@ public class CreateCleaning extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_create_cleaning);
         Objects.requireNonNull(getSupportActionBar()).hide();
-
         inicialize_components();
         layout_fld_name_house_division.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+
         reference_place = FirebaseDatabase.getInstance().getReference("place");
+        reference_member = FirebaseDatabase.getInstance().getReference("member");
+
+        reference_member.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()) {
+                    for(DataSnapshot member: snapshot.getChildren()) {
+                        Member member1 = member.getValue(Member.class);
+                        Chip chip = (Chip) LayoutInflater.from(CreateCleaning.this).inflate(R.layout.chip_member_list, null);
+                        Random random = new Random();
+                        assert member1 != null;
+                        String[] first_name = member1.getName().split(" ", 2);
+                        chip.setText(first_name[0]);
+                        chip.setTextAppearanceResource(R.style.chipText);
+                        chip.setId(random.nextInt());
+                        chip_group_member_for_list.addView(chip);
+                    }
+                }
+                else {
+                    System.out.println("member reference empty");
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                System.out.println(error);
+            }
+        });
+
         reference_place.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -69,17 +89,46 @@ public class CreateCleaning extends AppCompatActivity {
                         Place place1 = place.getValue(Place.class);
                         placeList.add(place1);
 
-                        Chip chip = (Chip) LayoutInflater.from(CreateCleaning.this).inflate(R.layout.chip_layout, null);
+                        Chip chip = (Chip) LayoutInflater.from(CreateCleaning.this).inflate(R.layout.chip_house_division, null);
                         Random random = new Random();
                         assert place1 != null;
                         chip.setText(place1.getName());
+                        chip.setTextAppearanceResource(R.style.chipText);
+
+                        if(place1.getName().equals("cozinha")) {
+                            chip.setChipIcon(getResources().getDrawable(R.drawable.ic_kitchen));
+                        }
+                        else if(place1.getName().equals("sala")) {
+                            chip.setChipIcon(getResources().getDrawable(R.drawable.ic_living_room));
+                        }
+                        else if(place1.getName().equals("casa de banho")) {
+                            chip.setChipIcon(getResources().getDrawable(R.drawable.ic_bathroom));
+                        }
+                        else if(place1.getName().equals("lixo")) {
+                            chip.setChipIcon(getResources().getDrawable(R.drawable.ic_trash));
+                        }
+                        else if(place1.getName().equals("garagem")) {
+                            chip.setChipIcon(getResources().getDrawable(R.drawable.ic_garage));
+                        }
+                        else if(place1.getName().equals("quarto")) {
+                            chip.setChipIcon(getResources().getDrawable(R.drawable.ic_bedroom));
+                        }
+                        else if(place1.getName().equals("escritório")) {
+                            chip.setChipIcon(getResources().getDrawable(R.drawable.ic_office));
+                        }
                         chip.setId(random.nextInt());
                         chip_group_name_house_division.addView(chip);
+
+                        chip.setOnCloseIconClickListener(v -> {
+                            reference_place.child(place1.getName()).removeValue();
+                            chip_group_name_house_division.removeView(chip);
+                        });
                     }
                     layout_chip_group.setVisibility(View.VISIBLE);
                     layout_empty_house_division.setVisibility(View.GONE);
                 }
                 else {
+                    txt_house_division_selected.setText("Escolha o cômodo acima");
                     layout_chip_group.setVisibility(View.GONE);
                     layout_empty_house_division.setVisibility(View.VISIBLE);
                 }
@@ -92,7 +141,7 @@ public class CreateCleaning extends AppCompatActivity {
 
         chip_group_name_house_division.setOnCheckedStateChangeListener((chipGroup, list) -> {
             if(list.isEmpty()) {
-                txt_house_division_selected.setText("Selecione um cômodo acima");
+                txt_house_division_selected.setText("Esclha o cômodo acima");
             }
             else {
                 StringBuilder stringBuilder = new StringBuilder();
@@ -100,7 +149,26 @@ public class CreateCleaning extends AppCompatActivity {
                     Chip chip = findViewById(i);
                     stringBuilder.append(",").append(chip.getText());
                 }
-                txt_house_division_selected.setText(stringBuilder.toString().replaceFirst(",", ""));
+                txt_house_division_selected.setText(stringBuilder.toString().replaceFirst(",", " "));
+            }
+        });
+
+        chip_group_member_for_list.setOnCheckedStateChangeListener((chipGroup, list) -> {
+            if(placeList.isEmpty()) {
+                Toast.makeText(CreateCleaning.this, "Escolha o cômodo", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                if(list.isEmpty()) {
+                    txt_cleaning_list.setText("");
+                }
+                else {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    for(int i: list) {
+                        Chip chip = findViewById(i);
+                        stringBuilder.append(",").append(chip.getText());
+                    }
+                    txt_cleaning_list.setText(stringBuilder.toString().replaceFirst(",", " "));
+                }
             }
         });
 
@@ -121,18 +189,20 @@ public class CreateCleaning extends AppCompatActivity {
         });
 
         btn_add_house_division.setOnClickListener(v -> {
-            String house_division = Objects.requireNonNull(fld_name_house_division.getText()).toString();
-            System.out.println(house_division);
+            String house_division = Objects.requireNonNull(fld_name_house_division.getText()).toString().toLowerCase().trim();
             if(house_division.isEmpty()) {
                 lyt_name_house_division.setHelperText("Insira o nome do cômodo");
+            }
+            else if(house_division.contains(".") || house_division.contains("#") || house_division.contains("$") ||
+                    house_division.contains("[") || house_division.contains("]")) {
+                lyt_name_house_division.setHelperText("Não podes usar . # $ [ ]");
             }
             else {
                 lyt_name_house_division.setHelperText(null);
 
                 if(placeList.isEmpty()) {
-                    System.out.println("Created a newPlace");
                     Place newPlace = new Place(house_division);
-                    reference_place.child(house_division.toLowerCase()).setValue(newPlace).addOnCompleteListener(task -> {
+                    reference_place.child(house_division).setValue(newPlace).addOnCompleteListener(task -> {
                         Toast.makeText(CreateCleaning.this, "Cômodo registado", Toast.LENGTH_SHORT).show();
                         fld_name_house_division.setText(null);
                         lyt_name_house_division.setHelperText(null);
@@ -140,23 +210,21 @@ public class CreateCleaning extends AppCompatActivity {
                         btn_cancel_fld_to_add_house.setVisibility(View.GONE);
                         btn_add_house_division.setVisibility(View.GONE);
                         expand_add_division_card();
-                    }).addOnFailureListener(e -> System.out.println("This specific failure" + e));
+                    }).addOnFailureListener(System.out::println);
                 }
                 else {
                     boolean exists = false;
                     for(Place place: placeList) {
-                        if (place.getName().toLowerCase().equals(house_division.toLowerCase())) {
+                        if (place.getName().equals(house_division)) {
                             exists = true;
                         }
                     }
-
-                    if (exists) {
+                    if(exists) {
                         lyt_name_house_division.setHelperText("Este cômodo já está registado");
                     }
                     else {
-                        System.out.println("Created a newPlace");
                         Place newPlace = new Place(house_division);
-                        reference_place.child(house_division.toLowerCase()).setValue(newPlace).addOnCompleteListener(task -> {
+                        reference_place.child(house_division).setValue(newPlace).addOnCompleteListener(task -> {
                             Toast.makeText(CreateCleaning.this, "Cômodo registado", Toast.LENGTH_SHORT).show();
                             fld_name_house_division.setText(null);
                             lyt_name_house_division.setHelperText(null);
@@ -164,7 +232,7 @@ public class CreateCleaning extends AppCompatActivity {
                             btn_cancel_fld_to_add_house.setVisibility(View.GONE);
                             btn_add_house_division.setVisibility(View.GONE);
                             expand_add_division_card();
-                        }).addOnFailureListener(e -> System.out.println("This specific failure" + e));
+                        }).addOnFailureListener(System.out::println);
                     }
                 }
             }
@@ -172,7 +240,7 @@ public class CreateCleaning extends AppCompatActivity {
     }
 
     private void inicialize_components() {
-        layout_chip_group = findViewById(R.id.layout_chip_group);
+        layout_chip_group = findViewById(R.id.layout_chip_group_house_division);
         layout_empty_house_division = findViewById(R.id.layout_empty_house_division);
         layout_fld_name_house_division = findViewById(R.id.layout_fld_name_house_division);
         layout_hidden_show = findViewById(R.id.layout_hidden_show);
@@ -182,12 +250,20 @@ public class CreateCleaning extends AppCompatActivity {
         lyt_name_house_division = findViewById(R.id.lyt_name_house_division);
         fld_name_house_division = findViewById(R.id.fld_name_house_division);
         txt_house_division_selected = findViewById(R.id.txt_house_division_selected);
+        txt_cleaning_list = findViewById(R.id.txt_cleaning_list);
         chip_group_name_house_division = findViewById(R.id.chip_group_name_house_division);
+        chip_group_member_for_list = findViewById(R.id.chip_group_member_for_list);
     }
 
     public void expand_add_division_card() {
         int visib = (layout_hidden_show.getVisibility() == View.GONE)? View.VISIBLE: View.GONE;
         TransitionManager.beginDelayedTransition(layout_fld_name_house_division, new AutoTransition());
         layout_hidden_show.setVisibility(visib);
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            int focus = (fld_name_house_division.getFocusable() == View.FOCUSABLE)? View.FOCUSABLE: View.NOT_FOCUSABLE;
+            fld_name_house_division.setFocusable(focus);
+        }
+
     }
 }

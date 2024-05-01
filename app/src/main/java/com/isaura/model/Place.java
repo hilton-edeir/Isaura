@@ -7,16 +7,14 @@ public class Place {
     private String url_image;
     private List<String> cleaning_order_list;
     private List<String> last_cleaning_order_list;
-    private List<String> next_cleaning_order_list;
 
     public Place() {}
 
-    public Place(String name, String url_image, List<String> cleaning_order_list, List<String> last_cleaning_order_list, List<String> next_cleaning_order_list) {
+    public Place(String name, String url_image, List<String> cleaning_order_list, List<String> last_cleaning_order_list) {
         this.name = name;
         this.url_image = url_image;
         this.cleaning_order_list = cleaning_order_list;
         this.last_cleaning_order_list = last_cleaning_order_list;
-        this.next_cleaning_order_list = next_cleaning_order_list;
     }
 
     public Place(String name) {
@@ -53,13 +51,5 @@ public class Place {
 
     public void setLast_cleaning_order_list(List<String> last_cleaning_order_list) {
         this.last_cleaning_order_list = last_cleaning_order_list;
-    }
-
-    public List<String> getNext_cleaning_order_list() {
-        return next_cleaning_order_list;
-    }
-
-    public void setNext_cleaning_order_list(List<String> next_cleaning_order_list) {
-        this.next_cleaning_order_list = next_cleaning_order_list;
     }
 }

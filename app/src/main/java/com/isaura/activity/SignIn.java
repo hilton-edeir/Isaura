@@ -31,13 +31,12 @@ public class SignIn extends AppCompatActivity {
         setContentView(R.layout.act_sign_in);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
+        inicializeComponents();
         mAuth = FirebaseAuth.getInstance();
 
-        inicializeComponents();
-
         btn_sign_in.setOnClickListener(v -> {
-            String email = Objects.requireNonNull(fld_email.getText()).toString();
-            String code = Objects.requireNonNull(fld_code.getText()).toString();
+            String email = Objects.requireNonNull(fld_email.getText()).toString().trim();
+            String code = Objects.requireNonNull(fld_code.getText()).toString().trim();
 
             if (email.isEmpty() && code.isEmpty()) {
                 lyt_email.setHelperText("Insira o email");

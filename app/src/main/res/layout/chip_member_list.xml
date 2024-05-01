@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.chip.Chip xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.MaterialComponents.Chip.Choice"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    app:iconStartPadding="8dp"
+    app:chipIconSize="20dp"
+    app:checkedIconEnabled="false"
+    android:textStyle="bold"
+    app:textEndPadding="8dp"
+    android:textSize="16sp"
+    android:fontFamily=""
+    android:layout_height="wrap_content"
+    android:id="@+id/chip_house_division" />

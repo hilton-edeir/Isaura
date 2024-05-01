@@ -21,7 +21,6 @@ import com.isaura.model.Member;
 import java.util.Objects;
 
 public class SignUp extends AppCompatActivity {
-
     TextInputLayout lyt_name, lyt_email, lyt_code;
     TextInputEditText fld_name, fld_email, fld_code;
     ProgressBar progress_bar_sign_up;
@@ -35,7 +34,6 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_sign_up);
         Objects.requireNonNull(getSupportActionBar()).hide();
-
         inicialize_components();
 
         mAuth = FirebaseAuth.getInstance();
@@ -44,9 +42,9 @@ public class SignUp extends AppCompatActivity {
         reference_original_list_order = database.getReference("original-list-order");
 
         btn_sign_up.setOnClickListener(v -> {
-            String name = Objects.requireNonNull(fld_name.getText()).toString();
-            String email = Objects.requireNonNull(fld_email.getText()).toString();
-            String code = Objects.requireNonNull(fld_code.getText()).toString();
+            String name = Objects.requireNonNull(fld_name.getText()).toString().trim();
+            String email = Objects.requireNonNull(fld_email.getText()).toString().trim();
+            String code = Objects.requireNonNull(fld_code.getText()).toString().trim();
 
             if (name.isEmpty()) {
                 lyt_name.setHelperText("Insira o nome");
