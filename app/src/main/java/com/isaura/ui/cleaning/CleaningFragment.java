@@ -1,4 +1,4 @@
-package com.isaura.activity.fragment;
+package com.isaura.ui.cleaning;
 
 import android.content.Intent;
 import android.os.Build;
@@ -22,8 +22,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.isaura.R;
-import com.isaura.activity.CreateCleaning;
-import com.isaura.activity.adapter.CleaningAdapter;
 import com.isaura.model.Member;
 import com.isaura.model.Place;
 
@@ -35,7 +33,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class CleaningFragment extends Fragment implements SelectCleaningListener{
+public class CleaningFragment extends Fragment implements SelectCleaningListener {
 
     RecyclerView recyclerview_cleaning;
     ProgressBar progress_bar_cleaning;
@@ -105,7 +103,7 @@ public class CleaningFragment extends Fragment implements SelectCleaningListener
         txt_cleaning_date.setText(nextSaturday.toString());
 
         btn_create_cleaning_task.setOnClickListener(v -> {
-            Intent intent = new Intent(root.getContext(), CreateCleaning.class);
+            Intent intent = new Intent(root.getContext(), Act_CreateCleaning.class);
             startActivity(intent);
         });
 

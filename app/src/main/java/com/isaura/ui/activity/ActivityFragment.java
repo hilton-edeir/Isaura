@@ -1,4 +1,4 @@
-package com.isaura.activity.fragment;
+package com.isaura.ui.activity;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,7 +22,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.isaura.R;
 import com.isaura.model.Activity;
-import com.isaura.activity.adapter.AllActivitiesAdapter;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -44,6 +43,7 @@ public class ActivityFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.all_activities_fragment, container, false);
         inicializeComponents(view);
+
         reference_activity = FirebaseDatabase.getInstance().getReference("activity");
         reference_member = FirebaseDatabase.getInstance().getReference("member");
         user = FirebaseAuth.getInstance().getCurrentUser();

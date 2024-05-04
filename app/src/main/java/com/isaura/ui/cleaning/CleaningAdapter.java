@@ -1,4 +1,4 @@
-package com.isaura.activity.adapter;
+package com.isaura.ui.cleaning;
 
 import android.animation.LayoutTransition;
 import android.content.Context;
@@ -16,11 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.isaura.R;
-import com.isaura.activity.fragment.SelectCleaningListener;
-import com.isaura.activity.fragment.SelectNotificationListener;
-import com.isaura.model.Activity;
 import com.isaura.model.Place;
 import com.squareup.picasso.Picasso;
 

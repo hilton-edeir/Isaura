@@ -1,4 +1,4 @@
-package com.isaura.activity.fragment;
+package com.isaura.ui.utensil;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -40,7 +40,6 @@ public class UtensilsFragment extends Fragment {
     int ID_NOTIFICATION = 0;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View root = inflater.inflate(R.layout.utensils_fragment, container, false);
         inicializeComponents(root);
 

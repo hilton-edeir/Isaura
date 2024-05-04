@@ -1,4 +1,4 @@
-package com.isaura.activity.fragment;
+package com.isaura.ui.me;
 
 import com.isaura.model.Activity;
 

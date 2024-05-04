@@ -12,33 +12,26 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Isaura"
+        android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
-            android:name=".activity.CreateCleaning"
+            android:name=".ui.cleaning.Act_CreateCleaning"
             android:exported="false" />
         <activity
-            android:name=".activity.EditProfile"
+            android:name=".ui.me.Act_EditProfile"
             android:exported="false" />
         <activity
-            android:name=".activity.MainActivity"
-            android:exported="false"
-            android:theme="@style/Theme.Isaura" />
-        <activity
-            android:name=".activity.Rasc"
+            android:name=".ui.SignUp"
             android:exported="false" />
         <activity
-            android:name=".activity.SignUp"
+            android:name=".ui.SignIn"
             android:exported="false" />
         <activity
-            android:name=".activity.SignIn"
-            android:exported="false" />
-        <activity
-            android:name=".activity.Home"
+            android:name=".ui.NavSet"
             android:exported="false"
             android:label="@string/title_activity_home" />
         <activity
-            android:name=".activity.Splash"
+            android:name=".ui.Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

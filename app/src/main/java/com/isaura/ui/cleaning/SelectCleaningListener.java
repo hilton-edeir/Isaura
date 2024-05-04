@@ -1,6 +1,5 @@
-package com.isaura.activity.fragment;
+package com.isaura.ui.cleaning;
 
-import com.isaura.model.Activity;
 import com.isaura.model.Place;
 
 public interface SelectCleaningListener {

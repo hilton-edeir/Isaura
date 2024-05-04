@@ -1,4 +1,4 @@
-package com.isaura.activity;
+package com.isaura.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,7 +33,6 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_sign_up);
-        Objects.requireNonNull(getSupportActionBar()).hide();
         inicialize_components();
 
         mAuth = FirebaseAuth.getInstance();

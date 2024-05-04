@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_margin="20dp"
     android:orientation="vertical"
-    tools:context=".activity.SignIn">
+    tools:context=".ui.SignIn">
 
     <ImageView
         android:id="@+id/img"

@@ -1,4 +1,4 @@
-package com.isaura.activity;
+package com.isaura.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,8 +29,6 @@ public class SignIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_sign_in);
-        Objects.requireNonNull(getSupportActionBar()).hide();
-
         inicializeComponents();
         mAuth = FirebaseAuth.getInstance();
 
@@ -61,7 +59,7 @@ public class SignIn extends AppCompatActivity {
                             .addOnCompleteListener(this, task -> {
                                 progress_bar_sign_in.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-                                    startActivity(new Intent(SignIn.this, Home.class));
+                                    startActivity(new Intent(SignIn.this, NavSet.class));
                                     finish();
                                 } else {
                                     Snackbar.make(Objects.requireNonNull(this.getCurrentFocus()), "Falha na autenticação", Snackbar.LENGTH_SHORT).show();

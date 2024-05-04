@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.isaura.activity.fragment.MeFragment"
+        android:name="com.isaura.ui.me.MeFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/me_fragment" />
 
     <fragment
         android:id="@+id/navigation_activity"
-        android:name="com.isaura.activity.fragment.ActivityFragment"
+        android:name="com.isaura.ui.activity.ActivityFragment"
         android:label="@string/title_activity"
         tools:layout="@layout/all_activities_fragment" />
 
     <fragment
         android:id="@+id/navigation_cleaning"
-        android:name="com.isaura.activity.fragment.CleaningFragment"
+        android:name="com.isaura.ui.cleaning.CleaningFragment"
         android:label="@string/title_cleaning"
         tools:layout="@layout/cleaning_fragment" />
 
     <fragment
         android:id="@+id/navigation_utensil"
-        android:name="com.isaura.activity.fragment.UtensilsFragment"
+        android:name="com.isaura.ui.utensil.UtensilsFragment"
         android:label="@string/title_utensil"
         tools:layout="@layout/utensils_fragment" />
 

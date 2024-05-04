@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/md_theme_primary"
     android:gravity="center"
-    tools:context=".activity.Splash">
+    tools:context=".ui.Splash">
 
     <LinearLayout
         android:layout_width="match_parent"

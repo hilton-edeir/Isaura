@@ -10,7 +10,7 @@
     android:layout_marginEnd="20dp"
     android:layout_marginBottom="80dp"
     android:orientation="vertical"
-    tools:context=".activity.EditProfile">
+    tools:context=".ui.me.Act_EditProfile">
 
     <LinearLayout
         android:layout_width="match_parent"

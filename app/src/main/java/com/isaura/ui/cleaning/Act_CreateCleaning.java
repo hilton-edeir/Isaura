@@ -1,4 +1,4 @@
-package com.isaura.activity;
+package com.isaura.ui.cleaning;
 
 import android.animation.LayoutTransition;
 import android.os.Bundle;
@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
-public class CreateCleaning extends AppCompatActivity {
+public class Act_CreateCleaning extends AppCompatActivity {
     LinearLayout layout_empty_house_division, layout_fld_name_house_division, layout_chip_group, layout_hidden_show;
     Button btn_add_house_division, btn_show_fld_to_add_house, btn_cancel_fld_to_add_house, btn_create_list;
     TextInputLayout lyt_name_house_division;
@@ -45,7 +45,6 @@ public class CreateCleaning extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_create_cleaning);
-        Objects.requireNonNull(getSupportActionBar()).hide();
         inicialize_components();
         layout_fld_name_house_division.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
 
@@ -58,7 +57,7 @@ public class CreateCleaning extends AppCompatActivity {
                 if(snapshot.exists()) {
                     for(DataSnapshot member: snapshot.getChildren()) {
                         Member member1 = member.getValue(Member.class);
-                        Chip chip = (Chip) LayoutInflater.from(CreateCleaning.this).inflate(R.layout.chip_member_list, null);
+                        Chip chip = (Chip) LayoutInflater.from(Act_CreateCleaning.this).inflate(R.layout.chip_member_list, null);
                         Random random = new Random();
                         assert member1 != null;
                         String[] first_name = member1.getName().split(" ", 2);
@@ -89,7 +88,7 @@ public class CreateCleaning extends AppCompatActivity {
                         Place place1 = place.getValue(Place.class);
                         placeList.add(place1);
 
-                        Chip chip = (Chip) LayoutInflater.from(CreateCleaning.this).inflate(R.layout.chip_house_division, null);
+                        Chip chip = (Chip) LayoutInflater.from(Act_CreateCleaning.this).inflate(R.layout.chip_house_division, null);
                         Random random = new Random();
                         assert place1 != null;
                         chip.setText(place1.getName());
@@ -160,7 +159,7 @@ public class CreateCleaning extends AppCompatActivity {
         chip_group_member_for_list.setOnCheckedStateChangeListener((chipGroup, list) -> {
             if(placeList.isEmpty()) {
                 chipGroup.clearCheck();
-                Toast.makeText(CreateCleaning.this, "Escolha o cômodo", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Act_CreateCleaning.this, "Escolha o cômodo", Toast.LENGTH_SHORT).show();
             }
             else {
                 if(list.isEmpty()) {
@@ -208,7 +207,7 @@ public class CreateCleaning extends AppCompatActivity {
                 if(placeList.isEmpty()) {
                     Place newPlace = new Place(house_division);
                     reference_place.child(house_division).setValue(newPlace).addOnCompleteListener(task -> {
-                        Toast.makeText(CreateCleaning.this, "Cômodo registado", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Act_CreateCleaning.this, "Cômodo registado", Toast.LENGTH_SHORT).show();
                         fld_name_house_division.setText(null);
                         lyt_name_house_division.setHelperText(null);
                         btn_show_fld_to_add_house.setVisibility(View.VISIBLE);
@@ -230,7 +229,7 @@ public class CreateCleaning extends AppCompatActivity {
                     else {
                         Place newPlace = new Place(house_division);
                         reference_place.child(house_division).setValue(newPlace).addOnCompleteListener(task -> {
-                            Toast.makeText(CreateCleaning.this, "Cômodo registado", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Act_CreateCleaning.this, "Cômodo registado", Toast.LENGTH_SHORT).show();
                             fld_name_house_division.setText(null);
                             lyt_name_house_division.setHelperText(null);
                             btn_show_fld_to_add_house.setVisibility(View.VISIBLE);

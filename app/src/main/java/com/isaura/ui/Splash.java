@@ -1,4 +1,4 @@
-package com.isaura.activity;
+package com.isaura.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +18,6 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.act_splash);
-        Objects.requireNonNull(getSupportActionBar()).hide();
 
         new Handler().postDelayed(() -> {
             startActivity(new Intent(Splash.this, SignIn.class));

@@ -1,4 +1,4 @@
-package com.isaura.activity.fragment;
+package com.isaura.ui.me;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,9 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.isaura.R;
-import com.isaura.activity.EditProfile;
-import com.isaura.activity.SignIn;
-import com.isaura.activity.adapter.NotificationAdapter;
+import com.isaura.ui.SignIn;
 import com.isaura.model.Activity;
 import com.squareup.picasso.Picasso;
 
@@ -34,7 +32,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class MeFragment extends Fragment implements SelectNotificationListener{
+public class MeFragment extends Fragment implements SelectNotificationListener {
     MaterialCardView btn_update_profile, btn_sign_out;
     ProgressBar progressBar;
     ImageView img_user_profile_me;
@@ -93,7 +91,7 @@ public class MeFragment extends Fragment implements SelectNotificationListener{
         recyclerview_notification.setAdapter(notificationAdapter);
 
         btn_update_profile.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), EditProfile.class);
+            Intent intent = new Intent(getContext(), Act_EditProfile.class);
             startActivity(intent);
         });
 

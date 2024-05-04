@@ -1,4 +1,4 @@
-package com.isaura.activity;
+package com.isaura.ui.me;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -22,11 +22,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.isaura.R;
+import com.isaura.ui.NavSet;
 import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 
-public class EditProfile extends AppCompatActivity {
+public class Act_EditProfile extends AppCompatActivity {
     CardView btn_save_changes, btn_go_back, btn_upload_photo;
     ImageView img_user_profile_setting1, img_user_profile_setting2;
     EditText fld_username_setting, fld_email_setting;
@@ -40,8 +41,6 @@ public class EditProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_edit_profile);
-        Objects.requireNonNull(getSupportActionBar()).hide();
-
         inicialize_components();
 
         reference_member = FirebaseDatabase.getInstance().getReference("member");
@@ -64,7 +63,7 @@ public class EditProfile extends AppCompatActivity {
                         img_user_profile_setting1.setImageURI(profile_image_selected);
                     }
                     else {
-                        Toast.makeText(EditProfile.this, "Selecione uma imagem", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Act_EditProfile.this, "Selecione uma imagem", Toast.LENGTH_SHORT).show();
                     }
                 }
         );
@@ -91,9 +90,9 @@ public class EditProfile extends AppCompatActivity {
                                     .addOnCompleteListener(task1 -> {
                                         if (task1.isSuccessful()) {
                                             progress_bar_settings.setVisibility(View.GONE);
-                                            Toast.makeText(EditProfile.this, "Alterações guardadas", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(Act_EditProfile.this, "Alterações guardadas", Toast.LENGTH_SHORT).show();
                                             btn_save_changes.setEnabled(false);
-                                            Intent intent = new Intent(EditProfile.this, Home.class);
+                                            Intent intent = new Intent(Act_EditProfile.this, NavSet.class);
                                             startActivity(intent);
                                             finish();
                                         }
@@ -102,15 +101,15 @@ public class EditProfile extends AppCompatActivity {
                     });
                 }).addOnProgressListener(snapshot -> {
                     progress_bar_settings.setVisibility(View.VISIBLE);
-                }).addOnFailureListener(e -> Toast.makeText(EditProfile.this, "Falha ao guardar a imagem", Toast.LENGTH_SHORT).show());
+                }).addOnFailureListener(e -> Toast.makeText(Act_EditProfile.this, "Falha ao guardar a imagem", Toast.LENGTH_SHORT).show());
             }
             else  {
-                Toast.makeText(EditProfile.this, "No image selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Act_EditProfile.this, "No image selected", Toast.LENGTH_SHORT).show();
             }
         });
 
         btn_go_back.setOnClickListener(v -> {
-            Intent intent = new Intent(EditProfile.this, Home.class);
+            Intent intent = new Intent(Act_EditProfile.this, NavSet.class);
             startActivity(intent);
             finish();
         });
