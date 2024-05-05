@@ -13,8 +13,10 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.chip.ChipGroup;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,6 +41,7 @@ public class CleaningFragment extends Fragment implements SelectCleaningListener
     ProgressBar progress_bar_cleaning;
     TextView txt_cleaning_empty, txt_cleaning_date;
     CardView btn_create_cleaning_task;
+    ChipGroup chip_group_member_for_list;
     FirebaseDatabase database;
     DatabaseReference reference_original_list_order, reference_last_rotated_list_order, reference_place, reference_member, reference_activity;
     FirebaseAuth mAuth;
@@ -93,6 +96,8 @@ public class CleaningFragment extends Fragment implements SelectCleaningListener
         });
 
         cleaningAdapter = new CleaningAdapter(getContext(), placeList, selectNotificationListener);
+        recyclerview_cleaning.setLayoutManager(new LinearLayoutManager(getContext()));
+
         recyclerview_cleaning.setAdapter(cleaningAdapter);
 
         LocalDate nextSaturday = null;

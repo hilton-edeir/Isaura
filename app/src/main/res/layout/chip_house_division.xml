@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:layout_width="wrap_content"
     app:iconStartPadding="8dp"
-    app:chipBackgroundColor="@color/stroke_tint"
     app:chipIconSize="20dp"
     android:checkable="true"
     android:clickable="true"

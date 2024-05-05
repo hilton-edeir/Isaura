@@ -43,6 +43,7 @@
             android:layout_marginTop="10dp">
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_house_division"
                 app:cardBackgroundColor="@color/pastel_purple"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -225,6 +226,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_cleaning_list"
                 app:cardBackgroundColor="@color/pastel_yellow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

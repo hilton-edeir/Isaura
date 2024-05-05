@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="serif-monospace"
-                android:text="- limpeza pelo"
+                android:text="- o próximo é "
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginEnd="5dp" />
@@ -59,20 +59,48 @@
 
         <LinearLayout
             android:id="@+id/layout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginTop="20dp"
             android:animateLayoutChanges="true">
 
-            <TextView
-                android:id="@+id/detailsText"
-                android:visibility="gone"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/detail_list"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:fontFamily="serif-monospace"
-                android:text="This is a test to see how the expandable transition works"
-                android:layout_marginTop="15dp"/>
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:fontFamily="serif-monospace"
+                    android:text="Ordem de limpeza"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chip_group_member_for_li"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Guardar"
+                        android:fontFamily="@font/lilita_one"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:layout_gravity="end"
+                        android:textAllCaps="false"
+                        android:layout_marginTop="10dp"
+                        style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

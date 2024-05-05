@@ -1,6 +1,7 @@
 package com.isaura.ui.cleaning;
 
 import android.animation.LayoutTransition;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputEditText;
@@ -32,6 +35,7 @@ import java.util.Objects;
 import java.util.Random;
 
 public class Act_CreateCleaning extends AppCompatActivity {
+    MaterialCardView card_house_division, card_cleaning_list;
     LinearLayout layout_empty_house_division, layout_fld_name_house_division, layout_chip_group, layout_hidden_show;
     Button btn_add_house_division, btn_show_fld_to_add_house, btn_cancel_fld_to_add_house, btn_create_list;
     TextInputLayout lyt_name_house_division;
@@ -40,6 +44,7 @@ public class Act_CreateCleaning extends AppCompatActivity {
     ChipGroup chip_group_name_house_division, chip_group_member_for_list;
     DatabaseReference reference_place, reference_member;
     List<Place> placeList = new ArrayList<>();
+    List<String> member_list_order_selected = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,6 +155,7 @@ public class Act_CreateCleaning extends AppCompatActivity {
                 StringBuilder stringBuilder = new StringBuilder();
                 for(int i: list) {
                     Chip chip = findViewById(i);
+
                     stringBuilder.append(", ").append(chip.getText());
                 }
                 txt_house_division_selected.setText(stringBuilder.toString().replaceFirst(", ", ""));
@@ -167,11 +173,14 @@ public class Act_CreateCleaning extends AppCompatActivity {
                 }
                 else {
                     StringBuilder stringBuilder = new StringBuilder();
+                    String list_order = "";
                     for(int i: list) {
                         Chip chip = findViewById(i);
+                        list_order = list_order + chip.getText() + " > ";
                         stringBuilder.append(" » ").append(chip.getText());
                     }
-                    txt_cleaning_list.setText(stringBuilder.toString().replaceFirst(" » ", ""));
+                    txt_cleaning_list.setText(list_order);
+                    //txt_cleaning_list.setText(stringBuilder.toString().replaceFirst(" » ", ""));
                 }
             }
         });
@@ -244,10 +253,13 @@ public class Act_CreateCleaning extends AppCompatActivity {
 
         btn_create_list.setOnClickListener(v -> {
             txt_cleaning_list.getText();
+            Toast.makeText(this, txt_cleaning_list.getText(), Toast.LENGTH_SHORT).show();
         });
     }
 
     private void inicialize_components() {
+        card_house_division = findViewById(R.id.card_house_division);
+        card_cleaning_list = findViewById(R.id.card_cleaning_list);
         layout_chip_group = findViewById(R.id.layout_chip_group_house_division);
         layout_empty_house_division = findViewById(R.id.layout_empty_house_division);
         layout_fld_name_house_division = findViewById(R.id.layout_fld_name_house_division);
@@ -262,6 +274,13 @@ public class Act_CreateCleaning extends AppCompatActivity {
         txt_cleaning_list = findViewById(R.id.txt_cleaning_list);
         chip_group_name_house_division = findViewById(R.id.chip_group_name_house_division);
         chip_group_member_for_list = findViewById(R.id.chip_group_member_for_list);
+
+        int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        if(nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
+            card_house_division.setCardBackgroundColor(0);
+            card_cleaning_list.setCardBackgroundColor(0);
+        }
+
     }
 
     public void expand_add_division_card() {
